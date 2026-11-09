@@ -1,0 +1,17 @@
+,FreshApple,RottenApple,FreshBanana,RottenBanana,FreshOrange,RottenOrange,FreshGrape,RottenGrape,FreshGuava,RottenGuava,FreshJujube,RottenJujube,FreshPomegranate,RottenPomegranate,FreshStrawberry,RottenStrawberry
+FreshApple,26,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0
+RottenApple,0,28,0,0,0,0,0,0,0,2,0,0,0,0,0,0
+FreshBanana,0,0,30,0,0,0,0,0,0,0,0,0,0,0,0,0
+RottenBanana,0,0,0,30,0,0,0,0,0,0,0,0,0,0,0,0
+FreshOrange,0,0,0,0,28,0,0,0,0,0,0,2,0,0,0,0
+RottenOrange,0,0,0,0,0,30,0,0,0,0,0,0,0,0,0,0
+FreshGrape,0,0,0,0,0,0,30,0,0,0,0,0,0,0,0,0
+RottenGrape,0,0,0,0,0,0,2,27,0,0,0,1,0,0,0,0
+FreshGuava,0,0,0,0,0,0,0,0,30,0,0,0,0,0,0,0
+RottenGuava,0,0,0,0,0,0,0,0,0,29,0,0,1,0,0,0
+FreshJujube,0,0,0,0,0,0,0,0,0,0,30,0,0,0,0,0
+RottenJujube,0,0,0,0,0,1,0,0,0,0,0,29,0,0,0,0
+FreshPomegranate,0,0,0,0,0,0,0,0,0,0,0,0,30,0,0,0
+RottenPomegranate,0,1,0,0,0,0,0,0,0,0,0,0,1,28,0,0
+FreshStrawberry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,30,0
+RottenStrawberry,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,30

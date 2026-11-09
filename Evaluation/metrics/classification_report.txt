@@ -1,0 +1,22 @@
+                   precision    recall  f1-score   support
+
+       FreshApple       1.00      0.87      0.93        30
+      RottenApple       0.97      0.93      0.95        30
+      FreshBanana       1.00      1.00      1.00        30
+     RottenBanana       1.00      1.00      1.00        30
+      FreshOrange       1.00      0.93      0.97        30
+     RottenOrange       0.97      1.00      0.98        30
+       FreshGrape       0.94      1.00      0.97        30
+      RottenGrape       1.00      0.90      0.95        30
+       FreshGuava       1.00      1.00      1.00        30
+      RottenGuava       0.94      0.97      0.95        30
+      FreshJujube       1.00      1.00      1.00        30
+     RottenJujube       0.91      0.97      0.94        30
+ FreshPomegranate       0.83      1.00      0.91        30
+RottenPomegranate       1.00      0.93      0.97        30
+  FreshStrawberry       1.00      1.00      1.00        30
+ RottenStrawberry       1.00      1.00      1.00        30
+
+         accuracy                           0.97       480
+        macro avg       0.97      0.97      0.97       480
+     weighted avg       0.97      0.97      0.97       480

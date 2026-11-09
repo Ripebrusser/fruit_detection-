@@ -1,0 +1,139 @@
+2026-11-09 11:28:32.967394: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-09 11:28:43.018094: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+TensorFlow 2.20.0; GPUs visible: []
+train (2240, 224, 224, 3)  val (480, 224, 224, 3)  classes 16
+2026-11-09 11:28:51.925039: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "mobilenetv2_fruit_classifier"
++--------------------------------------------------------------------------+
+| Layer (type)                    | Output Shape           |       Param # |
+|---------------------------------+------------------------+---------------|
+| image (InputLayer)              | (None, 224, 224, 3)    |             0 |
+|---------------------------------+------------------------+---------------|
+| true_divide (TrueDivide)        | (None, 224, 224, 3)    |             0 |
+|---------------------------------+------------------------+---------------|
+| subtract (Subtract)             | (None, 224, 224, 3)    |             0 |
+|---------------------------------+------------------------+---------------|
+| mobilenetv2_1.00_224            | (None, 7, 7, 1280)     |     2,257,984 |
+| (Functional)                    |                        |               |
+|---------------------------------+------------------------+---------------|
+| gap (GlobalAveragePooling2D)    | (None, 1280)           |             0 |
+|---------------------------------+------------------------+---------------|
+| dropout_1 (Dropout)             | (None, 1280)           |             0 |
+|---------------------------------+------------------------+---------------|
+| dense_features (Dense)          | (None, 256)            |       327,936 |
+|---------------------------------+------------------------+---------------|
+| dropout_2 (Dropout)             | (None, 256)            |             0 |
+|---------------------------------+------------------------+---------------|
+| class_probs (Dense)             | (None, 16)             |         4,112 |
++--------------------------------------------------------------------------+
+ Total params: 2,590,032 (9.88 MB)
+ Trainable params: 332,048 (1.27 MB)
+ Non-trainable params: 2,257,984 (8.61 MB)
+
+
+=== Stage A: frozen backbone, training the classifier head ===
+C:\Users\Sachin\OneDrive\Documents\IPCV_Project\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/8
+
+Epoch 1: val_accuracy improved from None to 0.90208, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+
+Epoch 1: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+70/70 - 63s - 901ms/step - accuracy: 0.6866 - loss: 0.9910 - val_accuracy: 0.9021 - val_loss: 0.3072 - learning_rate: 0.0010
+Epoch 2/8
+
+Epoch 2: val_accuracy improved from 0.90208 to 0.93542, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+
+Epoch 2: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+70/70 - 49s - 693ms/step - accuracy: 0.8911 - loss: 0.3171 - val_accuracy: 0.9354 - val_loss: 0.1933 - learning_rate: 0.0010
+Epoch 3/8
+
+Epoch 3: val_accuracy improved from 0.93542 to 0.94167, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+
+Epoch 3: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+70/70 - 35s - 505ms/step - accuracy: 0.9183 - loss: 0.2304 - val_accuracy: 0.9417 - val_loss: 0.1651 - learning_rate: 0.0010
+Epoch 4/8
+
+Epoch 4: val_accuracy improved from 0.94167 to 0.95833, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+
+Epoch 4: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+70/70 - 38s - 546ms/step - accuracy: 0.9339 - loss: 0.1896 - val_accuracy: 0.9583 - val_loss: 0.1180 - learning_rate: 0.0010
+Epoch 5/8
+
+Epoch 5: val_accuracy improved from 0.95833 to 0.96458, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+
+Epoch 5: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+70/70 - 34s - 485ms/step - accuracy: 0.9402 - loss: 0.1587 - val_accuracy: 0.9646 - val_loss: 0.1229 - learning_rate: 0.0010
+Epoch 6/8
+
+Epoch 6: val_accuracy improved from 0.96458 to 0.97292, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+
+Epoch 6: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_head.keras
+70/70 - 35s - 505ms/step - accuracy: 0.9594 - loss: 0.1251 - val_accuracy: 0.9729 - val_loss: 0.1016 - learning_rate: 0.0010
+Epoch 7/8
+
+Epoch 7: val_accuracy did not improve from 0.97292
+70/70 - 34s - 483ms/step - accuracy: 0.9665 - loss: 0.1056 - val_accuracy: 0.9625 - val_loss: 0.1121 - learning_rate: 0.0010
+Epoch 8/8
+
+Epoch 8: val_accuracy did not improve from 0.97292
+70/70 - 31s - 446ms/step - accuracy: 0.9696 - loss: 0.1006 - val_accuracy: 0.9688 - val_loss: 0.0950 - learning_rate: 0.0010
+Restoring model weights from the end of the best epoch: 6.
+
+=== Stage B: fine-tuning the top of the backbone ===
+trainable parameters in stage B: 1,995,408
+Epoch 1/8
+
+Epoch 1: val_accuracy improved from None to 0.92292, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+
+Epoch 1: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+70/70 - 48s - 684ms/step - accuracy: 0.9049 - loss: 0.2778 - val_accuracy: 0.9229 - val_loss: 0.2015 - learning_rate: 1.0000e-04
+Epoch 2/8
+
+Epoch 2: val_accuracy improved from 0.92292 to 0.96042, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+
+Epoch 2: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+70/70 - 44s - 622ms/step - accuracy: 0.9549 - loss: 0.1394 - val_accuracy: 0.9604 - val_loss: 0.1135 - learning_rate: 1.0000e-04
+Epoch 3/8
+
+Epoch 3: val_accuracy did not improve from 0.96042
+70/70 - 53s - 763ms/step - accuracy: 0.9643 - loss: 0.1056 - val_accuracy: 0.9521 - val_loss: 0.1438 - learning_rate: 1.0000e-04
+Epoch 4/8
+
+Epoch 4: val_accuracy improved from 0.96042 to 0.97292, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+
+Epoch 4: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+70/70 - 50s - 713ms/step - accuracy: 0.9531 - loss: 0.1312 - val_accuracy: 0.9729 - val_loss: 0.0738 - learning_rate: 1.0000e-04
+Epoch 5/8
+
+Epoch 5: val_accuracy did not improve from 0.97292
+70/70 - 57s - 819ms/step - accuracy: 0.9812 - loss: 0.0549 - val_accuracy: 0.9708 - val_loss: 0.0865 - learning_rate: 1.0000e-04
+Epoch 6/8
+
+Epoch 6: val_accuracy improved from 0.97292 to 0.97500, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+
+Epoch 6: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\mobilenet_finetune.keras
+70/70 - 52s - 749ms/step - accuracy: 0.9634 - loss: 0.1108 - val_accuracy: 0.9750 - val_loss: 0.0677 - learning_rate: 1.0000e-04
+Epoch 7/8
+
+Epoch 7: val_accuracy did not improve from 0.97500
+70/70 - 51s - 731ms/step - accuracy: 0.9701 - loss: 0.0973 - val_accuracy: 0.9729 - val_loss: 0.1077 - learning_rate: 1.0000e-04
+Epoch 8/8
+
+Epoch 8: val_accuracy did not improve from 0.97500
+
+Epoch 8: ReduceLROnPlateau reducing learning rate to 4.999999873689376e-05.
+70/70 - 55s - 779ms/step - accuracy: 0.9812 - loss: 0.0528 - val_accuracy: 0.9625 - val_loss: 0.1049 - learning_rate: 1.0000e-04
+Restoring model weights from the end of the best epoch: 6.
+{
+  "model": "mobilenet_v2",
+  "n_classes": 16,
+  "epochs_run": 16,
+  "best_val_accuracy": 0.9750000238418579,
+  "train_seconds": 758.3,
+  "model_path": "Models\\final_model\\fruit_model.keras",
+  "history_path": "Models\\final_model\\history.json",
+  "batch_size": 32,
+  "trainable_params_stage_b": 1995408
+}

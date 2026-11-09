@@ -1,0 +1,31 @@
+{
+  "threshold_rule": "2nd percentile of calibrated top-1 probability on the test split",
+  "min_top1_probability": 0.5596552491188049,
+  "in_distribution_test_rejection_rate": 0.020833333333333332,
+  "synthetic_non_fruit": {
+    "n": 40,
+    "kinds": {
+      "synthetic_text": 10,
+      "synthetic_shapes": 9,
+      "synthetic_checker": 7,
+      "synthetic_noise": 6,
+      "synthetic_flat": 6,
+      "synthetic_gradient": 2
+    },
+    "rejection_rate": 0.225,
+    "mean_top1": 0.7021267414093018,
+    "test_mean_top1": 0.9642627239227295
+  },
+  "degraded_fruit": {
+    "blur": {
+      "rejection_rate": 0.28
+    },
+    "dark": {
+      "rejection_rate": 0.55
+    },
+    "tiny": {
+      "rejection_rate": 0.07
+    }
+  },
+  "caveat": "Synthetic probes are a sanity check, not a benchmark. Unseen fruit species are the hardest case and are NOT reliably rejected; the UI therefore reports low confidence instead of pretending the image is one of the eight fruits."
+}

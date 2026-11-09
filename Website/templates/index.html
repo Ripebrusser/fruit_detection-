@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="AI-based fruit detection and freshness analysis using a MobileNetV2 model trained on 16 fruit condition classes." />
+  <title>AI-Based Fruit Detection and Freshness Analysis</title>
+  <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <a class="skip-link" href="#analyse">Skip to the upload form</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">🍎</span>
+        <div>
+          <p class="brand-title">FruitVision</p>
+          <p class="brand-sub">AI-Based Fruit Detection &amp; Freshness Analysis</p>
+        </div>
+      </div>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#analyse">Analyse</a>
+        <a href="#results">Results</a>
+        <a href="#about">About the model</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Computer vision · MobileNetV2 transfer learning</p>
+          <h1>Upload a fruit photo. Get an honest, model-based freshness assessment.</h1>
+          <p class="lede">
+            The system identifies one of eight supported fruits and estimates whether it looks
+            fresh or rotten, using a model trained on 3,200 labelled photographs. Every score is
+            a model probability — never a fabricated measurement.
+          </p>
+          <ul class="hero-points">
+            <li><strong>8 fruits</strong> · Apple, Banana, Orange, Grape, Guava, Jujube, Pomegranate, Strawberry</li>
+            <li><strong>16 classes</strong> · fresh and rotten condition for each fruit</li>
+            <li><strong>Calibrated</strong> confidence with an explicit uncertainty gate</li>
+          </ul>
+        </div>
+
+        <div class="upload-card" id="analyse">
+          <h2 class="card-title">Analyse a photograph</h2>
+
+          <form id="upload-form" novalidate>
+            <div class="dropzone" id="dropzone" tabindex="0" role="button"
+                 aria-label="Choose an image or drop one here">
+              <input type="file" id="file-input" name="image" accept="image/jpeg,image/png,image/webp,image/bmp" hidden />
+              <div class="dropzone-empty" id="dropzone-empty">
+                <svg class="dropzone-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 16V4m0 0L8 8m4-4 4 4M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"
+                        fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="dropzone-title">Drag &amp; drop an image here</p>
+                <p class="dropzone-hint">or click to browse · JPG, PNG, WEBP, BMP · max {{ max_upload_mb }} MB</p>
+              </div>
+              <figure class="preview" id="preview" hidden>
+                <img id="preview-image" alt="Preview of the uploaded fruit photograph" />
+                <figcaption id="preview-caption"></figcaption>
+              </figure>
+            </div>
+
+            <p class="form-error" id="form-error" role="alert" hidden></p>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary" id="analyse-button" disabled>
+                <span class="btn-label">Analyse image</span>
+                <span class="spinner" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="btn btn-ghost" id="clear-button" disabled>Clear</button>
+            </div>
+          </form>
+
+          <p class="hint">
+            Best results: one fruit, reasonably lit, filling most of the frame, photographed from
+            outside the fruit. Cut-fruit analysis is <strong>not validated</strong> by this model.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="results" hidden aria-live="polite">
+      <div class="wrap">
+        <div class="results-head">
+          <h2>Analysis result</h2>
+          <p class="results-meta" id="results-meta"></p>
+        </div>
+
+        <div class="results-grid">
+          <article class="card image-card">
+            <h3 class="card-title">Uploaded image</h3>
+            <img id="result-image" alt="The analysed fruit photograph" />
+            <p class="muted" id="result-image-meta"></p>
+          </article>
+
+          <article class="card verdict-card">
+            <h3 class="card-title">Identification</h3>
+            <p class="fruit-name" id="result-fruit">—</p>
+            <p class="fruit-class" id="result-class"></p>
+            <div class="meter">
+              <div class="meter-head">
+                <span>Identification confidence</span>
+                <span id="result-confidence">—</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill" id="confidence-bar"></div></div>
+            </div>
+            <p class="muted" id="result-confidence-note"></p>
+          </article>
+
+          <article class="card condition-card">
+            <h3 class="card-title">Condition assessment</h3>
+            <p class="condition-badge" id="result-condition">—</p>
+
+            <div class="score-row">
+              <div class="score-head">
+                <span class="score-label">Fresh / good</span>
+                <span class="score-value" id="fresh-value">—</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill fresh" id="fresh-bar"></div></div>
+            </div>
+
+            <div class="score-row">
+              <div class="score-head">
+                <span class="score-label">Rotten / bad</span>
+                <span class="score-value" id="rotten-value">—</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill rotten" id="rotten-bar"></div></div>
+            </div>
+
+            <p class="muted">
+              These percentages are the model's summed class probabilities — not the physical
+              proportion of the fruit that is fresh or rotten.
+            </p>
+          </article>
+
+          <article class="card edibility-card">
+            <h3 class="card-title">Visual edibility assessment</h3>
+            <p class="edibility-label" id="result-edibility">—</p>
+            <p class="muted" id="result-edibility-note"></p>
+            <div class="disclaimer" role="note">
+              <strong>Safety disclaimer.</strong>
+              <span id="result-disclaimer"></span>
+            </div>
+          </article>
+
+          <article class="card shelf-card">
+            <h3 class="card-title">Remaining shelf life</h3>
+            <p class="shelf-message" id="result-shelf">—</p>
+            <p class="muted" id="result-shelf-reason"></p>
+          </article>
+
+          <article class="card detail-card">
+            <h3 class="card-title">Class probabilities</h3>
+            <p class="muted">Top five of the sixteen classes, from the model's softmax output.</p>
+            <ol class="prob-list" id="probability-list"></ol>
+          </article>
+        </div>
+
+        <div class="warnings" id="warnings" hidden>
+          <h3>Warnings</h3>
+          <ul id="warning-list"></ul>
+        </div>
+
+        <p class="model-footnote" id="model-footnote"></p>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="wrap about-inner">
+        <h2>About this model — and its limits</h2>
+        <div class="about-grid">
+          <div>
+            <h3>What it does</h3>
+            <p>
+              A MobileNetV2 network pre-trained on ImageNet is fine-tuned on 16 classes built from
+              eight fruits × two conditions. Fruit identity and condition are read out of the same
+              softmax: the eight "Fresh" class probabilities are summed into the fresh score, and
+              the eight "Rotten" probabilities into the rotten score.
+            </p>
+          </div>
+          <div>
+            <h3>What it cannot do</h3>
+            <ul>
+              <li><strong>Shelf life.</strong> No capture dates, storage temperatures or days-to-spoilage labels exist in the dataset, so no number of days can be predicted.</li>
+              <li><strong>Cross-sections.</strong> Only a small, unlabelled fraction of the dataset shows cut fruit, so cut-fruit analysis is not validated.</li>
+              <li><strong>Food safety.</strong> A photograph cannot prove a fruit is safe to eat.</li>
+              <li><strong>Other fruits.</strong> Fruits outside the eight supported types may be forced into a supported class; the confidence gate flags weak predictions, but it is not a guarantee.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>How it was measured</h3>
+            <p id="model-summary">Loading evaluation summary…</p>
+            <p class="muted">
+              Metrics are computed on an untouched test split that was never used for training or
+              model selection.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>
+        AI-Based Fruit Detection and Freshness Analysis · B.Tech IPCV project ·
+        Dataset: <a href="https://data.mendeley.com/datasets/bdd69gyhv8/1" target="_blank" rel="noopener noreferrer">Fresh and Rotten Fruits Dataset</a>
+      </p>
+      <p class="muted">
+        Visual assessment only. This system cannot guarantee food safety — inspect the fruit
+        carefully and do not consume it if you suspect spoilage.
+      </p>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

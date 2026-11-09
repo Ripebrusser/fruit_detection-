@@ -1,0 +1,22 @@
+ * Serving Flask app 'app'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5000
+Press CTRL+C to quit
+2026-11-09 11:53:52.954731: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-09 11:54:14.512502: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-09 11:54:33.221955: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+127.0.0.1 - - [09/Nov/2026 11:54:44] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:54:44] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:54:44] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:54:44] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:54:44] "GET /api/health HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:54:47] "POST /api/analyze HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:54:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:55:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:55:01] "GET /static/css/style.css HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:55:01] "GET /static/js/app.js HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:55:01] "GET /api/model-info HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:57:46] "POST /api/analyze HTTP/1.1" 200 -
+127.0.0.1 - - [09/Nov/2026 11:57:46] "GET /static/uploads/1794205666254_RottenPomegranate_6.jpg HTTP/1.1" 200 -

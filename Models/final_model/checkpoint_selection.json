@@ -1,0 +1,8 @@
+{
+  "candidates": {
+    "stage_a_frozen_backbone": 0.9729166626930237,
+    "stage_b_finetuned": 0.9750000238418579
+  },
+  "chosen": "stage_b_finetuned",
+  "chosen_val_accuracy": 0.9750000238418579
+}

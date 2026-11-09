@@ -1,0 +1,62 @@
+2026-11-09 11:48:35.906322: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-11-09 11:48:43.609757: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+TensorFlow 2.20.0; GPUs visible: []
+2026-11-09 11:48:51.816686: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+C:\Users\Sachin\OneDrive\Documents\IPCV_Project\.venv\Lib\site-packages\keras\src\trainers\epoch_iterator.py:74: UserWarning: `shuffle=True` was passed, but will be ignored since the data `x` was provided as a tf.data.Dataset. The Dataset is expected to already be shuffled (via `.shuffle(buffer_size)`).
+  self.data_adapter = data_adapters.get_data_adapter(
+Epoch 1/8
+
+Epoch 1: val_accuracy improved from None to 0.48125, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 1: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 75s - 1s/step - accuracy: 0.2375 - loss: 2.2657 - val_accuracy: 0.4812 - val_loss: 1.5996 - learning_rate: 0.0010
+Epoch 2/8
+
+Epoch 2: val_accuracy improved from 0.48125 to 0.58542, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 2: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 74s - 1s/step - accuracy: 0.4147 - loss: 1.7290 - val_accuracy: 0.5854 - val_loss: 1.2813 - learning_rate: 0.0010
+Epoch 3/8
+
+Epoch 3: val_accuracy improved from 0.58542 to 0.65833, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 3: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 68s - 970ms/step - accuracy: 0.4812 - loss: 1.4911 - val_accuracy: 0.6583 - val_loss: 1.1089 - learning_rate: 0.0010
+Epoch 4/8
+
+Epoch 4: val_accuracy improved from 0.65833 to 0.66250, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 4: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 44s - 633ms/step - accuracy: 0.5232 - loss: 1.3618 - val_accuracy: 0.6625 - val_loss: 1.0902 - learning_rate: 0.0010
+Epoch 5/8
+
+Epoch 5: val_accuracy improved from 0.66250 to 0.71875, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 5: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 56s - 803ms/step - accuracy: 0.5817 - loss: 1.2114 - val_accuracy: 0.7188 - val_loss: 0.9608 - learning_rate: 0.0010
+Epoch 6/8
+
+Epoch 6: val_accuracy improved from 0.71875 to 0.72083, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 6: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 49s - 701ms/step - accuracy: 0.6027 - loss: 1.1554 - val_accuracy: 0.7208 - val_loss: 0.8968 - learning_rate: 0.0010
+Epoch 7/8
+
+Epoch 7: val_accuracy improved from 0.72083 to 0.74375, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 7: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 55s - 786ms/step - accuracy: 0.6513 - loss: 1.0390 - val_accuracy: 0.7437 - val_loss: 0.8100 - learning_rate: 0.0010
+Epoch 8/8
+
+Epoch 8: val_accuracy improved from 0.74375 to 0.76667, saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+
+Epoch 8: finished saving model to C:\Users\Sachin\OneDrive\Documents\IPCV_Project\Models\checkpoints\baseline_cnn.keras
+70/70 - 48s - 682ms/step - accuracy: 0.6545 - loss: 1.0348 - val_accuracy: 0.7667 - val_loss: 0.6977 - learning_rate: 0.0010
+Restoring model weights from the end of the best epoch: 8.
+{
+  "model": "baseline_cnn",
+  "epochs_run": 8,
+  "best_val_accuracy": 0.7666666507720947,
+  "train_seconds": 469.9
+}

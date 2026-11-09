@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="FruitVision">
+  <rect width="64" height="64" rx="14" fill="#1f6f43"/>
+  <path d="M32 20c8-6 16-4 16 6 0 9-7 18-16 20-9-2-16-11-16-20 0-10 8-12 16-6z" fill="#e8f3e4"/>
+  <path d="M32 20c0-5 2-8 6-10" stroke="#7fbf58" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <circle cx="32" cy="34" r="7" fill="#c7382c"/>
+</svg>

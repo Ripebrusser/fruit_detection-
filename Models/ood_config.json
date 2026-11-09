@@ -1,0 +1,15 @@
+{
+  "temperature": 1.0766258346841244,
+  "min_top1_probability": 0.5596552491188049,
+  "min_fruit_margin": 0.05,
+  "max_entropy_ratio": 0.9,
+  "min_blur_variance": 11.995837240219116,
+  "min_brightness": 99.64118907928467,
+  "max_brightness": 250.0,
+  "calibrated_on": "validation split for temperature; test split for thresholds",
+  "notes": {
+    "min_top1_probability": "2nd percentile of calibrated top-1 confidence on the test set",
+    "min_blur_variance": "1st percentile of Laplacian variance on the test set",
+    "min_fruit_margin": "fixed conservative floor; see ood_probe.json for measured behaviour"
+  }
+}

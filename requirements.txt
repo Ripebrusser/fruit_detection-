@@ -1,0 +1,15 @@
+# Runtime + training dependencies for the Fruit Detection & Freshness Analysis project.
+# Tested with Python 3.12 (64-bit) on Windows 11.
+tensorflow>=2.16,<2.21
+numpy>=1.26,<2.3
+pandas>=2.2
+scikit-learn>=1.5
+matplotlib>=3.9
+seaborn>=0.13
+Pillow>=10.4
+opencv-python-headless>=4.10
+flask>=3.0
+werkzeug>=3.0
+imagehash>=4.3
+tqdm>=4.66
+pytest>=8.3

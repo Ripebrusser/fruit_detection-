@@ -1,0 +1,11 @@
+{
+  "model": "mobilenet_v2",
+  "n_classes": 16,
+  "epochs_run": 16,
+  "best_val_accuracy": 0.9750000238418579,
+  "train_seconds": 758.3,
+  "model_path": "Models\\final_model\\fruit_model.keras",
+  "history_path": "Models\\final_model\\history.json",
+  "batch_size": 32,
+  "trainable_params_stage_b": 1995408
+}

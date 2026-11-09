@@ -1,0 +1,6 @@
+{
+  "model": "baseline_cnn",
+  "epochs_run": 8,
+  "best_val_accuracy": 0.7666666507720947,
+  "train_seconds": 469.9
+}

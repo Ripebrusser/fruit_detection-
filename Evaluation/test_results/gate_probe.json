@@ -1,0 +1,70 @@
+{
+  "gate": {
+    "min_top1_probability": 0.5596552491188049,
+    "min_fruit_margin": 0.05,
+    "max_entropy_ratio": 0.9,
+    "min_blur_variance": 11.995837240219116,
+    "min_brightness": 99.64118907928467,
+    "temperature": 1.0766258346841244
+  },
+  "in_distribution_test_sample": {
+    "n": 120,
+    "rejection_rate": 0.041666666666666664,
+    "mean_fruit_confidence": 0.980359406422582,
+    "rejection_reasons": {
+      "the image looks blurry": 3,
+      "the top class probability": 2,
+      "the two most likely fruits are too close": 2
+    }
+  },
+  "synthetic_non_fruit": {
+    "n": 40,
+    "rejection_rate": 0.4,
+    "mean_fruit_confidence": 0.7228216397211297,
+    "rejection_reasons": {
+      "the top class probability": 9,
+      "the image looks blurry": 8,
+      "the image is very dark": 3
+    }
+  },
+  "degraded_fruit": {
+    "blur": {
+      "n": 50,
+      "rejection_rate": 1.0,
+      "mean_fruit_confidence": 0.744642253345463,
+      "rejection_reasons": {
+        "the image looks blurry": 50,
+        "the top class probability": 15,
+        "the two most likely fruits are too close": 2
+      }
+    },
+    "dark": {
+      "n": 50,
+      "rejection_rate": 1.0,
+      "mean_fruit_confidence": 0.604440673048183,
+      "rejection_reasons": {
+        "the image looks blurry": 50,
+        "the image is very dark": 50,
+        "the top class probability": 35,
+        "the two most likely fruits are too close": 7
+      }
+    },
+    "tiny": {
+      "n": 50,
+      "rejection_rate": 0.86,
+      "mean_fruit_confidence": 0.883773027368964,
+      "rejection_reasons": {
+        "the image looks blurry": 43,
+        "the top class probability": 5
+      }
+    }
+  },
+  "probe_kinds": [
+    "synthetic_noise",
+    "synthetic_shapes",
+    "synthetic_checker",
+    "synthetic_shapes",
+    "synthetic_text"
+  ],
+  "summary": "The full gate combines a calibrated top-1 threshold with fruit-margin, entropy and image-quality checks. It reliably flags degraded photographs but only rejects a minority of synthetic non-fruit patterns: the model is over-confident on inputs very far from the training distribution. That is why every result also carries a warning panel and why the UI never presents a confident answer as certain."
+}
