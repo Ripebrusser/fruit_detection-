@@ -1,0 +1,3617 @@
+{
+  "data_dir": "C:\\Users\\Sachin\\OneDrive\\Documents\\IPCV_Project\\Dataset\\Original Image\\Original Image",
+  "n_class_folders": 16,
+  "n_files_total": 3200,
+  "extensions": {
+    ".jpg": 3200
+  },
+  "n_readable": 3200,
+  "n_unreadable": 0,
+  "unreadable": [],
+  "per_class_counts": {
+    "FreshApple": 200,
+    "FreshBanana": 200,
+    "FreshGrape": 200,
+    "FreshGuava": 200,
+    "FreshJujube": 200,
+    "FreshOrange": 200,
+    "FreshPomegranate": 200,
+    "FreshStrawberry": 200,
+    "RottenApple": 200,
+    "RottenBanana": 200,
+    "RottenGrape": 200,
+    "RottenGuava": 200,
+    "RottenJujube": 200,
+    "RottenOrange": 200,
+    "RottenPomegranate": 200,
+    "RottenStrawberry": 200
+  },
+  "fruit_counts": {
+    "Apple": 400,
+    "Banana": 400,
+    "Grape": 400,
+    "Guava": 400,
+    "Jujube": 400,
+    "Orange": 400,
+    "Pomegranate": 400,
+    "Strawberry": 400
+  },
+  "condition_counts": {
+    "fresh": 1600,
+    "rotten": 1600
+  },
+  "image_size_stats": {
+    "min": [
+      251,
+      301
+    ],
+    "max": [
+      4160,
+      4160
+    ],
+    "median": [
+      2492,
+      2330
+    ],
+    "below_224_any_side": 0
+  },
+  "exif": {
+    "with_make": 2210,
+    "with_datetime": 3000,
+    "sample_makes": [
+      [
+        "Symphony",
+        1750
+      ],
+      [
+        "--",
+        355
+      ],
+      [
+        "Xiaomi",
+        105
+      ]
+    ]
+  },
+  "duplicates": {
+    "exact_groups": [
+      [
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (167).jpg",
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (62).jpg"
+      ],
+      [
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (168).jpg",
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (63).jpg"
+      ],
+      [
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (27).jpg",
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (77).jpg"
+      ],
+      [
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (65).jpg",
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (78).jpg"
+      ],
+      [
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (66).jpg",
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (79).jpg"
+      ],
+      [
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (74).jpg",
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (87).jpg"
+      ],
+      [
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (75).jpg",
+        "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (88).jpg"
+      ]
+    ],
+    "near_groups": [
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (102).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (105).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (99).jpg"
+        ],
+        "sha256": [
+          "7572b176a94d0b71495ab1fc1d4e98cac8379ee568460ebbe1060c1e0ba3fee3",
+          "87f82c6bec0da27e275535f19955263649059bb465cc8325d6455be5d7dea492",
+          "d6fb161a90b5663b41aa583944c465a7a5a40f8919f9afbcad2399e7a332f1c6"
+        ]
+      },
+      {
+        "n_images": 4,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (107).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (115).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (5).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (94).jpg"
+        ],
+        "sha256": [
+          "29df08b817385c2e16b63fcd6321a1bcbd324b6017a4cfc7ff4465bfbd026c8f",
+          "70388512144c2be3f31df87771c4d37b37420bd55c1fc5c2982a80e21bcecf02",
+          "a4f7754691c6cb2210a5cecae494134c3f0e8a8a67bb1428fca4d54b4377b559",
+          "e1d114a07642ade950566d6b1ab8c260f4f897cb1c9d379feac09e195cbfd01a"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple",
+          "FreshOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (11).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (11).jpg"
+        ],
+        "sha256": [
+          "06edc7605d41ba0ff884594c4d29b017ccd099610c4cd8b9f8fff9725a7a499f",
+          "1e03006e01eb9eb6b759528827e0492036080ff87ee17153717455ecfaefa5ec"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (113).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (116).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (22).jpg"
+        ],
+        "sha256": [
+          "24a9cdcd59274a1790148e915a22864e1a5a402daa36e3df61604691e199d440",
+          "2a77812e763d9203a23aad5e240d7e4b3d7dde1923939edf2c2aafc2a108886b",
+          "ed7df425830667934dce163a3be517112fab2e16d2cd49cce12c0bb9df1dd379"
+        ]
+      },
+      {
+        "n_images": 4,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple",
+          "FreshGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (159).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (166).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (169).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (134).jpg"
+        ],
+        "sha256": [
+          "1086a7ad414dcae775a9f539de81dd3860886277a6c5ad723de1ba522a701180",
+          "81c1f1c32ba75c3c0ead3a14c2737fdbc8fa4f10bbb1726a966015175b842a6e",
+          "8e5be7e810053a9d316bd672ce67e49ee7f3d5c7bdaae8e1470c3bf8af5f509e",
+          "a4fad10e730031e4f5404c347fa298a84bd3d09bc19d9cc2fe5af477ffbd2ffe"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (164).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (170).jpg"
+        ],
+        "sha256": [
+          "6ce89ae3f2ba3380546bbefa5dedbe5cd535c0c4ac04aca3d0cf0a6fae480476",
+          "817910f1a73cc2a4c1b5b6848d0a1723820439358ae3792743a735c0a83c8b0e"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (167).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (23).jpg"
+        ],
+        "sha256": [
+          "2a36fcd276e37d8e5d0f69aedabf2bdb6b768b5acf3e4602299b8e726957ddd8",
+          "e6ec32118e160d8d92414212227e4851df8f5dcfa0ce2628c49ed5fcacd0a084"
+        ]
+      },
+      {
+        "n_images": 6,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple",
+          "FreshGuava",
+          "RottenGuava",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (171).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (172).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (116).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (158).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (114).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (138).jpg"
+        ],
+        "sha256": [
+          "0d79ed4ec6f36b78f5c0e5ddc40858c74b4215bf7c432405706df30dc27f84c3",
+          "5b6461cdbd8afc85ea017268ee1beed6a7557e207f34aefb8aa0e736304496a3",
+          "67dd54ea423ad47cb95ff7ad092fe8dabc7bbe5719f22a4844119a6b9e897331",
+          "b58f46cc93a6c55f7fa80bdb9f0a8cdd6cc91a1dc5b5e2d5757be1d71c88c764",
+          "bf61f2c5f8345702e9d728051bca1da40f0ac3149246ae2e8a015e8d6ac64b75",
+          "f7442d6012c4ccd450d6cf59df414748002aa8858f433c2f4399734ffa1b2240"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple",
+          "FreshGuava",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (175).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (65).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (33).jpg"
+        ],
+        "sha256": [
+          "060fd6f2d2163b186c419a577628184c71c6a0d7a564c6e1b48c9c03e2d3761f",
+          "46392e17649364ab90972a1bee3d703dda1dc7c364eb4ed21b38a8872252af03",
+          "c7f02acd6a56227a0202f9c16b5b40f985f13800eecc34e3f32caf3ecb0ac98d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple",
+          "RottenGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (191).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (96).jpg"
+        ],
+        "sha256": [
+          "cd479653a143e2e345e583b5a36d1ef2c172a16891209a958da779010d2042be",
+          "da46dcfe2088b7e544e0840e41c71061965470525b0de860c9242ea1ffa24959"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (194).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (195).jpg"
+        ],
+        "sha256": [
+          "7d4fdde7cb5daaf89164f19abc4c36652b8ac1af3980b4d6e4690721e21c5329",
+          "866fa4994861e7283c2db7f5a486372cf6738d12245f778803e1498456ea3798"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (66).jpg",
+          "Dataset/Original Image/Original Image/FreshApple/FreshApple (67).jpg"
+        ],
+        "sha256": [
+          "42fe6f41d7cc0decde4c1a90dce71a7636ce70d31aca5d978a695ebc56485e2f",
+          "b57026a012256b5c61510ae7eba24f246467a42b44f97fbcdb4a4c2ca301b45d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (104).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (105).jpg"
+        ],
+        "sha256": [
+          "0037c9fcd0ad1309d448a8056fbe2679ef7b0ab0fba32d4a6e22b664d0d2caf0",
+          "92956d7df9e9242d39ea5be2936a43cdbcd62f9b1967368b999f994935a51bf8"
+        ]
+      },
+      {
+        "n_images": 4,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (19).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (21).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (26).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (28).jpg"
+        ],
+        "sha256": [
+          "2129dffcb4de56a887affc676fd64eda58eda5a099f3c6891d6d3a5e74577516",
+          "3a7d4d795d8889044580599980ba78b8f7ab6d295d233d2a9b61227cbafd0282",
+          "df6da97e9f85f5e932f4f3988a2c1abeeb1e5a6200578517ad900a31a18d25b8",
+          "f6658cfaf76c9ead7e99e9a65a1ad8997fb07475377e38804092b74b0700ac7f"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (23).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (27).jpg"
+        ],
+        "sha256": [
+          "99070403c251c328d053957329846c8f37dbe9359fd3cc80147388dba36f8f64",
+          "e5b80ca0de4199d3c3597ba2041a2c70fd0e6a3c8bfff9318ddb0295f88e6687"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (29).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (30).jpg"
+        ],
+        "sha256": [
+          "8addcc6bf478af182d4fc44b6948a4acc3ac864a413849c1f0e2e844d7622bb0",
+          "e4f90ea6b2fcbe79719b6e93286b06367a1a26c112166f2cbb1f2fe2994e61a2"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (42).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (61).jpg"
+        ],
+        "sha256": [
+          "633f746861746b98b64a8e57168385a597e84e68dcf86921b2cff81a526fb143",
+          "dd8a464e59a1d89e3e7e4dc074c33538e44c683f0e7bc00fd513a2971b665530"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (43).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (97).jpg"
+        ],
+        "sha256": [
+          "752f1d691c28dd4ae3fe510fba26f89c1fdf999f69707cec0561ad5affad6909",
+          "f477784dde8c7b60d2c8604f5f1cfcc52ec4b0b9f4d1992b0c454aab349f5344"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (46).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (87).jpg"
+        ],
+        "sha256": [
+          "daac7fec62bfdd5b0a9c5da9a3f731605111871003614bb08002595b4b53cd1d",
+          "ee6646339853f7d0d8a4967c446a6454c6dd914df17f215185e95b8f00181909"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (48).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (67).jpg"
+        ],
+        "sha256": [
+          "6937371fb479c831650b777cc15fbee90408804cd73e444b5435382c3e1495a8",
+          "b495d6005abc8794876f4ef2223f464c9cde54496598eb41d8a2d74bf3024cea"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (53).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (58).jpg"
+        ],
+        "sha256": [
+          "a63ed50eb382716fa6e23988894cb5410c4d728e8ffe1ba75c4b45c1473be772",
+          "c0e58260c82910463c44fb2f2fe0e9de8d8367a95988094b88d1b5b5bd066268"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana",
+          "FreshGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (60).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (17).jpg"
+        ],
+        "sha256": [
+          "233837d27b5a3c1bdd5dba5822f047698744433b820468826243f7feeaabcb61",
+          "704e05c4274ed717377aba2b3af99e0f82061da678f1fc42a66d7814084148be"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (75).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (78).jpg"
+        ],
+        "sha256": [
+          "779f7af2f9921d028aead574dc6c1dfa6480c4b3cc00f5b221547b0df3f2015f",
+          "e8804606310ba4a2ae40a4345862f1f89cfb9c79e5f54dde26808f3336079f67"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (82).jpg",
+          "Dataset/Original Image/Original Image/FreshBanana/FreshBanana (83).jpg"
+        ],
+        "sha256": [
+          "0ffb1e9822d911d64bee82c4c3026d7aa03edd80ff15f745660ae951dd4a6837",
+          "aadc75f5fad61ce52e9f8b581640c67ed9ad46c81def2f62af164e114ba7205c"
+        ]
+      },
+      {
+        "n_images": 37,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape",
+          "FreshJujube",
+          "RottenJujube",
+          "RottenStrawberry"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (11).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (12).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (7).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (8).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (9).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (107).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (108).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (6).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (83).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (90).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (91).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (92).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (94).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (95).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (98).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (140).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (141).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (148).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (36).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (42).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (43).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (44).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (45).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (47).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (48).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (50).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (51).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (52).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (53).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (54).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (70).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (71).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (72).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (73).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (75).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (76).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (80).jpg"
+        ],
+        "sha256": [
+          "052bba79fe331600a9090b5a2ad3ff59e6ed2a64963be811a431ce676e1b15af",
+          "12829224f59cc95c2853b69e85013879a9dee37960e5e141c1656e1bbfdee5d8",
+          "1731ed35d5965269793b75cc9b5d71780c1594c812804d4d112bdaf1ba44f36c",
+          "214d5f2ea46c60ffb723cfda3603efdc4e4c6a6aff5307f65c7e5a1c808a3e57",
+          "2271f17573ce1e3447a4c1fcbbdf17b5290232f525704b9579ff4c0aedc4af5a",
+          "27e0cb3cb41fae253034a35e53335b51446c24f4ef093faffd70d0fd17fc3459",
+          "324ddb156a33d88173e66f5b29d66303f653e10a2960fb265095313601e5db3d",
+          "339eab09b78dbe92b7c49b5ca4b7f35ca2ff11ce29e79473f168f03c278f6f1d",
+          "3627fc49ba14290fb54e7f62c2feca686eee241d0c610923d024552e28fa67d3",
+          "371e50b77ad9e1ecd0f21b65ec2444104ddf205b289d08475b7b59066717d0e2",
+          "43ab9ba61300e209b9f0cc4ebe20b821c3c0c1dd66d02b8edf51a309510e70ee",
+          "45fb2e1ada651ed0360cf63838b4937d98abea6c6b28e20a1373136143bd51dd",
+          "4afa755fd938973d214c15514606834f4f9053e262b28565984c601613332fe7",
+          "52c75db4ef48afb5d75390665fd480ee5e4da79a1d1d8305a83488f0491dcffe",
+          "54317ae52b9cf2abf90c6fb8a5a0bd7550920239e4cc1d0f25255e72f91a9c8f",
+          "565ead7b9e38bd46b0c28de76de45d4221a8c1fb367bdb74c01c43f0533b3981",
+          "61be83ad2833bf3b018a8768e13e1eeabbc05ea22f474f1ff231219a85c30e05",
+          "6203c9b0d2d070f03d940e10591b30a4a5666fcd46a70a536535e983a77ff7cb",
+          "67a7e2d728d02479edfefb7cb536966ccbe5dccfd58af01f95a7033b79c1cb83",
+          "79abea4c9a189538bd3e5bfe85701fdc0e28a63b41f7dfcf08ba728c46fb1fcb",
+          "8ac7e3925f8b9a5c3ef0dce889b7d013d5e981842d42fdfa8985b8c5da3109b2",
+          "908150a57577a9c2fc7673bdda732996fd259e0f8183bddf5b28fa90f6b029ee",
+          "93e9e9cf67092497f4be07e53d0696431c996b70d4f3a5a64755d147b9ba4405",
+          "99fce5d465e699981700b5ef91a4cc37d42f1aef127b69604424693480434c1e",
+          "9e9fc7be52fc8167c3b3c6ce9a4e99b7ec215dd4a931637324a45062c13e5618",
+          "a67f901020ee15ef1b351d42683d401a6c8309841cb21f0f39fa7b838de580a9",
+          "ab7c88981ee0218427cfeabb27dcf7e73c8253d61940a8d93725e81c31a06532",
+          "babb7826b7de6abefedb3c22e2d50201cd568b817e0329bd7ae8d04bbb419579",
+          "bc4ea5bb25e4814edda73904ef458fbf794a3c652297c68ea51cef3294589c50",
+          "c1b6b816fceb8d11019fe485351bf131f2ea9c77bd2243c19d7dc009c382df69",
+          "d0080e77d6d39fb98bccbfb110dddaf3949e0cfcebcfe1d40f95e622b35204ca",
+          "d97bc97a9d82c178544c9294e292b8ab3881a02a3a843da1d3e90f83aab12c68",
+          "e53cef55a9cfc42b5e43a150f83ecc89fd29da868f872aaa91fd71bb02b5c874",
+          "ee0c90944014605ee63455af30eb042b0f2c080b76b9f08f40ca5637dbe1f7d4",
+          "f2b012e4aae713f312e0f55c4d0be562acda30eb67af78f5e8daeb2081728497",
+          "f4acdbc24307ce5c10d773233a5de800809e59477c862f4e427d575ee65348bf",
+          "f71425821028090825f015e438ff05e638e2c493219053b76f5a5b3cd5148e26"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (120).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (125).jpg"
+        ],
+        "sha256": [
+          "44cab702244a98b844f2a8267da2ac59252a35ba350723e067bd17c2f9bbc404",
+          "a8e3abca5788fa3b90e60c4d47a01bd7debf4fd94a91b72241006cd214822c47"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (164).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (177).jpg"
+        ],
+        "sha256": [
+          "7aa130804360240f320b5f60c5065a5d235c8510e7c3e10a64c4a13b203dbe0f",
+          "d921eab4c3b50969ba14378fa60ed75b7567ff9ed18c1f25a0914850844b2a75"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (23).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (27).jpg"
+        ],
+        "sha256": [
+          "573b74d4fb6bd977b89d7fe8f2d02250109bbcc475184293cf8aff39341e2641",
+          "a91a321c4e4e43bba50a43fd3804ce6d2a4bfd3a2b35a2536afd99b09123d167"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (25).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (30).jpg"
+        ],
+        "sha256": [
+          "2b00eb236d9564022e3e5abad630d02f223d1eca1ddfdb72dcd6316b190d6aeb",
+          "3c49472e7a4254f3b06f112a3bb1c476b0ec93f08f8837bb4a0d067f85675eb4"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (4).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (5).jpg"
+        ],
+        "sha256": [
+          "5de908d7d41240172d5775dda0ef5d207c5356b349b49d9226f15e5b9dedeb32",
+          "bce00ac44a9a157ccad9e9a03d3acb42570afb5b419928a9867af906a8abc547"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape",
+          "RottenGrape"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (48).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (6).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (7).jpg"
+        ],
+        "sha256": [
+          "2da7a2ca24e572da25377d04e108eb4760ba32b2735ecc3c43cd4472d2bc1c5b",
+          "7549aa4416ea8e7702d80b6fcb1c56c2cc79d785d4f05ef9fe2261688b5b011b",
+          "9b785d1b01e2dd1e00507f2ff47633673f27a5a0ab1c8895ed0b21fb74a68bbd"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape",
+          "RottenStrawberry"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (64).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (157).jpg"
+        ],
+        "sha256": [
+          "6246f5cee247f5988bc2712d689bdfbe88786aef774af894bd198a3accab810b",
+          "b074c396204f3aa673bcf22c7fa13e7e9e48f2c8897ea75bd60737c1b064b896"
+        ]
+      },
+      {
+        "n_images": 25,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape",
+          "FreshJujube",
+          "RottenJujube",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (81).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (126).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (127).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (136).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (18).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (103).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (105).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (108).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (25).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (26).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (55).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (56).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (57).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (58).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (59).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (60).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (61).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (62).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (63).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (65).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (68).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (69).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (84).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (97).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (41).jpg"
+        ],
+        "sha256": [
+          "05da77f7d2ac4c2ff4cc14ea4be1c14b06f2e9c130c74d653552e1e3faaca6dd",
+          "157ef66b8f88a9b4a3ad6d5f26ffcc8e747fba7a118c2ceaa45c956119f07ed6",
+          "16983f6a63c7049096920e7b85abfca00e741c6b7423f6a59b744b6e1d7109ca",
+          "1ea9237ccab25dde2101a5f2286622a7afde95709b8a8608afcdb2675b91adca",
+          "3280e4bb3ff1433424eec7be04c2416a7e4b023de58106cccc5aaa8393480312",
+          "340fb6bf2081441ebee2a79ac4c8007480139b84e37080515c815e99312ea926",
+          "3ed1d0be04febe55f2fd859be4f40fd86a25816bcde8d5196c84a8f96cd85ec0",
+          "477f557562b71aa80fb70227044b41189ff5689e0b2ba17ac8d56ab9f0ff3c67",
+          "488ddf26e2d4fdc3f092f4a71721f916193841d37f9e5b69d6f5c10acc056cb0",
+          "650825f23e8c2e3a82018f43ded9f1a64429c1c2d129c883330e2fa76a3da7c9",
+          "6f2d79c7fcb8129126711a37e33982e79b9f53557b8101cd9ae56b80be6f4706",
+          "6f73f2a4a641293fa03a6796885f1e2bb0594b66bd381101b39bf56796de1fb6",
+          "7721349554f0c21fac14cc4079ff8f489d31c7ecaaddf0972abf74aa18cb9ffa",
+          "7747158adf81d10071d46d5080eeec6f39138140eff1c540c287125f729d01d9",
+          "8ea172135b39c70b589b592a0b8a8807b71a8bcff630a762d1a95d20d184c440",
+          "9055fe20394d4b1126860828714140e6e9a687c0fca129c0d6d457d9de092307",
+          "9a33317542b226909eab9fd07c349523367752d1ddc8f6ace29b319e26ee1a98",
+          "9a8a4982b1ccf229ad750ffb1e9a6f5d7f7e26cc5840c9f76e93c1a6d99efe1f",
+          "9ad0c3214679888a44239adbac5f6b7e23638f807b06ab3b362a0bc58f611574",
+          "9b146083d562f782599dad0bc4b3f77f2d5f049d10b37973061e941b322775a3",
+          "aa73f8fd3182feb7f57eef513573ccc8b28e3e29215af3b5a57070cee59f8d6b",
+          "aed4e46f4ad3d9a94a6d43565706414464d38ac62d5a44c91bb68062e345dfae",
+          "af5d55db6e281f13c5d8d5023538380c74a7d4977c1e9c793f4a2ec42484cd82",
+          "d4b72dd53b21f601deda776258498d4c462c6ca4eb4acf91cb52f295815fb2a6",
+          "eea0cb7e4ee54ca5974b7ef454cc76e5e572a39a3452cdbc87f3331b557eba4e"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (84).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (92).jpg"
+        ],
+        "sha256": [
+          "45e6a0c43a71c2604f5dc358e6fe64dc8594ef4b7ea077e4e3519f9c16958e74",
+          "60da366467c2d7030d28046579e5d85b5b4a93fb23e4249aa240ae1b6931c0b4"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (85).jpg",
+          "Dataset/Original Image/Original Image/FreshGrape/FreshGrape (91).jpg"
+        ],
+        "sha256": [
+          "1db34cfccf3dfd8470fb001ee344ee121e3afad1cb363ae0f4cddfff57464a6b",
+          "506d740f53645f05c90bd5bb2e51ff228f21ae284c6540cfe713f6d10320a61a"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (110).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (146).jpg"
+        ],
+        "sha256": [
+          "6178cfeebab16e230b92ce03007f4d7540f036328e8127ec9a16162c7536f10a",
+          "8bf6bec0a2e2e2bf502550426d4d5d22fa83e82ac06643f1763431b50c65ffe8"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (12).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (65).jpg"
+        ],
+        "sha256": [
+          "ba7354431b27d1ab4c015caa52410f932d1cad72cc86000d98ef16e234d74409",
+          "fa51edca2d0227f6f4eca5876ab047792172bec76f52d82d4f4ae3a7638dd8fc"
+        ]
+      },
+      {
+        "n_images": 7,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "FreshStrawberry"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (129).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (64).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (83).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (85).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (87).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (88).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (164).jpg"
+        ],
+        "sha256": [
+          "23dd0ebdd21f7a0763a120bd4a91d447530ae45d29a4e3c419c14c380686396d",
+          "60a9a727d382545ca8330f81e9a620a490da2a9720d3097e50aa322499b52fcc",
+          "70b508c07d8a0909c988444e3b9ae66c51f3ee4a70de600378fb23fa801c18dc",
+          "73137a161bc495fbcdb07045286d96b91d954b79ff76adb5a5e9909c0af1c6ee",
+          "b689a17225769fe5247cd7814d4ce99194622214285a163b1b1dc30460851336",
+          "cc8ee94dfe29bd3400ffe3de9978f11f361bbad606739150ef1e42b71eb10936",
+          "fc2ab820b4829cb281abc48b4e174ae14a2340a80063a48122977d488a213324"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (132).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (77).jpg"
+        ],
+        "sha256": [
+          "3cccc062bfe7fd36f1c0393fee967452c50179a60a5379b2dd4bf67c850db74e",
+          "c3e0e7caca51dd6b45ce3660a7bd6aaaac26af60d1818e578462f659d69ef738"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "FreshOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (136).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (12).jpg"
+        ],
+        "sha256": [
+          "7c68d162f1436afb82e3f602cc35bbb9b46946c36efb421ada58f292df900b6b",
+          "9c7f2b61c176625805ae826da8caef4cafc6ddb06c31247160c7b23bba64781f"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (140).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (155).jpg"
+        ],
+        "sha256": [
+          "06b7969d42ee635ee963c74ece3f4569cb2ae6d2c1356ba537b6794c3a69360f",
+          "98aa97964ae76d767def81ea9692af79a46849a89e2a7d678865d57f09c86e28"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (145).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (46).jpg"
+        ],
+        "sha256": [
+          "39c1a1bdc9e9b9eb20ed3feb8701adc83e1316a6d04cb3c710aa77a040df17c0",
+          "d533d6c322c6ccb0c622185ff3f99a6a0abab826990cfb3d9dc04e6f33d124c8"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (149).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (156).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (137).jpg"
+        ],
+        "sha256": [
+          "09c34d04780da02e6f434b3448e34a8f8bba8bfa09bb1af53dcdd6c64118bc94",
+          "21bde901661db13278a205588cc5f7d145222db1008ba609abd59fc559d37f85",
+          "2b968ae9ebe3032ed8f3db78ef08ec2635035a1b194b1d9534814fab3a305ad1"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (15).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (69).jpg"
+        ],
+        "sha256": [
+          "ca24d8f888676de5ef2841ca5bc04aa6b7f8432a81213932a0cb7c711242b8a8",
+          "e2098eca65d86b5d1b45731975dc518c2aca926411439d042b4cd3b3ea189215"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "RottenApple"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (151).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (49).jpg"
+        ],
+        "sha256": [
+          "14b180e4afb8d46853107daf2836f4062a1411ce4d5fc8a3ea4bb9ff294e3e09",
+          "49eabd4113f6f8f5e7ab5d3979d834734659de8e5d96bdded17674877f1d6884"
+        ]
+      },
+      {
+        "n_images": 10,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "RottenGuava",
+          "RottenOrange",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (152).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (108).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (113).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (116).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (126).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (134).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (140).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (110).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (114).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (3).jpg"
+        ],
+        "sha256": [
+          "04edb753ce434998de07a7dc7245fe4c187b628ca599818c9fd4405d9513b730",
+          "199ab9516d3d5cc11ea817c9ead7d367289abb565b7f7884a8503dd091d89f29",
+          "298d34c54a13cc9efbb4980eaf86c1330fe2121e7e6c669e00efaa3987326a17",
+          "2a0339766c491dcda0cbe43bb3d6187a35d549d8b0982c69c169e4e11b2be415",
+          "399aa4b45191086f4478d32d757f976736528bff311fd322c701d88937b58673",
+          "56b43d82c097597e6b3b02c221c3038cfaae184a2d320c65dadca963c0376b6d",
+          "712ac72ce85aea7294617a4e1a8ed80f161d86eee1e6c08804e3b1b780604835",
+          "84eae02e009771c1a4eb52b8519962cd7bb08fd7adb614c821e5d04f3d78248c",
+          "8db9c909e1e1ab99b409e29c42e09e164f3ee576c351c8814dbea4f5f8464174",
+          "ff403687218253f71c3aa4011253f5fb37291f40f46f07bf81aee75209d4ecf3"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (37).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (40).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (9).jpg"
+        ],
+        "sha256": [
+          "229a5adc9c1caf230458d024aea5f0f1d65c6e9d6c0e9f2bef8ff6e7902ba7a7",
+          "4b615381c7792eff124028e3613b92b718d41d73a6bc3211d1d18316e1789b39",
+          "8ab6d396c425a1fcd2f5b038eebc11d5bffb182546ef698e8aab5bc9a68a1293"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (59).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (91).jpg"
+        ],
+        "sha256": [
+          "47cf64a32bf9a84f42ab00767facea67f3ae0462e6f8c4115ac6507807a03283",
+          "860834046b98a45c158dee930cc535f7b786248422292c305ab6cd463dbfe555"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava",
+          "RottenApple",
+          "RottenGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (60).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (3).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (161).jpg"
+        ],
+        "sha256": [
+          "6826f9627bf0a6a9a711859ab284e6462e5e2c07f7ded73ddfaa0c284019f61d",
+          "71cf5b3a7d2e3142f5365039c925706df91dd6471d644a85272a7a0fe90b498a",
+          "d57eb16aa83e5936fe40275d1b2475cf8df1b852b43930b2758a66ee72bf49e6"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (90).jpg",
+          "Dataset/Original Image/Original Image/FreshGuava/FreshGuava (92).jpg"
+        ],
+        "sha256": [
+          "9b408dfb96f58d79ad251dad41f3731dec81404935f2378671c93f96579f8527",
+          "a793a1d7c414e48c22ef2b230480c5a76bac042e5304d93007ca0f35dfbb5628"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenJujube"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (100).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (40).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (41).jpg"
+        ],
+        "sha256": [
+          "b2560379920da7220f6b7816c547b082425ef8ee67a82b9b8629ba19648c0ea8",
+          "c9e8a9a9b8e4c346ab7afebdd100fb60ee8a4dc3a31121eeeaf4c365262b897c",
+          "e83d731d2c883f2e2636df761bec908cdd67d1f8e4d2ac6873aae28d9af2e13d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (105).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (82).jpg"
+        ],
+        "sha256": [
+          "44498472ae2b884bf7e3e8e410c1b9a30d89a2e8f7cb13ce4972b276f718cb61",
+          "6c34100e765a8293f61b6abe444786d19b5ee4451cc246d77efcea7a143a2aec"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenStrawberry"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (11).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (96).jpg"
+        ],
+        "sha256": [
+          "184d914f72a92411d02d6ff6b21b75f375c7616d9a874af67d4191ddea4d91a3",
+          "18d674ab2e16b4dfaee5af48df5ad07062de72c8be1fbd7e31aea066796611ac"
+        ]
+      },
+      {
+        "n_images": 57,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "FreshOrange",
+          "RottenGuava",
+          "RottenJujube",
+          "RottenStrawberry"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (111).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (118).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (141).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (146).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (153).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (158).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (159).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (163).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (166).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (176).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (180).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (3).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (33).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (35).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (36).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (37).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (38).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (40).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (41).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (45).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (46).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (8).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (86).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (88).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (172).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (42).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (111).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (112).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (118).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (119).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (121).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (124).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (126).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (127).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (128).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (129).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (130).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (131).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (132).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (133).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (134).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (139).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (192).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (39).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (91).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (92).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (93).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (94).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (95).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (98).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (13).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (160).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (162).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (163).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (191).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (74).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (87).jpg"
+        ],
+        "sha256": [
+          "0fbeb678a2dbcf973e779436322b45859174c5c56ff84e388a243e4964e8a3b3",
+          "128d03bd4b888294141d47a554859e7ace5e19f98ee7b3978e7c07f0ed23fef0",
+          "12ae9a1d484eb430073ba5bce70b80c5f3bde2242641814e5d0d62a163e98537",
+          "12edc93d4444589b14ceafd99d36330b824cd5398776b14a5388e460c72f9283",
+          "1a67d74908bc63d8f2edcaa8533efbba641720efc0a5aa3c8aae54404ce2ae11",
+          "25dd70bd702720eca764859a8a2c655f3f8dd448df050693399ce880303932f0",
+          "287c4c16318058ea8468119132071529b38f1590dd05d2427866492ec20fa833",
+          "30a36d28162242fbfba635334c8d5b5c15ac6401b87c9032ee436ba7371c1f4f",
+          "320be83545b4ba840753acb1955393916fd2914fd5e3f6cd1f6d2f69d0620220",
+          "332e9fd7529948c0d1d097e430f708673b1bf3678cbb4eb35b53d5d355f6d8fe",
+          "3647b260ad230ad1128bf7518c388fedd958a451b0bd6ad0d63d856957912161",
+          "38390e3b21e970b6113494183ebc0ba5d8620910b3d2f3e1e35efdaf4440be54",
+          "3ec00d9b2a0e8d6e82cb03a1288bfa94517e115c4d3bca68c9cdc1461b13c8b7",
+          "401595caa0ade4fef099c6faa17133c355fed14e27499b326a30f1bd15b768f8",
+          "412071f88635b6d43617ed53c2b875b341e49fdbbe79bd0e49d08438c2f37c3f",
+          "41685e143cd0076190c3784ef1793e77579464eb7539914b718088e393979b8c",
+          "42351cfdf58c669eb3c92f5b78658c8353ba5492792ccd0d2b1bab9b12bede99",
+          "499744c0fd6e0767f88ee03ba941d7f81c4967bcaa4d1cfd75f994f057ec33a6",
+          "49f2b92f25eefbafad1a6a28b1a71322f58c8e0787112c3df1f95b002402504f",
+          "4ab4351327534b3f32e48422b3b83352a7a8ea4c243b19fa5fac9192e5dfdffd",
+          "539618bfa2d36134e3109d4ba977024efe9f4fd9eff1118f4d4f8e1c1363ac8b",
+          "539e7a032de7e15243c67699a5aeac8cdd6551868903cfedf6c15d6aaca5ba29",
+          "55c7d00b608befdf25038a5500dd3269137de4863f81ac1aa85168e60f4f9c95",
+          "5886a94f953b0ee93614eda8d4f5c4e2e99c1802954243fb914c177e71381224",
+          "5a415d3b7c714809ace8f555ab441aff5224689247c7e4031a34e26a66129c24",
+          "61342db39c40c16b33c1126822d4aa58a54ee5008698ccebabf01a1d193967fc",
+          "648d85adf78a82bfa3d4dd98379e404ad6b2bd5e06f9a178b774fbd7d1931eee",
+          "6e8ac8fef64b734afc2cb058461a39620f26f9093a6cb649b56c705388f9e005",
+          "6f4e8ad899edcc7e35a4d6f816257a9d6c76a79f61528dc0531c607d9e290ff0",
+          "794158e694edd474606dc13b82334f7072b3f20016dc6b231489383b7bb01bbe",
+          "7a53ba951078c5dfb21db4f9a908f9c42d07c922e833639e6c0f6b6e0e82150a",
+          "7c2b8a3e2c9e45fa6170fe76a3743da58099b1add4a5f5a1cb862fa8cdd3a692",
+          "8419dda2961904bbba6a4c42a9093f2365096dd0f9e7b4e3e842f8fe12b83317",
+          "86d92360279a0fb1c52bb0fdea237d33562deb56b4f6c531b36234b51048e250",
+          "897bc3b2e5884a7759fcceea0d8ca5fe1bf435d957399b812a7a0c1c8a4ec1c4",
+          "8bdf06d9f297c24dbde7e5a00f9dff3dadd8e00fc3c6bc725eccf869d0c4ea35",
+          "8ed77fd766deea9891f8a1f8d63737a7834a6ed5762660170dab2037be1d5bef",
+          "924d6210f27ec6f9e3a8efd8f66bde288c4ed9eccd3803ad9dadfd5dd30d057d",
+          "95229844dbeb77e93aa39b39d93febdf106c8cb90dbe8fe63bcb7b549f0e5720",
+          "95aa94e496b0b8ff58c9c61589aac2fe3fc8fead7289b29f5d1e85f1cd4f1f91",
+          "9936d267cbbc9ad772190f14214ed42ed6709746ba4ca79240c8e5f5844f6b3e",
+          "a0352ce35d509e8a50dc88627fc5584a98b0a231b53cc63b0624e0f536b996a1",
+          "a79ca0e6f0566d9f937642edddcc3fcfdc369e16d33c857f855a1f2ea094d3d6",
+          "a96141b06a26ffcf58993739b0e87d9a5d5203704d430cbdc57ed02074bd1577",
+          "ac338103d8a5339e0157c41a40b04ed466ade8d84ad2a68e8eba20386109c163",
+          "ad397b1844dd179261068b6e6e3a4bbc676228ac15b7a40d3eb9154205c84d8c",
+          "adc79706265b5ea9465affd653b96698109a680511ed217a8c7dad7bfb2b5244",
+          "b7932bd38b072f552eee604c64ce42140c4cf64346e12587a9ebe5d99a9365b1",
+          "b948ea17a6e4a081ea5df65bcb0a26eabb3a35f1b4b9a6b7336ba491cc009604",
+          "c0dab5d0f2c5b7398bef6adf2e00917f2c961812307578b1db8378f7ae74e5f7",
+          "cef604538a1a3e85135e0cd71aed0e42b981261440b67632f5c62cbe7f0b12ca",
+          "df442019607ee1e9f589da05da4d5d8de4534a277089168fb5fa14a14d70a442",
+          "e4cdc8b8c81afb302b604938d4ff3bb51a868cc328597a73e1b1ba9e7b94b87d",
+          "e688e718ff0f066331281ce3ba6b0fdf247163956123d1ca1ca4e8efe80d8955",
+          "f0d53d1b0daa58ebfc79eec623d67edd120caee23d33dafe62023410bd20f413",
+          "f36b98ab2d1074920ecd70c9ed48c88c816f54bfef15038d69ce7446e7a67d16",
+          "fc86b3785c8abaf597f9cb784e7d1cae17fcdb4029235a9f2520eb0f44aed3e9"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (117).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (43).jpg"
+        ],
+        "sha256": [
+          "2bc305dc1daa7b8275dffb9ad3b8acdb8e2911fe8cd5b57db1653653bd4ae5d0",
+          "e8ff5b9b05cb30e68152b2fc3577692c9eace8e52b327bc3a1295121c43f2b94"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (123).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (132).jpg"
+        ],
+        "sha256": [
+          "1c512276905109b21cff2e63301dbda0900f12a3dc678810af02e70cdc069a3b",
+          "6161bb472272431060f44fa3ecae10faf5e3fcd4da336e2be7c0f4d0b33bfccb"
+        ]
+      },
+      {
+        "n_images": 5,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (14).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (17).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (192).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (193).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (20).jpg"
+        ],
+        "sha256": [
+          "0be86bd369ca0ea1e208b20aca6f0f5d40fce75aad12895133db4bddfd9491df",
+          "41521d951adf358112e4998d44067e69d4008dd6778dc92c95037b3430fc4ff3",
+          "8eb3ed37e18568188f481271435693d895ff8a70ca7d643aeda7a3b1617ab1fc",
+          "c199ab20954bccf210492a33116048bacefc86f040a23d020b8956a21f2e720e",
+          "cf4c790fef3e6789837a961682c7c9cc41a3066a8052605e05b15883063a2ae0"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenApple",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (147).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (178).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (80).jpg"
+        ],
+        "sha256": [
+          "24cd8765a01ff36e9f1ce44ce2b8c5fb88b5272a56005aea786f6508a8fa17d7",
+          "5a72b67c6acec98d7af9bc14b03dd31f7d9c87bca6a7152d2356da6ec49bd49d",
+          "b71960b1b672a62a3c9f0e51afa27dcad9d87f34b2c06ddd4fe3091e0659de5d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (16).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (12).jpg"
+        ],
+        "sha256": [
+          "5557f8df14826e3f9cc0cd1dc9896427c2daca68cea1e4703e8c489f3eec31d7",
+          "7b40eb9c8115ce299754f888268956246565a16cee19c3da54ed7e2fa61a0de1"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (160).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (194).jpg"
+        ],
+        "sha256": [
+          "6e0e4958650e72f0dadb12a6e29c56f635b92fa232059d892b02b1c7f8391383",
+          "d13a3a4ccd7d4800c96daf962c2a61098270311ebbfecfb44c4d4797161d2755"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenStrawberry"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (162).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (5).jpg"
+        ],
+        "sha256": [
+          "3389358cc5985441eff7f10f304e5d67949d3c3973e24af456907a7d7a55dd6e",
+          "e99d67e1d5d9f3d98ff3b1a1c3a83d2fd743581f7046ae7241b721e923ba3ae0"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (165).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (168).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (172).jpg"
+        ],
+        "sha256": [
+          "0bc6eb3555746189d6038f8921475cab9ce1218173625026d54f7e14e4e539c4",
+          "6a415d65f31ce3939d51ba5d39e766dd0095448cbe60ddfdc75c56e56e9976fe",
+          "a357d0c1e28f4569f96e438f556df443d81c6700ff5b4041e008e66f5edb42c0"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (167).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (174).jpg"
+        ],
+        "sha256": [
+          "223e080ed5c3d65259dfb45d9f24649cea5c421b9d1e61de947ba17e52971758",
+          "d129ef986f49706613e3a777211a7e1882514d90a6cc4e870154f5e3c94bd52d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (23).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (26).jpg"
+        ],
+        "sha256": [
+          "0fe043fed9018ba866fc59e4d91298bc3af6d8773e65f14644191c33832d044c",
+          "8335220f45c1a3b6b30c03c7d835ab35b366fa934ac22a675695ef78bfffef9a"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (24).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (25).jpg"
+        ],
+        "sha256": [
+          "6256e00a6f335a5f19948307eac16965efb8fe7b0f0bda3a61ca88b7299ddffc",
+          "de59cbefcb69de8b043458762306ef53a9971c3141214c2a26b9e42cc79262c7"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (29).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (30).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (31).jpg"
+        ],
+        "sha256": [
+          "51592cbb3c901c421550c985c083bb3419bf14537c9ba4b8643a13292b636026",
+          "7a910f5de81e7943391f35a2acb251e2081d7a091403d9ec265c96f3f3e2025c",
+          "8a9242934ef66f849d838c6f7a9efbb73d21bbdc8b873d79ca978b4736331e8b"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (48).jpg",
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (50).jpg"
+        ],
+        "sha256": [
+          "2d3388978c2c37357b4ab508c4a41cd869a3e7d55750602d703337c869c615e1",
+          "cabc3cf8829a00bc3f20f7b675e6d5bbbc5defea6329513994f56c5cbce970d0"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (5).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (164).jpg"
+        ],
+        "sha256": [
+          "1943e8be3b9bcd03aa24ed232ac01f36e32a0d582bbdd45e6e95bf527aec13d9",
+          "c2f2c6d46e3698be97bb22241fb7327d9e24c8a2de5fce65e63e4206b96feed7"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "FreshOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (60).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (107).jpg"
+        ],
+        "sha256": [
+          "92ef36af0c0b684a17c3297b705475de0f46353780fc3bbe1191347b231e2ea6",
+          "a31a0ed1bb050e4a3789617067de665b2af7bc1610926ba6ecc432be4a64f71c"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenJujube"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (84).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (175).jpg"
+        ],
+        "sha256": [
+          "86744e22545eb1853bfddbdb95ff62411757eead4c103772a6c2bf27d60e9c09",
+          "ad2c720846f4c47381de2896cb8d27bf396ea36c0dbf9c502bdcaa2091948465"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshJujube",
+          "RottenPomegranate",
+          "RottenStrawberry"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshJujube/FreshJujube (93).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (15).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (50).jpg"
+        ],
+        "sha256": [
+          "3b882c4f1a661b93071199b85c88a0cf045410cd208a8dc39df12622527cd4c4",
+          "a2140bfe7471afdfb8eba3964e583295d891d67ca99ff1dbcf049513b6d6163b",
+          "b920868bb3de0dc6d857218ca8e7bb2c766201f259dee60a1cc382ae02fafa29"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (104).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (66).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (79).jpg"
+        ],
+        "sha256": [
+          "beeaaaa7fca0a057e5f74dce8c46c2d9b283165b58d2a7a623005563eac248e2",
+          "e5f34ce96d79fd60c81bb7bcb4e49c34842ee7ee984833400523dc7610bec1c3"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (110).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (85).jpg"
+        ],
+        "sha256": [
+          "2e39372b4ec97fc73f3b2908a7d9cd8a79e1a558e4e9d89238228c5de098a145",
+          "8664a2e4f1422f90460fc3dea30b84314ca06e9f94ac482662ebfcad3194a1b5"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (111).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (116).jpg"
+        ],
+        "sha256": [
+          "4b524f84218f312606520a44c28b28f9f47d3b3cbfb71fbf68c2e4eef654aa83",
+          "b6008993da548356f8bc26cdf3fd95df9e382f2038b21051aafa2b517e2649de"
+        ]
+      },
+      {
+        "n_images": 6,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenApple"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (117).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (133).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (143).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (153).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (113).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (173).jpg"
+        ],
+        "sha256": [
+          "411fbc77b3bb2f4b3f9d251d0465b09bd75a43ca27c4c8346990e6523596d7c1",
+          "425e7eae06145e91abab3b24086608b9e5faa9e0816c88ce6fb90d2ed499ed36",
+          "58d5734ad7188171e178c2e0a4b932bba371e45dd269f6608d690fea123fa1af",
+          "9a47b55dc268fe5b942fe9160864656d6dac9d1882c4d177155941ed75c4e0d6",
+          "ac29e3528f47b2ab5f6575fbf5827dd3032ca8ba2f76599cb76cd0606b215c94",
+          "f2417b6a7f877e32242548f9911e06f43e886f7cb9a8f8e068b52c9436ddfa29"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (125).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (139).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (8).jpg"
+        ],
+        "sha256": [
+          "1fe466d7e6cae7bfd9a34707d5f9bba27aaf06e419e93ebaa6aee7cb70c12ad6",
+          "379b068110b8c9ba21de17982e760272f680a669bf58de6adeb000a3764a9518",
+          "71ceb56fdfe67cd76768796895878ffe935c661aad2adbc0093562c87bdd0a64"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (138).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (158).jpg"
+        ],
+        "sha256": [
+          "55d560249d72fec8f961cb5083ebbb7d80c2fb4a78443804488889701b1d1ce3",
+          "efa3452ec186fbc5d6444e6c0956b03fde52eb61983bdf7605c0bea38d249987"
+        ]
+      },
+      {
+        "n_images": 5,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenApple",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (14).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (30).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (48).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (35).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (61).jpg"
+        ],
+        "sha256": [
+          "6d23655bd1fb64bafb8effd2517e59a9ee1e4872a7d5eae56bd6e41a591c377e",
+          "8349c6fe513f780f0e9222bd7a4f9b26471e00475f9e3fbb23fb5665116c3532",
+          "8b6608122c451ee7c2c09fdaadc4486b3d77553f1e83b6d91170849ab07fcc09",
+          "ea889dc06a141a2afd687f9a0d2fa08de4e25e3d08f7415a09249ac7613d9d1e",
+          "eb1825da03459b312f6c520c02f0a55d2b126bee00dfaf3962de9be6dda0e5ca"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (164).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (165).jpg"
+        ],
+        "sha256": [
+          "5ddea05693497beeb8760cbe2442e34d315661df7b9256f35fafdc2e3f852361",
+          "f9c753539a7bd83652689fdd19cea49c6d021896aa108d284511a87402bae426"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (166).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (61).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (108).jpg"
+        ],
+        "sha256": [
+          "287a323489d2f3113d6c50d1af24c78abf221ca41900a5dea566d9b5beb15397",
+          "6f46e6502b415debbd3a3cde5dfe47a3c822f6c36bde17823d6d0ce76ed7209b",
+          "d65467a331ab730158a04b3054e13ca60b1e19e20152fd887af3540433a12918"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (169).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (170).jpg"
+        ],
+        "sha256": [
+          "2a5af68c5da508441c4ed056bb2de8d6aca7878a513c93bfcb08ca632883d842",
+          "9f14c1336ef45b79805914a585b0f864dafa456b7d3ad08f3f6cea9a902861da"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (173).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (50).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (53).jpg"
+        ],
+        "sha256": [
+          "4ce775397e3cd76d1c553887c48df3dc256743bfb2c17fb732f15ef293869ee3",
+          "7cdc824fd60f0fc7e7b9dcd01e1018f251439a7758166dce978484927906b684",
+          "919d00821d3967e9b0dddf06e8057a5b3da3b9c072fe9624f13a978ec9f1ee0f"
+        ]
+      },
+      {
+        "n_images": 6,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenApple",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (19).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (35).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (51).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (7).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (102).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (74).jpg"
+        ],
+        "sha256": [
+          "38ad33af02f4b6b5b8795ffeb7c746dd80ab2a3c3664aca45698604d64ab8065",
+          "496d1b93e245045d1dcef296df798209577479652b2e52211fe880a9f9945988",
+          "4e57dcd89117ed2d83744745a5b7b832faec546cc33319d5e3ad66b5dae9e301",
+          "553b34067a6945493a1735b19e22e984cd278f82b91e542f2fb2480f71a4065c",
+          "554e8a8d73ee850a09609a356d4926bb551e7fdfabbfc2fc50292efe51ae517a",
+          "848bea41e770e68c8e376d94e5486dcab2c6f1e378325b4b342a853ebd9cf77f"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (195).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (22).jpg"
+        ],
+        "sha256": [
+          "410ccdfb3767a26b0e76111207c7def82eac9a6c5ff5138a2b1df94d9318f992",
+          "8a67323090d2aa74bf2e234a97d7d020a490bb98d42e7b9f1fad3d0d8e6714de"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (198).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (25).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (26).jpg"
+        ],
+        "sha256": [
+          "35e3defbee0178c32dc7f4f7877365a65beb73c0761413f43f28154d48c4b586",
+          "748506b7204a61dbc3c9c4e50245b94784fb32d619ae902d1c454cb973ccc4ac",
+          "b16bfc11c86635a485dbdeaadae0b921d851253292103c4995838b765e57181c"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenGuava",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (20).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (80).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (11).jpg"
+        ],
+        "sha256": [
+          "1f2fb696b991d07836f095a3fc71435c512ceef5d751496024ddb3534a3e8cbf",
+          "29a86b210a4e1a8110a613119421937a3f87c2283d94a1395ad5a783c92dd5ff",
+          "3139716b53156dff9eb8809464c195a1077d9b6fd8d6824c7531664989ddea0a"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (3).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (4).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (45).jpg"
+        ],
+        "sha256": [
+          "5628c0aa8def8d73e9ca4385a64f320d95ae8fc148864e2ea010213519960da0",
+          "b6742f29bf7d673a08037bc3cc7d2c8be0ccfa580bdcb51754946868e4e36cb0",
+          "ec159911f771509281c1744131d3c2137c72597f242f5960095c35073b8516e5"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (32).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (33).jpg"
+        ],
+        "sha256": [
+          "a1f79f8da9d50e32f3eaa684cf08e9e403f84039eeac47b16e8e1c100d46d86f",
+          "f4e0152619c6e7ae9da7c2f93ca307af07aef6900b14a0628720c91ba3d81f90"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenApple"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (36).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (33).jpg"
+        ],
+        "sha256": [
+          "cc5cb1179a6b25117a3e92f1a266532222c42539dc54c366b5be709cd227fb90",
+          "ed7d944465d21db3ef920cfc15b9589b866e785457f5cfa1d193fce788463446"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (39).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (42).jpg"
+        ],
+        "sha256": [
+          "21b235ed8cd2184f1269ef77ad28a982f49874317a36b97eb03104b06c0e5980",
+          "a54d1b0500ac2b304de8a0c5f16e8627b8972dd11a3f00e386ab9f9029f7cb44"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (52).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (13).jpg"
+        ],
+        "sha256": [
+          "1d32962c055755fe80513fc92cf9f6415795739ad20412029d1c0ea99767e6a4",
+          "1e51a94f1966adc6ae0e474a2d84c0def65b15c1771cf40527c1969af393a595"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (57).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (182).jpg"
+        ],
+        "sha256": [
+          "4a24470cb9313c4fef6499df4cf36e051dbfc1beefa87d07d9829cfc0111bcd9",
+          "d615797a9b3e85c5547f9a3cd5cad7c9ba6e5e6ac6ac71f9e33b892c98534abc"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (67).jpg",
+          "Dataset/Original Image/Original Image/FreshOrange/FreshOrange (80).jpg"
+        ],
+        "sha256": [
+          "09b00dd007e0c248e08ed61e4062447c443c374abdb178c318f4f0691d6a84ad",
+          "109d7b6da40e8ae7d965a49beb9b7903914d32378dae3c5ec22e915588716650"
+        ]
+      },
+      {
+        "n_images": 11,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (1).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (103).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (113).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (116).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (120).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (139).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (198).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (51).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (54).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (7).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (80).jpg"
+        ],
+        "sha256": [
+          "1f509d152b50caffb7760bc1ca5ac6071d6a46c34295600f84ea1fc8d501b262",
+          "5e98ce064ef88cc72ced370368babba649ada03c6663553f0d9c1970fd3985d4",
+          "709763e93cb7ce0017c49f0712e07b348c215e70990a765dd3893e6347959d14",
+          "7f0701f92488c12785e7014154f7ba48f84e9d06ea6c8f0330c52b0965a926be",
+          "81bced7aa392b5d902e6d949c66204920f1c6c0f9e9f14d4f193a8d3896939b7",
+          "964839f081540cecc191e2e60c3c002be8dc66511da54c9e46fe3bb6b15cd035",
+          "a4e1c02186209bf645b655415cb7489dc1fb68533bdd231e85cee4f6a9a8c107",
+          "c7627408e2604aa00522a81ecf114bb471054a1697e50bf9cd98c7908c90696e",
+          "d2b16257dc6f7f7ecd3015a15ec2f8728c5077256d0d1171a662c2003c81b681",
+          "d34ed0f12c7a576c1ddc193ade58bc579d79e94100f6f5f8a2a73d25c0abbfec",
+          "fda9afe8f5df8967d40b6ff21137489c552a6b521220aaafd606d5c41c49a5b8"
+        ]
+      },
+      {
+        "n_images": 5,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (110).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (114).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (125).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (60).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (74).jpg"
+        ],
+        "sha256": [
+          "21503a0b8ecb63e226aea2c3ca866de4f3566a6a3ad9f0c66b9932b4efeeff0c",
+          "30c2f6f2409ae4ec13917abe7a2f5b11616ff45fa4adad2fe361eb7ab45a0bc2",
+          "c07f672056341726642d593e6d4f8fcbffd13c96c6dd038bcb11432be46778ff",
+          "d197128f708361f0803e4358cc2851e4328ba6bc95346ae67db046877ae0390e",
+          "d762382c1cc19dcdc4384e3a68fb13d0b93ab30e1ade8db1b5f4b3e8941535d9"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (117).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (128).jpg"
+        ],
+        "sha256": [
+          "ad6c28500fc31497ff8f8f26fc6b84d6dcb20ffaf879b11645618e50af564bb0",
+          "ed8483057cb8e8ff9478546d67e1be209fa0c620e6f3ed9728ebc718e163e807"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (15).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (17).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (27).jpg"
+        ],
+        "sha256": [
+          "3758be0cff25d09b07d51f65bf588c408ec4dfb1ef6b27fe27a2bf031aef4d42",
+          "7edf0847237ba7954e9baa7afa5816f3ce93b5ed9a9f01b2b9186b81ab047072",
+          "af925ebb3dd30c28f180fb9b511996cfbf25bfb965b6bbe267f21357a58618d6"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (169).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (170).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (171).jpg"
+        ],
+        "sha256": [
+          "84ccaf7758f39cb61e9fb42a19a83be4df8edabc6aa0564f3b0bd9b8bcd670a6",
+          "a2faf1a2d47e97ca7c281e367b25ac8ba64ce3b667b76bca72ba29708d046af2",
+          "d7379af88634015bca4dfc4ba2044a8a60f20bcf44ee808e352c3767ea6b052c"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (173).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (175).jpg"
+        ],
+        "sha256": [
+          "65da3f5a45333810d3f01116675b649f9ea410897d9772a2519f7fd18378a98b",
+          "945720e19072150d13f48d99fee5f3c41a17e2af427fa4bfc94e5cc45015ebbe"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate",
+          "RottenGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (20).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (174).jpg"
+        ],
+        "sha256": [
+          "7bc3e560b9dd1280c623333014c86e55fd6b0310d420eef694aa2578c217c35d",
+          "a9558a0852e2cebc3426d90f95a0a40fc4acd0611ef7b895dad08cab072a7f97"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (38).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (39).jpg"
+        ],
+        "sha256": [
+          "08af5c316bc0cfc9ac95f1f8c1229a89bca8f89cc631eaace4786eece2b40f83",
+          "a457f3e8e9d652bec12072019d808f302015fafdf21b2c8796f349e82c0cb185"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (49).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (52).jpg"
+        ],
+        "sha256": [
+          "4de1ef750b464eaa99d447adc99265048be3543720fd4d85cb2c503a100ca3a7",
+          "56687183f2fa31e91e0af92d903fa0c518c56e700c8b784129e380d71be26966"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (81).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (84).jpg"
+        ],
+        "sha256": [
+          "1c637fca0ebc62ab52e7dd947da5b0aea5b6d73baa58512706a68618352aeddc",
+          "e43a69868cd32d7daf4a2cea67d78c5f423a87d2043a8ffb487b9b182d5afbfa"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (83).jpg",
+          "Dataset/Original Image/Original Image/FreshPomegranate/FreshPomegranate (85).jpg"
+        ],
+        "sha256": [
+          "03c6795c9dddf8212133675719896bb0015010cecc117f8eddc50db6fb87e220",
+          "681f6595e1d6e2df5ee4bd64d68cd09b0f67e8c16c5933c41fa994dab414963b"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (1).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (48).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (49).jpg"
+        ],
+        "sha256": [
+          "6c1b27d9bc7f57ac079306473539de812a0d70017e20b027ee9a7111a16a9cfb",
+          "8c5c821bf39623b97328a70e3fa22b6b2dbe774bd03ab3638ff7c5d8c45c8c91",
+          "a12ac685b58b74129c434f34fb08a9a1c1012c0586288129c0559d2940956d94"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (124).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (139).jpg"
+        ],
+        "sha256": [
+          "e4420c08c0e6d65d7d1d4783346897901929f7ee7526c2583122f49a25d35fc5",
+          "f95ea09ba1e72a70c5231b53888b6cad512aef1a86c215770fcd43d08ab5d62c"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (125).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (138).jpg"
+        ],
+        "sha256": [
+          "8cabf89f0a462d51719c8f0ec786610e9881e34ff35ef3d48ec70a7d0e60ed3f",
+          "e02b1839cedec2348e6c72b5df4a84439d5bb7918a173e2196717f6dee43346f"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (13).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (75).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (150).jpg"
+        ],
+        "sha256": [
+          "523869a1cafcc9efa145dff946c9c5c748ef16fe20739961c744f4ae823fcb5a",
+          "aa8793de803af65fdf9416279cc76fe12b1d16760cf418bf23cd237ac0d11097",
+          "f8f9e279bf76c153ac1b1a2fddba1a68526913366ea69f067d05acc71578ec66"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (189).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (37).jpg"
+        ],
+        "sha256": [
+          "c2bb209963d956264cea891320c2594afc56591eb69b8d8862986c15207d29d4",
+          "c4ada4e18c1f647d9cfadb9fd05343ebb12d9a7ed54c900b2e60369a659f6cc9"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (191).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (39).jpg"
+        ],
+        "sha256": [
+          "2099fe55d2d64ad64b2b2b6a066cd6de479fe49189709a9789aea934e215c3b4",
+          "b48bd9fda92da98e9df44ccd6ffccea1292f33564a8d9f3083633b6a0f070de9"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (193).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (41).jpg"
+        ],
+        "sha256": [
+          "97e5db819821513a0d5cfaaaed7d1907e747a5c6733d56a3cd1501f46ea8f39b",
+          "ced9a8515555d1808509f5050910e7f23a355022404a06f03d469cedbfe2afc1"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (194).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (38).jpg"
+        ],
+        "sha256": [
+          "489ec30c1005ad8c4ee287588eaa25e656541b188c8a3f44c92c8d3e66060ea2",
+          "c7a88db02e45ca4b0a33d7f28a8a71ab2495b5308a6ad76ffc63262d8191bd2c"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (195).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (42).jpg"
+        ],
+        "sha256": [
+          "3d0cd344908fbe10ba0ca38324af86cdc72d4f38e6161b45275f52628c1490bb",
+          "c4867d07324e8c15777a8d9a147a25ef32df5d7ba2529b07ce7e756ff80db6ab"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (196).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (43).jpg"
+        ],
+        "sha256": [
+          "04f1c377b99c22b9753a0b1bb017f9a83fd4aef1048639ec031fa90681cf2cce",
+          "3f48d4713737452ed8ebe4198bc88092494e39fd54f2e09c08b582e6338ba88c"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (197).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (44).jpg"
+        ],
+        "sha256": [
+          "9b767ce2ba096e40e565113a2145aef2338f1916955b8b579f0a60a67c35f33f",
+          "a76e766b7edb79e41477b67257f7c31ebd13e6d8315bbb00e9d153648a03f6fc"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (198).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (45).jpg"
+        ],
+        "sha256": [
+          "188aa5da50d3a63128a7651bdae06988643a8c128290dd3618b0b17010e2907f",
+          "67fb5e54defe46417af85271fd130cd7ff45a49039aff1cf388021dc9b3d2ab4"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (199).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (46).jpg"
+        ],
+        "sha256": [
+          "043cb60ef2cb4a819992c5c27f19a49a69d2ec678856489f77beb264ee903734",
+          "d21314a3c5ad3e100d8ca080117e105333caae8b7c5a69b046dfcd8abd76e65d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (2).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (56).jpg"
+        ],
+        "sha256": [
+          "3443ce840daf75cbd0aca4cdfb82e55971430ae0910ba8c7fa9ffcb0d41f22bc",
+          "bb551c42583ed3e2f61aeac57bd6fe239f28b990ef643a19a2d2a49b2db63b55"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (200).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (47).jpg"
+        ],
+        "sha256": [
+          "d35cce437bf3ed000d4bd8b4206ec93959bde75ceba0aa0c41818730520974d2",
+          "fa353c1549082c88df623d7269b90d51bd6083d26b605ab9799deac31ac1da6a"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (4).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (58).jpg"
+        ],
+        "sha256": [
+          "4ee8f610c151db359eff62ebdbb8d79dde6aa7511b585716ebc62cd80aca2971",
+          "afde04d88b4b11598786697d0aadfb5d7b2751a28efa825f6f341054433ae454"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (5).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (60).jpg"
+        ],
+        "sha256": [
+          "04e498a58db845213c8d91af417af88c30c3986404dd0f58f3c65b6de3547a40",
+          "f73a6d519d8ecbdd3bca6a2dfcb04e102f7bd62aa92926dc204015fadd30ca70"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "FreshStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (6).jpg",
+          "Dataset/Original Image/Original Image/FreshStrawberry/FreshStrawberry (68).jpg"
+        ],
+        "sha256": [
+          "002a7b61a51b8c7b42429a04c811e28fca435620a2857eb861692797310184f0",
+          "83dec094a22508d4b2c8cb9bc321a068f9e1e48135fd101a60e5ce90a15d6948"
+        ]
+      },
+      {
+        "n_images": 4,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (106).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (177).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (8).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (36).jpg"
+        ],
+        "sha256": [
+          "3460dc913d8e5bb72bfd2a2bca721821b49f58cae1ba466b96cde5fb1a6ef2aa",
+          "476e80c3f14af4dab2481385c8c531587e11fea3777c0644ff4d9f7e82e55d2f",
+          "8075aab2dd5cf7862d27ef2fa6aedf9b86e6a3eca0fe226027ac75ca41f2a799",
+          "ef0a136d06a6eaf67c83404a8e3cc68d3002d352ec94853ab5f21f7328e956e6"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (110).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (75).jpg"
+        ],
+        "sha256": [
+          "3dda30ed5b242c8421f3fb4b48262ded06af377fafd9bde13ca6c851b16eeecd",
+          "497df77af4378591783392ce38da4d5d7936aeae83bb40140beced7f4f4d4daa"
+        ]
+      },
+      {
+        "n_images": 5,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (133).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (134).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (135).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (136).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (137).jpg"
+        ],
+        "sha256": [
+          "698ab8c3dd06472e1433ed1f50bb12a768b42b2e71631205b9f56baf474dfac1",
+          "7d1bf1c44e8e917a279c38366aedb20c683fa97fc96175f2c1b6d6170e9db11a",
+          "bff98146c97b9cd27713e419afd058ecad9047deb89be8b6a840f37e852de499",
+          "c0bc7389ff40a4fa60f622a2cc1ec3c163a11aba63a697aa2caf40dbd0bb6064",
+          "d16cbe28ce0a987984c13b4b67eb054b37d20ee368541e9d166d81e94b43c2e3"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (147).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (149).jpg"
+        ],
+        "sha256": [
+          "870cb42b11194f02afdbbe435ba588d85b30e89dd6db2e578abdbae92e01d5b8",
+          "f5451d0f665375da847b34765ff0e8bf53ce3cb75c0a54c6b5b0eecbff10334d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (180).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (88).jpg"
+        ],
+        "sha256": [
+          "2bd4ff0a8d0f144a0ca3f65b397eb277ede90c6ea81c3ef3b6a81f992f485c83",
+          "6edaff815ebd8ad398b982fa1504777a9c9b637e3c7041aec47f25a575747d02"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (4).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (101).jpg"
+        ],
+        "sha256": [
+          "1ad229d9f9bff5eeb61e8d386a6fee813a6e3d8aced576a6c31a41c5d633ca07",
+          "a95498c1f5a5aa1833d3908dd4422cd886603fd593dccb8b96362140e307fc89"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenGuava"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (53).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (82).jpg"
+        ],
+        "sha256": [
+          "426462c9a85e2d809149f3fe61d67bc0723d6889769bf6450741c5dd62e9ab28",
+          "67b522508a5d694947738d92bc5161e422407f5006a785ed6fecc6418152d34d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (7).jpg",
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (9).jpg"
+        ],
+        "sha256": [
+          "28625ef41cdf8a3a2a052f481d0f6d292afdcecfedd6e99cbc6f99ac419d27cd",
+          "2b09a15dd1a181ce8d5bae1b4fe5b2494fc155eabb4bc127d068637c720b0503"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (70).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (56).jpg"
+        ],
+        "sha256": [
+          "37a5aa2fb4cf70b7e3ca9ab26051745f4251316737f4c30e6019886f8252ee60",
+          "7e255edd3ac92cf8829798f64dc14c9029171035341b898d12a2a7b2f547d259"
+        ]
+      },
+      {
+        "n_images": 7,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenJujube",
+          "RottenOrange",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (74).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (99).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (113).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (112).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (116).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (117).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (187).jpg"
+        ],
+        "sha256": [
+          "7227c6476ce7f7db391036732edc745f46144f7330b3eec791bebf6622e05d8b",
+          "a171e1ee4dee5be788998bb0f383c9a14a3199edc9c57be21e7145cdfa3fa5fa",
+          "ac833fcabb5c48004884cc22e9b7706774fe795217628a4ade78ee55ff634298",
+          "ca045e399562a8525b45c2b6d4f1f8682347f7dc44a3ce9878cf9abd65a700bc",
+          "d523d986eef89f1d4893c36464e58bad7cd7f842a5762733b0d0d4f0db80397c",
+          "db0367f032ba1e9ff26afc1849d03eb07a2ccbaf31b6deea4d040f3ed915791c",
+          "f2bed3883471160c43424e9e57f812e22965734901e3005543d832cce35c237b"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenApple",
+          "RottenOrange"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenApple/RottenApple (88).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (106).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (34).jpg"
+        ],
+        "sha256": [
+          "2c08de066404122b881f2f94d2ce84b80f9fb6ab698d6793c6cfb2cc4e50f191",
+          "442972c73c5953552aca435d3408f7305360e500f83d8731c40bd72ec4905092",
+          "554f213048f2585da97820781c35ec8629050818dea610f7cd0f714668da9e83"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (133).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (73).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (85).jpg"
+        ],
+        "sha256": [
+          "056f3c2955df7dd268600204d1ed682224473edc2d0341b0d03db3db5800cbae",
+          "0c63f15277cd9dc6789478105ee452e7330daeb2a91fc8e4b46643e407892f3b",
+          "aa481ef9a20bd0496480bfe1747dbcdb78eb47606ed0a59249ce3e943183c9a1"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (134).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (75).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (87).jpg"
+        ],
+        "sha256": [
+          "690a6b107fe6da0f3776a4f9611355ca369740d5244d00b20b713f847dc7756b",
+          "9f8be00f847f01b35e7d4759f005223830be46ded9f72d2407e1a40f9a355f26",
+          "dc0b2980f9fe37a59ae0ff3546aa51943bdf25cb1e66f3bdc7c80a636967928b"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (141).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (142).jpg"
+        ],
+        "sha256": [
+          "b80333a4adda5894c139fe7ca9e12f310e56eef60bedf99556e7fe7d2e2d8b05",
+          "fc8bfe04c212562cd410465633c90ac47088e498d220db65ee25213786494109"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (146).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (162).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (165).jpg"
+        ],
+        "sha256": [
+          "36d230bdbc30f861e1cc2fc3a0cdbfdd76266f0f0c865c93d2345573870056df",
+          "a1269aefcdbc6c6f386ee911204a85b07f24e793bb9ae82bafa57a712b96ce0c",
+          "fdc652f913761bd9741ee7eb81a35a4dc714793233862b6c961281071b567bf9"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (192).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (74).jpg"
+        ],
+        "sha256": [
+          "56413ef66be705bdc621186c94adf02601379c2b6016d58ae0076aaac17e80da",
+          "8904c5ee0a6a0ff303a750c8328f2c2afb64b2bef3ab82c76a863c42f1685f95"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (34).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (35).jpg"
+        ],
+        "sha256": [
+          "31d6dbdb9cbb0617d8a920079db54bd08ae65a6e27eae22d9b5fff47150d26d5",
+          "601d337a01724eb069f19af62b25c33a45f205d31a3aa9dc0f35fc0b6947263f"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenBanana"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (78).jpg",
+          "Dataset/Original Image/Original Image/RottenBanana/RottenBanana (99).jpg"
+        ],
+        "sha256": [
+          "29177d68c1cc5be9a7e7e2041d5bd31c4b98117539a0da60b0c64ea673639262",
+          "83aed062177f949392046ce526cbcddd9d82aa8efc011e3ec1416c2e8ed4e2d9"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (101).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (104).jpg"
+        ],
+        "sha256": [
+          "f2ccf0813828f06a35be64f5b3bf0004c1b1bc9616273f8582544e3153013dfd",
+          "f393f774c43d475350d084175db8b26d46ae06241d70bba67f51aca662bd7fa1"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (105).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (99).jpg"
+        ],
+        "sha256": [
+          "0c4c54fd99097e71f6eca43999a5a9d41689713a0cf3ac6448997dd98ea8d5a7",
+          "531e69d29d1d20ad7cc0ed0c458f9bcd5ed96c1d4cd3cd01b9ce6d54c028a75c"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (157).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (158).jpg"
+        ],
+        "sha256": [
+          "eb7e899de9c7888c37f3725625133e351e198584827fd2c560acccb54d08a6cd",
+          "f8c08af51f3bb4b508b266577b53c5ec59f2231d7474f11bb0e228a7c50a9d6f"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (161).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (163).jpg"
+        ],
+        "sha256": [
+          "72ebbcf7c718b620b7495f1fe6e0649a20dfd4c2d622d1e860e19d8c879ab7ff",
+          "eb61f1ebfab974bcddec7f1166149fcde11319ae0a117bc2ac2047dfbc7d7e59"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (171).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (178).jpg"
+        ],
+        "sha256": [
+          "2bbbd501c8503886a3f04cc7fa8012fa036acac1879c198117296459dbf5161f",
+          "9a74bde6fd89580679f1cd1b71f45469c6452816534c668fa832570c7937ee59"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (193).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (194).jpg"
+        ],
+        "sha256": [
+          "02648b99cf2485040b47098bcab91b02ed00b3116c5c96b3395881118489738a",
+          "3c29964b55c7ce9fa94e28911a59cbb72d679dca11973b80955215dfa076f77b"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (51).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (53).jpg"
+        ],
+        "sha256": [
+          "42b8262be2a6fd1fdaa6d908fbf90fa40e0bbd61e5c56778db2f39f707d603ed",
+          "66b902b390f79aef7ac8edc05f8def722318817ed2af8b98af25fbed1005e7c4"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (60).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (61).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (64).jpg"
+        ],
+        "sha256": [
+          "0577db842c7511cd3595e81963e21fb7495166a7feebfb6bbbf2bb5e45a1fb4f",
+          "963b730cc3a639eec51a2de087f3e20e8427c942d8c0da87c9e832bdcf741164",
+          "a6138fa9452acd94b928d2364e03b0f0fa5c20c325c8e2b973c37039ccd0dfcb"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGrape"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (82).jpg",
+          "Dataset/Original Image/Original Image/RottenGrape/RottenGrape (97).jpg"
+        ],
+        "sha256": [
+          "6bbba5dcf3bdc8fdde7ef9b1f320b7d7e225c1c6e1377620b1153a4ff52f8582",
+          "af218b811bb461eb06f41a77068046977cc10c5eff9cb6fdb95964ebe59cb1e7"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (1).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (200).jpg"
+        ],
+        "sha256": [
+          "75b2ee0cc12147d27d9bdc5bf191f3eeb1069cb087369c0bf21a05be96d9bebe",
+          "f17096c46ae87a75a5091163f8a3824fc80bd8e20174f2252eec68167eb9c8f5"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (112).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (115).jpg"
+        ],
+        "sha256": [
+          "900075f76ea920237cc9860871b9a6cbabd2af68f4d901c94b87fb35aaa7874d",
+          "98f85a565d670c144f382fe772ffdf94b8f5e21a5456ad6ae41d6725035b1d22"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (183).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (184).jpg"
+        ],
+        "sha256": [
+          "109e1d95dad19d5e1a3a02b79e85b4e267d2efa02593dbac9c4ac1cfb938f94c",
+          "bc57c2c0f090ab88b5091751f1e481f9425f124fc276e4c9a2bba132afd7edb5"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (32).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (33).jpg"
+        ],
+        "sha256": [
+          "27f1f612ca97ac53d7de2baca8c531651461b7f32a95ad682e4ea34b7076545c",
+          "9a5d239fa828e01aa310278fa757ad457c0b955560d64051d92f0fc55eaab8f6"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenGuava"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (61).jpg",
+          "Dataset/Original Image/Original Image/RottenGuava/RottenGuava (68).jpg"
+        ],
+        "sha256": [
+          "5acd57c6f92457867db2ef9b6d36f1d1c1f26998904f210608d89525777159af",
+          "d5ca2ab345e6a178504f2899524f7f7b9997160fd6a6b2819e37a613d7f339a8"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (146).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (147).jpg"
+        ],
+        "sha256": [
+          "0d976a22ecf55ee9992943ea1c6191b0eb77e2d64cc0c98470a125ffa6eaca65",
+          "e065f8632b0343fbf23ea9c10b73cc687c82772b28d9741635d22bf4143955ec"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (190).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (191).jpg"
+        ],
+        "sha256": [
+          "5b29605e3b5611ec9e02a4e92fcaeced8b3853a4e659cd5ef49332c29fb1b742",
+          "749c20b9a5dd555473729159b856a176f84c4c8f6c1c279a1e7037dd07e22cc0"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (193).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (196).jpg"
+        ],
+        "sha256": [
+          "21a4093fadffbb40d8fc974c1149d40f62b7e2e6ae9a021efd1e94f428963bfb",
+          "b5f8a1154d1923b11b034f081596d64a95271f60504588b6ed704cf1462108a5"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenJujube"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (2).jpg",
+          "Dataset/Original Image/Original Image/RottenJujube/RottenJujube (3).jpg"
+        ],
+        "sha256": [
+          "1b8c8c5ae10df64d21032da2d0efd41c48ffdf4906397db11613431435eb7acb",
+          "48096772cdff9d9cf39265713e537e7ffdaa68ac5325c51b27dd6a138ae14581"
+        ]
+      },
+      {
+        "n_images": 4,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (141).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (103).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (104).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (105).jpg"
+        ],
+        "sha256": [
+          "153fc9de45f74834f20b8f86daab83f27f342da9702966b2afab77cc13a2f261",
+          "5077c796fc39a46abb4c8f3f9cf294f817cf449e8f3d55c6fe22581e7115c0ad",
+          "51810015ae55e4197ece5e9b90751c80c38359a3c10a2cfc1090a8e0bdce673a",
+          "f67d1a62544e68ed438fe5bb6b8084533aab6d45361f160289744b3c2afaacf5"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (156).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (167).jpg"
+        ],
+        "sha256": [
+          "07c2f5339b16dea571f5a00c84145e42fb4d046d5e57d9cbf82b51b3502ab4c6",
+          "afe427510381ba91cb1ef41788dd64ccbec22b603925a35d11e3730321f81ba5"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (162).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (164).jpg"
+        ],
+        "sha256": [
+          "7151555b8b34fb68d7f8efbb4f422e4ccead491fab9c9dc76c99673a16c6a8be",
+          "a80e11df080b3c2cfe448e3fe42cde27ea582aaf572a8c2b3966d64604812c19"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (187).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (188).jpg"
+        ],
+        "sha256": [
+          "aa6e1b9e2a85d84237cd4e1bdd12c63c6911967390699884cb4eec81515d2367",
+          "ee68d1e43adb1394161435ad212ce60f3c8f4d08bfa8868747edb2c27036e271"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (191).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (4).jpg"
+        ],
+        "sha256": [
+          "440a4e060d9536f58ddb2a8520c44fef9df2daaaad1712635502159d5cd402dd",
+          "5eae47ec587e379f55333cc0691020fcf5bf5d7e27e2001277d9c6ea90430fd8"
+        ]
+      },
+      {
+        "n_images": 3,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (52).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (53).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (54).jpg"
+        ],
+        "sha256": [
+          "3dd850b78fb389a713a020ab9a5ddd05f538c8776f0133b6765e71bd0fa916c5",
+          "95ca16a4ffa68d4b882daeae4fd9d1f0f4f9f275378a8d95a6f31b93d42ab33c",
+          "a54b2ab8b4c7cd8fc530224da3dde8696f435e19d448bc14289a3537a6d42c30"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (69).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (70).jpg"
+        ],
+        "sha256": [
+          "91ec716d1c073dc54685a60a2549ff998423105ea83cc78875835c8beb551070",
+          "c306d3ffcdd7aba899ac4dcc8521d91e50ac0793d0cf99d18331ee4d1ab3f452"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (77).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (79).jpg"
+        ],
+        "sha256": [
+          "dee18a69fed0dac76fb26c726f8647eb921d604f5d15f5d4d1723ba52d41c580",
+          "fac8e913695635b304694ed645ff655a38f1ebeced568d0ea8bfd2d199dde089"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (82).jpg",
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (83).jpg"
+        ],
+        "sha256": [
+          "3971ac7357ed9925fddc20d429531277f812085fa7b3ac22645782b153d8bad5",
+          "611e114fe9f771459a040e325ba977d67f4c60d167b45c2162d4c91ef72208e2"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenOrange",
+          "RottenPomegranate"
+        ],
+        "cross_class": true,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenOrange/RottenOrange (85).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (143).jpg"
+        ],
+        "sha256": [
+          "91445eac1e87f14b669c53588c45b086f5816b4440ea196a456ea082d13d8ab4",
+          "ada7f8b420219a5cf22e6b101ca6a8e89c5ded9e5f134e0b0d661ca5a5aed5b2"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (1).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (66).jpg"
+        ],
+        "sha256": [
+          "d3cfde6aad7d1a23eac6e4996773c05afcb17a715c4073a0551d1623b517dcee",
+          "d7128f6f73d64b09393cad33e9dc0d3aed47b4a407bd396dded9d4116b852497"
+        ]
+      },
+      {
+        "n_images": 4,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (108).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (124).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (125).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (126).jpg"
+        ],
+        "sha256": [
+          "30a3392fea1cd7feb9162eb73c3f42043cf999acb3edeb1cda8e33cf6858f3e1",
+          "341c3d6e82d9e9c6608dd3f6f5f06245afbae1edc53fb4b0aeab57bfceebe7fd",
+          "c1929f0896eef875dd406aeccafb3dca02411bca3821718c6384c522ffbd3eaa",
+          "c3e73021b6fb84640a72192d96baffaef320d1a883b51318fcd40f00ba52ffe7"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (120).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (121).jpg"
+        ],
+        "sha256": [
+          "df07bf788a782a87a0d8f7dfb38e37c3ce707cbe5fd303b3c31a247183d4ed36",
+          "f28bd33ff9a524462903b4ad8586983f156540db13a59144906dd1ce0ba582a0"
+        ]
+      },
+      {
+        "n_images": 5,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (127).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (128).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (130).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (188).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (200).jpg"
+        ],
+        "sha256": [
+          "34845415711a7231659d3974d5e13f0e6feecd0ae22b61a12829fec27455d15c",
+          "36dca28b0aa4a9437814f0c78f18fc509095356b2709d3f64ed3669aad550e5b",
+          "4aa7b5c90ff7696ffabdc576509b3b9e4c21e6059e1db33dcf8c3532ddb054ff",
+          "4ddef09fb3681bffd03511d5b899078d852b12f2ab0ae9431ca143a14cfcf235",
+          "aca9e2d6261de498c22b97636ffdf244cc4eb1c488fcdc6691b326f6fc56788d"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (136).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (137).jpg"
+        ],
+        "sha256": [
+          "2ad4e1b7aa4fd437c7ba52d7c64c405f1b6c1982841ae32e36df0c3768a4168b",
+          "459e97232bcf146163ffbf75554cb1c47f4a24fdba659e98ddbb6714751a5701"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (176).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (178).jpg"
+        ],
+        "sha256": [
+          "16cf17570575caa6887cc455850a7ae2847f035b4555aec3f911fb48d28a3758",
+          "6509fbd0ebf1fe7e67273b3c37cd9361422efde1158ab5122e455c50b5ac0173"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (190).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (191).jpg"
+        ],
+        "sha256": [
+          "4f4bf301de5084e104b0de5a229f84e9b3dc69018e4fd96db8533edab77b016f",
+          "d654d30420f4a00504931f17e59897db65bf48768b0a24d6610773752b8835c9"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (192).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (193).jpg"
+        ],
+        "sha256": [
+          "17ccebd63a87ec08f00ff9bddb10fa9bde413b7f6d830f3a708ae030b4c55950",
+          "c7d0c091906f38e8f92f13ca72418bec4ba268b03cfe32388f3ebbff430a1b4b"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (198).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (199).jpg"
+        ],
+        "sha256": [
+          "7713c226e7eee8a60abc1b6e3fa90a9452890575919344329886d791aed176c9",
+          "b50ead87562071e7e42ecbb161545e8bc42e7308a676a01fe35a12dd70cd4a1e"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (34).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (35).jpg"
+        ],
+        "sha256": [
+          "58fea11d35f8d88fbacb15075eb73c40301c9637b35d3647dc88e14a0b94cf88",
+          "ae04a1ffeb3ca399452bbcac9bf965390749a839fca8d5fc2b470b7e6ba1ceb6"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (37).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (43).jpg"
+        ],
+        "sha256": [
+          "52d845e9daacb4d608c4979470c4f5a0d7a6b24037ddfae2a668a0a8977d0a36",
+          "d6557d4d2b1696a84d54b2c01d36bcc58c4ecb7c200266a56a2bba06cb57d80e"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (6).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (95).jpg"
+        ],
+        "sha256": [
+          "06dd2f2bd106c8ca465ec81cc91a987574d9d2dea34c24a5baca5624bc3a2291",
+          "7aa8ffa15a7d4910d405b25e5fcf054919af627397ca53e40afac8881c65f215"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (62).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (64).jpg"
+        ],
+        "sha256": [
+          "9cbc78836c8ac9a3cbc302ee8d56ab0992714b1eda8c47cf3491a562c05c3602",
+          "abeba2a8857e3618ee0658b42a052aaada5a59827dba4deb3ab300a20d1cc0f7"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenPomegranate"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (91).jpg",
+          "Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (92).jpg"
+        ],
+        "sha256": [
+          "3a7997265ad4ee7d4dbca58aa1a1e52d82054618edffe618e1582833189f3812",
+          "ef4351a766038f8821e583407f8e7d19b560805ff8280ffb9a95c079673433e8"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (10).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (11).jpg"
+        ],
+        "sha256": [
+          "21faacefb32326432f8d06ae79b77b1431db914132f2bccfcdbb1ae1211153ce",
+          "31ff4cf0b2ec75a5c0c5dafcd07c94fece021a8575fbeb10dccfae2f1aa8bb07"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (117).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (118).jpg"
+        ],
+        "sha256": [
+          "3849a72597c0b800cb62d2cd8d79a60ba5533cd8c7b7b801a0fea0c6175fae86",
+          "55b0562bbe1a6dbe0f66c116f153f88a6722005651ab181a5afb56e6925e94f6"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (14).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (9).jpg"
+        ],
+        "sha256": [
+          "0dead4dd9a110747e31716fc22cac2fcfed2720ef28e053b86b725780f08b4aa",
+          "c6eb715b53de4fd958573ac0e23d103b70ad26a57a44fa72899ae535e9b928e5"
+        ]
+      },
+      {
+        "n_images": 4,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (62).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (64).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (65).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (68).jpg"
+        ],
+        "sha256": [
+          "153684efabfb6ee5669765e986443f7744b58c5cbc6e7d78dd9457e2b2736f8a",
+          "22883a5570bae273427e20e82bef4b8caa3d37693eec3a5d059c36da72a811d9",
+          "821e267698984e6b810aa41f6e1f1e077398c0ac07413cffcae0548a9154dc52",
+          "eda6facc5878d8ee641362dbd91712df6be782c5744b8507aa0cf4b5c207f328"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (66).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (67).jpg"
+        ],
+        "sha256": [
+          "45cb426b662b613fb6baea062c31919478ea37fa0177e6457a43d185e1a039fd",
+          "4dd753afbd0b16f082e8f1edf72b094adddde49f55080decc01041ac365f7c48"
+        ]
+      },
+      {
+        "n_images": 2,
+        "distance_threshold": 8,
+        "class_folders": [
+          "RottenStrawberry"
+        ],
+        "cross_class": false,
+        "paths": [
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (77).jpg",
+          "Dataset/Original Image/Original Image/RottenStrawberry/RottenStrawberry (95).jpg"
+        ],
+        "sha256": [
+          "2a03c357a4432deeca50411d55db0c3067034bcba09a124356bf86003f70d816",
+          "9d5ffc2012b95fba8ffd08afdbf9b16a9bb14144eaa80bd13cfbe3214d16f019"
+        ]
+      }
+    ],
+    "n_exact_groups": 7,
+    "n_exact_duplicate_files": 7,
+    "n_near_groups": 188,
+    "n_near_groups_cross_class": 51
+  },
+  "brightness": {
+    "mean": 156.3418719983101,
+    "very_dark_images": 0,
+    "very_bright_images": 11
+  }
+}

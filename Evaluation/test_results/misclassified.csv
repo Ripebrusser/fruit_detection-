@@ -1,0 +1,16 @@
+relative_path,true_class,predicted_class,top1_confidence,fresh_probability,rotten_probability
+Dataset/Original Image/Original Image/RottenGrape/RottenGrape (1).jpg,RottenGrape,FreshGrape,0.99758947,0.9977306,0.0022694778
+Dataset/Original Image/Original Image/RottenGrape/RottenGrape (175).jpg,RottenGrape,FreshGrape,0.9683497,0.96843493,0.03156512
+Dataset/Original Image/Original Image/FreshApple/FreshApple (111).jpg,FreshApple,FreshPomegranate,0.94254625,0.99991274,8.730994e-05
+Dataset/Original Image/Original Image/RottenGrape/RottenGrape (200).jpg,RottenGrape,RottenJujube,0.8239361,0.0056619453,0.9943381
+Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (85).jpg,RottenPomegranate,FreshPomegranate,0.721402,0.72144735,0.27855268
+Dataset/Original Image/Original Image/RottenApple/RottenApple (84).jpg,RottenApple,RottenGuava,0.71501654,0.003733751,0.9962661
+Dataset/Original Image/Original Image/FreshApple/FreshApple (198).jpg,FreshApple,FreshPomegranate,0.67675555,0.9997924,0.00020754272
+Dataset/Original Image/Original Image/RottenJujube/RottenJujube (100).jpg,RottenJujube,RottenOrange,0.65203035,9.684023e-05,0.9999031
+Dataset/Original Image/Original Image/FreshApple/FreshApple (108).jpg,FreshApple,FreshPomegranate,0.61044765,0.9998126,0.00018746548
+Dataset/Original Image/Original Image/FreshOrange/FreshOrange (168).jpg,FreshOrange,RottenJujube,0.5352106,0.44341218,0.5565878
+Dataset/Original Image/Original Image/FreshOrange/FreshOrange (63).jpg,FreshOrange,RottenJujube,0.5352106,0.44341218,0.5565878
+Dataset/Original Image/Original Image/RottenGuava/RottenGuava (143).jpg,RottenGuava,FreshPomegranate,0.5259592,0.5309617,0.46903828
+Dataset/Original Image/Original Image/FreshApple/FreshApple (134).jpg,FreshApple,FreshPomegranate,0.52366763,0.9999425,5.754035e-05
+Dataset/Original Image/Original Image/RottenPomegranate/RottenPomegranate (169).jpg,RottenPomegranate,RottenApple,0.51152855,0.0026961213,0.99730384
+Dataset/Original Image/Original Image/RottenApple/RottenApple (171).jpg,RottenApple,RottenGuava,0.4542416,8.3937164e-05,0.99991596

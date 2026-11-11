@@ -23,7 +23,8 @@
       <nav class="site-nav" aria-label="Sections">
         <a href="#analyse">Analyse</a>
         <a href="#results">Results</a>
-        <a href="#about">About the model</a>
+        <a href="#about">How it works</a>
+        <a href="#performance">Performance</a>
       </nav>
     </div>
   </header>
@@ -39,11 +40,31 @@
             fresh or rotten, using a model trained on 3,200 labelled photographs. Every score is
             a model probability — never a fabricated measurement.
           </p>
-          <ul class="hero-points">
-            <li><strong>8 fruits</strong> · Apple, Banana, Orange, Grape, Guava, Jujube, Pomegranate, Strawberry</li>
-            <li><strong>16 classes</strong> · fresh and rotten condition for each fruit</li>
-            <li><strong>Calibrated</strong> confidence with an explicit uncertainty gate</li>
+
+          <ul class="stat-strip">
+            <li>
+              <span class="stat-value">3,200</span>
+              <span class="stat-label">training photographs</span>
+            </li>
+            <li>
+              <span class="stat-value">16</span>
+              <span class="stat-label">fresh / rotten classes</span>
+            </li>
+            <li>
+              <span class="stat-value">98.8%</span>
+              <span class="stat-label">fresh vs rotten accuracy</span>
+            </li>
           </ul>
+
+          <ul class="fruit-chips" aria-label="Supported fruits">
+            <li>Apple</li><li>Banana</li><li>Orange</li><li>Grape</li>
+            <li>Guava</li><li>Jujube</li><li>Pomegranate</li><li>Strawberry</li>
+          </ul>
+
+          <p class="hero-note">
+            Whole-fruit photographs only. Cross-section analysis is <strong>not validated</strong>,
+            and remaining shelf life <strong>cannot be estimated</strong> from this dataset.
+          </p>
         </div>
 
         <div class="upload-card" id="analyse">
@@ -80,47 +101,66 @@
 
           <p class="hint">
             Best results: one fruit, reasonably lit, filling most of the frame, photographed from
-            outside the fruit. Cut-fruit analysis is <strong>not validated</strong> by this model.
+            outside the fruit.
           </p>
         </div>
       </div>
     </section>
 
-    <section class="results" id="results" hidden aria-live="polite">
+    <section class="results" id="results" hidden>
       <div class="wrap">
         <div class="results-head">
           <h2>Analysis result</h2>
           <p class="results-meta" id="results-meta"></p>
         </div>
 
+        <!-- One authoritative verdict. Every card below agrees with this banner. -->
+        <div class="verdict-banner" id="verdict-banner" role="status" aria-live="polite">
+          <p class="verdict-kicker" id="verdict-kicker">Assessment</p>
+          <h3 class="verdict-headline" id="verdict-headline">—</h3>
+          <p class="verdict-detail" id="verdict-detail"></p>
+          <div class="verdict-chips">
+            <span class="chip" id="chip-fruit">Identification</span>
+            <span class="chip" id="chip-condition">Condition</span>
+          </div>
+        </div>
+
         <div class="results-grid">
           <article class="card image-card">
-            <h3 class="card-title">Uploaded image</h3>
+            <h3 class="card-title">Uploaded photograph</h3>
             <img id="result-image" alt="The analysed fruit photograph" />
             <p class="muted" id="result-image-meta"></p>
           </article>
 
-          <article class="card verdict-card">
-            <h3 class="card-title">Identification</h3>
+          <article class="card identification-card" id="identification-card">
+            <div class="card-head">
+              <h3 class="card-title">Fruit identification</h3>
+              <span class="chip chip-compact" id="identification-status">—</span>
+            </div>
             <p class="fruit-name" id="result-fruit">—</p>
             <p class="fruit-class" id="result-class"></p>
             <div class="meter">
               <div class="meter-head">
                 <span>Identification confidence</span>
-                <span id="result-confidence">—</span>
+                <span class="meter-value" id="result-confidence">—</span>
               </div>
-              <div class="meter-track"><div class="meter-fill" id="confidence-bar"></div></div>
+              <div class="meter-track">
+                <div class="meter-fill" id="confidence-bar"></div>
+              </div>
             </div>
             <p class="muted" id="result-confidence-note"></p>
           </article>
 
-          <article class="card condition-card">
-            <h3 class="card-title">Condition assessment</h3>
+          <article class="card condition-card" id="condition-card">
+            <div class="card-head">
+              <h3 class="card-title">Condition assessment</h3>
+              <span class="chip chip-compact" id="condition-status">—</span>
+            </div>
             <p class="condition-badge" id="result-condition">—</p>
 
             <div class="score-row">
               <div class="score-head">
-                <span class="score-label">Fresh / good</span>
+                <span class="score-label">Looks fresh</span>
                 <span class="score-value" id="fresh-value">—</span>
               </div>
               <div class="meter-track"><div class="meter-fill fresh" id="fresh-bar"></div></div>
@@ -128,20 +168,28 @@
 
             <div class="score-row">
               <div class="score-head">
-                <span class="score-label">Rotten / bad</span>
+                <span class="score-label">Looks rotten</span>
                 <span class="score-value" id="rotten-value">—</span>
               </div>
               <div class="meter-track"><div class="meter-fill rotten" id="rotten-bar"></div></div>
             </div>
 
+            <div class="meter">
+              <div class="meter-head">
+                <span>Decisiveness of this split</span>
+                <span class="meter-value" id="result-condition-confidence">—</span>
+              </div>
+              <div class="meter-track"><div class="meter-fill neutral" id="condition-confidence-bar"></div></div>
+            </div>
+
             <p class="muted">
-              These percentages are the model's summed class probabilities — not the physical
-              proportion of the fruit that is fresh or rotten.
+              These percentages are summed model probabilities, not the physical proportion of the
+              fruit that is fresh or rotten.
             </p>
           </article>
 
-          <article class="card edibility-card">
-            <h3 class="card-title">Visual edibility assessment</h3>
+          <article class="card assessment-card">
+            <h3 class="card-title">Visual spoilage assessment</h3>
             <p class="edibility-label" id="result-edibility">—</p>
             <p class="muted" id="result-edibility-note"></p>
             <div class="disclaimer" role="note">
@@ -164,7 +212,7 @@
         </div>
 
         <div class="warnings" id="warnings" hidden>
-          <h3>Warnings</h3>
+          <h3>What to check</h3>
           <ul id="warning-list"></ul>
         </div>
 
@@ -173,16 +221,22 @@
     </section>
 
     <section class="about" id="about">
-      <div class="wrap about-inner">
-        <h2>About this model — and its limits</h2>
+      <div class="wrap">
+        <h2>How the model works — and what it cannot do</h2>
         <div class="about-grid">
           <div>
-            <h3>What it does</h3>
+            <h3>Two separate answers</h3>
             <p>
               A MobileNetV2 network pre-trained on ImageNet is fine-tuned on 16 classes built from
-              eight fruits × two conditions. Fruit identity and condition are read out of the same
-              softmax: the eight "Fresh" class probabilities are summed into the fresh score, and
-              the eight "Rotten" probabilities into the rotten score.
+              eight fruits × two conditions. Fruit identity is the summed probability of that
+              fruit's fresh and rotten classes; the condition is the eight fresh probabilities
+              against the eight rotten ones.
+            </p>
+            <p>
+              The two are reported separately because they can differ in confidence. A photograph
+              can show a pomegranate beyond doubt while leaving fresh versus rotten genuinely
+              ambiguous — in that case the site names the fruit and marks the condition uncertain,
+              instead of discarding a correct identification.
             </p>
           </div>
           <div>
@@ -191,18 +245,33 @@
               <li><strong>Shelf life.</strong> No capture dates, storage temperatures or days-to-spoilage labels exist in the dataset, so no number of days can be predicted.</li>
               <li><strong>Cross-sections.</strong> Only a small, unlabelled fraction of the dataset shows cut fruit, so cut-fruit analysis is not validated.</li>
               <li><strong>Food safety.</strong> A photograph cannot prove a fruit is safe to eat.</li>
-              <li><strong>Other fruits.</strong> Fruits outside the eight supported types may be forced into a supported class; the confidence gate flags weak predictions, but it is not a guarantee.</li>
+              <li><strong>Other fruits.</strong> Fruits outside the eight supported types may be forced into a supported class. The gate reports low confidence when that happens, but it is not a guarantee.</li>
             </ul>
           </div>
           <div>
-            <h3>How it was measured</h3>
-            <p id="model-summary">Loading evaluation summary…</p>
-            <p class="muted">
-              Metrics are computed on an untouched test split that was never used for training or
-              model selection.
+            <h3>How uncertainty is handled</h3>
+            <p>
+              Acceptance thresholds are fitted on the validation split and stored with the model.
+              Capture-quality checks — blur, exposure, size — only produce advice; they never
+              override a fruit the network recognises with high confidence.
             </p>
+            <p class="muted" id="gate-summary">Gate configuration loading…</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="performance" id="performance">
+      <div class="wrap">
+        <h2>Measured performance</h2>
+        <p class="section-lede">
+          Every number below comes from the evaluation run on the untouched test split, which was
+          never used for training, threshold fitting or model selection.
+        </p>
+        <div class="model-tiles" id="model-tiles">
+          <p class="muted" id="model-summary">Loading evaluation summary…</p>
+        </div>
+        <p class="metrics-note" id="metrics-note"></p>
       </div>
     </section>
   </main>

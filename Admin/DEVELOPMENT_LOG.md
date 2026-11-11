@@ -154,3 +154,85 @@ certainty. Recorded as risk R5 (partially mitigated, accepted).
 
 `README.md`, `Admin/CODE_AUDIT_REPORT.md`, and this log updated with the measured numbers; the
 `README` results table is copied from `Evaluation/metrics/metrics.json`.
+
+---
+
+## Phase 8 — Audit round: reproduce, fix, re-measure (9 November 2026)
+
+Trigger: a reported failure where a rotten pomegranate produced an uncertain identification
+*and* a confident rotten prediction on the same page.
+
+### 8.1 Baseline preserved
+
+`git init` + commit `88d78fc` captured the whole working tree before any edit (59 tracked
+files; dataset images, caches and checkpoints ignored). Every change below is diffable
+against it.
+
+### 8.2 Reproduction, before any change
+
+Ran all 480 test images through the real `FruitPredictor` and recorded the payloads
+(`Evaluation/test_results/repro_pomegranate.json`):
+
+- **55/480 genuine test images were rejected** as unidentifiable.
+- **47 of the 55** were rejected for "the image looks blurry" — including images classified at
+  100.0 % confidence (a `FreshBanana` at top1 = 1.000).
+- **14/30 rotten pomegranates** were rejected. Thirteen of them named the right fruit with
+  ≥ 0.85 confidence; the confidence sat around 0.99 in most cases.
+- The front end rewrote only the fruit name on rejection, leaving the fresh/rotten bars, the
+  condition badge and the edibility label showing the confident prediction. That is the
+  contradiction the user saw.
+
+The user's original photograph was not available, so this reproduces the failure class with
+same-class held-out images, not that specific file.
+
+### 8.3 Fixes
+
+| Change | File |
+| --- | --- |
+| Identity gated on fruit-level confidence + margin; condition decided separately; quality demoted to warnings | `SRC/models/predictor.py` |
+| Single `verdict` object (`identified` / `identified_condition_uncertain` / `unidentified`) | `SRC/models/predictor.py` |
+| Validation-only threshold fitting; writes `Models/gate_config.json` | `SRC/models/calibrate_gate.py` (new) |
+| Test split no longer used to derive thresholds; per-fruit block added | `SRC/models/evaluate.py` |
+| Serving-gate measurement rewritten for the two-part gate | `SRC/models/gate_report.py` |
+| Per-fruit / per-class error analysis | `SRC/models/per_fruit_report.py` (new) |
+| Multi-task comparison (8 + 2 heads) | `SRC/models/train_multitask.py` (new) |
+| Every card driven by the verdict; unassessed state; verdict banner; performance tiles | `Website/static/js/app.js`, `templates/index.html`, `static/css/style.css` |
+| Gate and per-fruit data exposed to the model card | `Website/app.py` |
+| Rotten-pomegranate regression suite, 16-class consistency, contradiction checks | `Tests/test_verdict_consistency.py` (new) |
+| Assertions updated for the new wording and the blur-as-advice rule | `Tests/test_predictor.py`, `Tests/test_unknown_images.py` |
+
+### 8.4 After the fix, same 480 images
+
+| Measure | Before | After |
+| --- | --- | --- |
+| Genuine test images rejected | 55 (11.5 %) | **22 (4.58 %)** |
+| Rejections caused by blur | 47 | **0** |
+| Rotten pomegranates rejected | 14/30 | **2/30** |
+| Contradictory payloads | frequent | **0/480** |
+| Synthetic non-fruit rejected | 40 % | **71.7 %** (n = 120) |
+
+Validation false rejection at the fitted operating point: **1.87 %** (target ≤ 2 %).
+Gate: fruit confidence ≥ 0.75, fruit margin ≥ 0.30, condition confidence ≥ 0.673.
+
+### 8.5 Verification
+
+- Class mapping and preprocessing parity: the serving path (PIL → `preprocess_for_model`) and
+  the evaluation path (cached `.npy`) produced **480/480 identical predictions**. A permuted
+  class mapping could not do that.
+- Per-fruit report: rotten pomegranate precision 1.000, recall 0.933 — the model was never the
+  problem; Apple is the weakest fruit (0.900).
+- Multi-task comparison trained and measured: 96.46 % vs 96.88 % 16-class, 98.54 % vs 98.75 %
+  condition, 97.92 % vs 97.50 % fruit identity. **16-class head retained**; a rewrite would
+  have been churn.
+- Full suite: **67 passed in 58.92 s**.
+- Server restarted from a clean process (an earlier attempt was still answering from a stale
+  interpreter on port 5000 — worth remembering: on Windows, `kill` can miss the real PID;
+  `taskkill //PID <pid> //F` was needed). Health 200, model-info now reports the gate.
+- Browser, Chromium via the preview panel: rotten pomegranate → one coherent verdict;
+  clear → reset; noise image → "Fruit not identified" with condition "Not assessed" and no
+  contradictory numbers. No console errors, all requests 200.
+
+### 8.6 Documentation produced
+
+`Admin/FINAL_CODE_AUDIT_REPORT.md`, `FINAL_FIX_REGISTER.md`, `FINAL_MODEL_EVALUATION_REPORT.md`,
+`FINAL_FEATURE_STATUS.md`, `FINAL_RISK_REGISTER.md`, plus updates to this log and `README.md`.

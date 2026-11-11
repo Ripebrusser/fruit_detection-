@@ -22,17 +22,22 @@
     "method": "single-parameter temperature scaling fitted on the validation split"
   },
   "timing": {
-    "batch32_seconds_480_images": 11.841128000000026,
-    "batch32_images_per_second": 40.53667860021435,
-    "single_image_ms_mean": 171.9845949999126,
-    "single_image_ms_median": 128.3561499994903,
-    "single_image_ms_p95": 156.67616000073394,
+    "batch32_seconds_480_images": 5.214191999999457,
+    "batch32_images_per_second": 92.0564490145453,
+    "single_image_ms_mean": 83.49539749979158,
+    "single_image_ms_median": 65.47225000031176,
+    "single_image_ms_p95": 88.55375000093767,
     "device": "CPU (TensorFlow 2.20.0)"
   },
   "out_of_distribution": {
-    "threshold_rule": "2nd percentile of calibrated top-1 probability on the test split",
-    "min_top1_probability": 0.5596552491188049,
-    "in_distribution_test_rejection_rate": 0.020833333333333332,
+    "gate": "fruit identity confidence (sum of the fruit's fresh and rotten classes) plus a fruit-margin floor; thresholds fitted on the validation split only",
+    "min_fruit_confidence": 0.75,
+    "min_fruit_margin": 0.3,
+    "in_distribution_test_rejection_rate": 0.04583333333333333,
+    "in_distribution_test_confidence": {
+      "median": 0.9998244047164917,
+      "p01": 0.5225307941436768
+    },
     "synthetic_non_fruit": {
       "n": 40,
       "kinds": {
@@ -43,22 +48,213 @@
         "synthetic_flat": 6,
         "synthetic_gradient": 2
       },
-      "rejection_rate": 0.225,
-      "mean_top1": 0.7021267414093018,
-      "test_mean_top1": 0.9642627239227295
+      "rejection_rate": 0.625,
+      "mean_fruit_confidence": 0.7228213548660278,
+      "test_mean_fruit_confidence": 0.9747243523597717
     },
     "degraded_fruit": {
       "blur": {
-        "rejection_rate": 0.28
+        "rejection_rate": 0.34
       },
       "dark": {
-        "rejection_rate": 0.55
+        "rejection_rate": 0.62
       },
       "tiny": {
-        "rejection_rate": 0.07
+        "rejection_rate": 0.13
       }
     },
-    "caveat": "Synthetic probes are a sanity check, not a benchmark. Unseen fruit species are the hardest case and are NOT reliably rejected; the UI therefore reports low confidence instead of pretending the image is one of the eight fruits."
+    "caveat": "Synthetic probes are a sanity check, not a benchmark. Unseen fruit species are the hardest case and are NOT reliably rejected; the site reports the closest supported fruit, the gate status and the confidence instead of pretending the image is certainly one of the eight fruits."
+  },
+  "gate": {
+    "min_fruit_confidence": 0.75,
+    "min_fruit_margin": 0.3,
+    "condition_min_confidence": 0.6726,
+    "calibrated_on": {
+      "split": "validation",
+      "n": 480,
+      "target_false_rejection": 0.02,
+      "temperature": "minimised NLL on the validation split",
+      "fruit_threshold": "largest synthetic-OOD rejection subject to <=2% validation false rejection",
+      "condition_threshold": "1st percentile of validation condition confidence, clipped to [0.60, 0.95]"
+    },
+    "test_rejection_rate": 0.04583333333333333
+  },
+  "per_class": {
+    "FreshApple": {
+      "precision": 1.0,
+      "recall": 0.8666666666666667,
+      "f1-score": 0.9285714285714286,
+      "support": 30.0
+    },
+    "RottenApple": {
+      "precision": 0.9655172413793104,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9491525423728814,
+      "support": 30.0
+    },
+    "FreshBanana": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "RottenBanana": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "FreshOrange": {
+      "precision": 1.0,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9655172413793104,
+      "support": 30.0
+    },
+    "RottenOrange": {
+      "precision": 0.967741935483871,
+      "recall": 1.0,
+      "f1-score": 0.9836065573770492,
+      "support": 30.0
+    },
+    "FreshGrape": {
+      "precision": 0.9375,
+      "recall": 1.0,
+      "f1-score": 0.967741935483871,
+      "support": 30.0
+    },
+    "RottenGrape": {
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1-score": 0.9473684210526315,
+      "support": 30.0
+    },
+    "FreshGuava": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "RottenGuava": {
+      "precision": 0.9354838709677419,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9508196721311475,
+      "support": 30.0
+    },
+    "FreshJujube": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "RottenJujube": {
+      "precision": 0.90625,
+      "recall": 0.9666666666666667,
+      "f1-score": 0.9354838709677419,
+      "support": 30.0
+    },
+    "FreshPomegranate": {
+      "precision": 0.8333333333333334,
+      "recall": 1.0,
+      "f1-score": 0.9090909090909091,
+      "support": 30.0
+    },
+    "RottenPomegranate": {
+      "precision": 1.0,
+      "recall": 0.9333333333333333,
+      "f1-score": 0.9655172413793104,
+      "support": 30.0
+    },
+    "FreshStrawberry": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "RottenStrawberry": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 30.0
+    },
+    "accuracy": 0.96875,
+    "macro avg": {
+      "precision": 0.9716141488227661,
+      "recall": 0.96875,
+      "f1-score": 0.9689293637378925,
+      "support": 480.0
+    },
+    "weighted avg": {
+      "precision": 0.9716141488227661,
+      "recall": 0.96875,
+      "f1-score": 0.9689293637378926,
+      "support": 480.0
+    }
+  },
+  "per_fruit": {
+    "Apple": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 0.8666666666666667,
+      "rotten_accuracy": 0.9333333333333333,
+      "fruit_level_accuracy": 0.9
+    },
+    "Banana": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 1.0,
+      "fruit_level_accuracy": 1.0
+    },
+    "Orange": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 0.9333333333333333,
+      "rotten_accuracy": 1.0,
+      "fruit_level_accuracy": 0.9666666666666667
+    },
+    "Grape": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 0.9,
+      "fruit_level_accuracy": 0.9833333333333333
+    },
+    "Guava": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 0.9666666666666667,
+      "fruit_level_accuracy": 0.9833333333333333
+    },
+    "Jujube": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 0.9666666666666667,
+      "fruit_level_accuracy": 0.9833333333333333
+    },
+    "Pomegranate": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 0.9333333333333333,
+      "fruit_level_accuracy": 0.9833333333333333
+    },
+    "Strawberry": {
+      "n_test": 60,
+      "n_fresh": 30,
+      "n_rotten": 30,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 1.0,
+      "fruit_level_accuracy": 1.0
+    }
   },
   "training_curves": {
     "accuracy_plot": "Evaluation\\figures\\training_accuracy.png",

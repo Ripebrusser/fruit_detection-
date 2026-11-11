@@ -53,6 +53,16 @@ def sample_png_bytes(sample_rgb: np.ndarray) -> bytes:
 
 
 @pytest.fixture(scope="session")
+def manifest() -> list[dict]:
+    """Every dataset row: path, class, split and duplicate-group bookkeeping."""
+    import csv
+
+    _require(MANIFEST_PATH, "run `python -m SRC.data.prepare_dataset --stage manifest`")
+    with MANIFEST_PATH.open(encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+@pytest.fixture(scope="session")
 def predictor():
     _require(MODEL_PATH, "run `python -m SRC.models.train`")
     from SRC.models.predictor import FruitPredictor

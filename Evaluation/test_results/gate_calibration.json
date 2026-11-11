@@ -1,0 +1,458 @@
+{
+  "temperature": 1.076626,
+  "fruit_threshold": 0.75,
+  "fruit_margin_threshold": 0.3,
+  "condition_threshold": 0.6726,
+  "target_false_rejection": 0.02,
+  "validation_false_rejection_rate": 0.01875,
+  "synthetic_non_fruit_rejection_rate": 0.7166666666666667,
+  "validation_fruit_confidence": {
+    "min": 0.5662767291069031,
+    "p01": 0.6626006364822388,
+    "median": 0.9998847842216492,
+    "mean": 0.985752284526825,
+    "max": 1.0
+  },
+  "validation_condition_confidence": {
+    "min": 0.5488646626472473,
+    "p01": 0.6725935339927673,
+    "median": 0.9999308586120605,
+    "mean": 0.9907783269882202,
+    "max": 1.0
+  },
+  "ood_fruit_confidence": {
+    "min": 0.3675526976585388,
+    "p01": 0.37937238812446594,
+    "median": 0.7028230428695679,
+    "mean": 0.6944764256477356,
+    "max": 0.957554280757904
+  },
+  "degraded_fruit": {
+    "blur": {
+      "n": 80,
+      "rejection_rate": 0.45,
+      "mean_fruit_confidence": 0.7494891285896301
+    },
+    "dark": {
+      "n": 80,
+      "rejection_rate": 0.4875,
+      "mean_fruit_confidence": 0.6994501352310181
+    },
+    "tiny": {
+      "n": 80,
+      "rejection_rate": 0.1625,
+      "mean_fruit_confidence": 0.9129363298416138
+    }
+  },
+  "synthetic_kinds": {
+    "synthetic_checker": 27,
+    "synthetic_flat": 17,
+    "synthetic_gradient": 11,
+    "synthetic_noise": 20,
+    "synthetic_shapes": 21,
+    "synthetic_text": 24
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.2,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.21,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.22,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.23,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.24,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.25,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.26,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.27,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.28,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.29,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.3,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.31,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.32,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.33,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.34,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.35,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.36,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.0
+    },
+    {
+      "threshold": 0.37,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.008333333333333333
+    },
+    {
+      "threshold": 0.38,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.016666666666666666
+    },
+    {
+      "threshold": 0.39,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.016666666666666666
+    },
+    {
+      "threshold": 0.4,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.016666666666666666
+    },
+    {
+      "threshold": 0.41,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.03333333333333333
+    },
+    {
+      "threshold": 0.42,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.041666666666666664
+    },
+    {
+      "threshold": 0.43,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.058333333333333334
+    },
+    {
+      "threshold": 0.44,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.058333333333333334
+    },
+    {
+      "threshold": 0.45,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.06666666666666667
+    },
+    {
+      "threshold": 0.46,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.06666666666666667
+    },
+    {
+      "threshold": 0.47,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.1
+    },
+    {
+      "threshold": 0.48,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.1
+    },
+    {
+      "threshold": 0.49,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.1
+    },
+    {
+      "threshold": 0.5,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.1
+    },
+    {
+      "threshold": 0.51,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.1
+    },
+    {
+      "threshold": 0.52,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.125
+    },
+    {
+      "threshold": 0.53,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.125
+    },
+    {
+      "threshold": 0.54,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.15833333333333333
+    },
+    {
+      "threshold": 0.55,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.15833333333333333
+    },
+    {
+      "threshold": 0.56,
+      "val_false_rejection_rate": 0.0,
+      "synthetic_ood_rejection_rate": 0.175
+    },
+    {
+      "threshold": 0.57,
+      "val_false_rejection_rate": 0.0020833333333333333,
+      "synthetic_ood_rejection_rate": 0.18333333333333332
+    },
+    {
+      "threshold": 0.58,
+      "val_false_rejection_rate": 0.0020833333333333333,
+      "synthetic_ood_rejection_rate": 0.21666666666666667
+    },
+    {
+      "threshold": 0.59,
+      "val_false_rejection_rate": 0.004166666666666667,
+      "synthetic_ood_rejection_rate": 0.21666666666666667
+    },
+    {
+      "threshold": 0.6,
+      "val_false_rejection_rate": 0.00625,
+      "synthetic_ood_rejection_rate": 0.225
+    },
+    {
+      "threshold": 0.61,
+      "val_false_rejection_rate": 0.00625,
+      "synthetic_ood_rejection_rate": 0.25
+    },
+    {
+      "threshold": 0.62,
+      "val_false_rejection_rate": 0.00625,
+      "synthetic_ood_rejection_rate": 0.26666666666666666
+    },
+    {
+      "threshold": 0.63,
+      "val_false_rejection_rate": 0.00625,
+      "synthetic_ood_rejection_rate": 0.275
+    },
+    {
+      "threshold": 0.64,
+      "val_false_rejection_rate": 0.00625,
+      "synthetic_ood_rejection_rate": 0.2833333333333333
+    },
+    {
+      "threshold": 0.65,
+      "val_false_rejection_rate": 0.008333333333333333,
+      "synthetic_ood_rejection_rate": 0.30833333333333335
+    },
+    {
+      "threshold": 0.66,
+      "val_false_rejection_rate": 0.008333333333333333,
+      "synthetic_ood_rejection_rate": 0.3416666666666667
+    },
+    {
+      "threshold": 0.67,
+      "val_false_rejection_rate": 0.0125,
+      "synthetic_ood_rejection_rate": 0.3416666666666667
+    },
+    {
+      "threshold": 0.68,
+      "val_false_rejection_rate": 0.0125,
+      "synthetic_ood_rejection_rate": 0.38333333333333336
+    },
+    {
+      "threshold": 0.69,
+      "val_false_rejection_rate": 0.0125,
+      "synthetic_ood_rejection_rate": 0.425
+    },
+    {
+      "threshold": 0.7,
+      "val_false_rejection_rate": 0.0125,
+      "synthetic_ood_rejection_rate": 0.48333333333333334
+    },
+    {
+      "threshold": 0.71,
+      "val_false_rejection_rate": 0.0125,
+      "synthetic_ood_rejection_rate": 0.5166666666666667
+    },
+    {
+      "threshold": 0.72,
+      "val_false_rejection_rate": 0.014583333333333334,
+      "synthetic_ood_rejection_rate": 0.575
+    },
+    {
+      "threshold": 0.73,
+      "val_false_rejection_rate": 0.016666666666666666,
+      "synthetic_ood_rejection_rate": 0.6666666666666666
+    },
+    {
+      "threshold": 0.74,
+      "val_false_rejection_rate": 0.01875,
+      "synthetic_ood_rejection_rate": 0.7083333333333334
+    },
+    {
+      "threshold": 0.75,
+      "val_false_rejection_rate": 0.01875,
+      "synthetic_ood_rejection_rate": 0.7166666666666667
+    },
+    {
+      "threshold": 0.76,
+      "val_false_rejection_rate": 0.022916666666666665,
+      "synthetic_ood_rejection_rate": 0.725
+    },
+    {
+      "threshold": 0.77,
+      "val_false_rejection_rate": 0.025,
+      "synthetic_ood_rejection_rate": 0.7416666666666667
+    },
+    {
+      "threshold": 0.78,
+      "val_false_rejection_rate": 0.027083333333333334,
+      "synthetic_ood_rejection_rate": 0.7583333333333333
+    },
+    {
+      "threshold": 0.79,
+      "val_false_rejection_rate": 0.027083333333333334,
+      "synthetic_ood_rejection_rate": 0.7833333333333333
+    },
+    {
+      "threshold": 0.8,
+      "val_false_rejection_rate": 0.027083333333333334,
+      "synthetic_ood_rejection_rate": 0.7916666666666666
+    },
+    {
+      "threshold": 0.81,
+      "val_false_rejection_rate": 0.03125,
+      "synthetic_ood_rejection_rate": 0.7916666666666666
+    },
+    {
+      "threshold": 0.82,
+      "val_false_rejection_rate": 0.03125,
+      "synthetic_ood_rejection_rate": 0.8
+    },
+    {
+      "threshold": 0.83,
+      "val_false_rejection_rate": 0.03333333333333333,
+      "synthetic_ood_rejection_rate": 0.8083333333333333
+    },
+    {
+      "threshold": 0.84,
+      "val_false_rejection_rate": 0.035416666666666666,
+      "synthetic_ood_rejection_rate": 0.8166666666666667
+    },
+    {
+      "threshold": 0.85,
+      "val_false_rejection_rate": 0.035416666666666666,
+      "synthetic_ood_rejection_rate": 0.8166666666666667
+    },
+    {
+      "threshold": 0.86,
+      "val_false_rejection_rate": 0.035416666666666666,
+      "synthetic_ood_rejection_rate": 0.8833333333333333
+    },
+    {
+      "threshold": 0.87,
+      "val_false_rejection_rate": 0.0375,
+      "synthetic_ood_rejection_rate": 0.8916666666666667
+    },
+    {
+      "threshold": 0.88,
+      "val_false_rejection_rate": 0.03958333333333333,
+      "synthetic_ood_rejection_rate": 0.8916666666666667
+    },
+    {
+      "threshold": 0.89,
+      "val_false_rejection_rate": 0.03958333333333333,
+      "synthetic_ood_rejection_rate": 0.8916666666666667
+    },
+    {
+      "threshold": 0.9,
+      "val_false_rejection_rate": 0.03958333333333333,
+      "synthetic_ood_rejection_rate": 0.9166666666666666
+    },
+    {
+      "threshold": 0.91,
+      "val_false_rejection_rate": 0.041666666666666664,
+      "synthetic_ood_rejection_rate": 0.925
+    },
+    {
+      "threshold": 0.92,
+      "val_false_rejection_rate": 0.05,
+      "synthetic_ood_rejection_rate": 0.925
+    },
+    {
+      "threshold": 0.93,
+      "val_false_rejection_rate": 0.06041666666666667,
+      "synthetic_ood_rejection_rate": 0.9416666666666667
+    },
+    {
+      "threshold": 0.94,
+      "val_false_rejection_rate": 0.0625,
+      "synthetic_ood_rejection_rate": 0.9666666666666667
+    },
+    {
+      "threshold": 0.95,
+      "val_false_rejection_rate": 0.06458333333333334,
+      "synthetic_ood_rejection_rate": 0.9833333333333333
+    },
+    {
+      "threshold": 0.96,
+      "val_false_rejection_rate": 0.06666666666666667,
+      "synthetic_ood_rejection_rate": 1.0
+    },
+    {
+      "threshold": 0.97,
+      "val_false_rejection_rate": 0.07083333333333333,
+      "synthetic_ood_rejection_rate": 1.0
+    },
+    {
+      "threshold": 0.98,
+      "val_false_rejection_rate": 0.0875,
+      "synthetic_ood_rejection_rate": 1.0
+    },
+    {
+      "threshold": 0.99,
+      "val_false_rejection_rate": 0.11875,
+      "synthetic_ood_rejection_rate": 1.0
+    }
+  ],
+  "method": "Thresholds fitted on the validation split only; the test split is untouched here and is used once, later, to report the final gate metrics."
+}

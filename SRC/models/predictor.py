@@ -1,10 +1,25 @@
 """Inference pipeline: fruit identity, condition scores, uncertainty and warnings.
 
+The predictor answers three separate questions instead of one fused verdict:
+
+* **Fruit identity** — "is this a supported fruit, and which one?" Scored with the summed
+  probability of that fruit's fresh and rotten classes, gated by a threshold calibrated on
+  the validation split.
+* **Condition** — "does it look fresh or rotten, and how decisive is that split?" Has its
+  own confidence. A weak condition marks the freshness verdict as uncertain; it never
+  discards the fruit identification.
+* **Capture quality** — blur, exposure and resolution. These are reported as warnings
+  only. Quality is evidence about the photograph, not about which species it depicts.
+
+Keeping those apart is what stops a single result page from saying "Unable to identify
+this fruit confidently" while also showing a confident rotten score. The symmetrical
+failure — a clear photograph of a supported fruit rejected because its skin is smooth —
+is avoided the same way.
+
 The predictor is deliberately explicit about what it does *not* know:
 
 * Condition percentages are summed model probabilities, not physical measurements.
-* Shelf life is always reported as unavailable: the training data has no time labels.
-* A calibrated confidence gate decides when an image is too uncertain to name a fruit.
+* Shelf life is always unavailable: the training data has no time labels.
 * Edibility is described as a visual observation, never a food-safety verdict.
 
 Usage (programmatic):
@@ -26,24 +41,32 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODELS_DIR = PROJECT_ROOT / "Models"
 DEFAULT_MODEL_PATH = MODELS_DIR / "final_model" / "fruit_model.keras"
 CLASS_NAMES_PATH = MODELS_DIR / "class_names.json"
-OOD_CONFIG_PATH = MODELS_DIR / "ood_config.json"
+GATE_CONFIG_PATH = MODELS_DIR / "gate_config.json"
+LEGACY_OOD_CONFIG_PATH = MODELS_DIR / "ood_config.json"
 
 SAFETY_DISCLAIMER = (
     "This result is an AI-based visual assessment only. It cannot guarantee food safety. "
     "Inspect the fruit carefully and do not consume it if you suspect spoilage."
 )
-SHELF_LIFE_MESSAGE = "Remaining shelf life: Not available — insufficient time-based training data."
-UNKNOWN_MESSAGE = "Unable to identify this fruit confidently. Please upload a clearer image of one fruit."
+SHELF_LIFE_MESSAGE = (
+    "Remaining shelf life cannot currently be estimated from the available dataset."
+)
+UNKNOWN_MESSAGE = (
+    "Unable to identify this fruit confidently. Please upload a clearer image of one fruit."
+)
+RETRY_HINT = "Use a well-lit photograph of a single fruit filling most of the frame."
 
-DEFAULT_OOD_CONFIG = {
-    "min_top1_probability": 0.0,   # replaced by the calibrated value when available
-    "min_fruit_margin": 0.0,
-    "max_entropy_ratio": 1.0,
-    "min_blur_variance": 0.0,
-    "min_brightness": 0.0,
-    "max_brightness": 255.0,
+DEFAULT_GATE_CONFIG: dict = {
+    "version": 2,
     "temperature": 1.0,
-    "calibrated_on": "defaults (no ood_config.json found)",
+    "fruit": {"min_confidence": 0.0, "min_margin": 0.0},
+    "condition": {"min_confidence": 0.0},
+    "quality": {
+        "min_blur_variance": 0.0,
+        "min_brightness": 0.0,
+        "max_brightness": 255.0,
+    },
+    "calibrated_on": {"split": "defaults (no gate_config.json found)"},
 }
 
 
@@ -52,6 +75,38 @@ def _normalise(probabilities: np.ndarray) -> np.ndarray:
     if total <= 0:
         return np.full_like(probabilities, 1.0 / len(probabilities))
     return probabilities / total
+
+
+def load_gate_config(path: Path | str = GATE_CONFIG_PATH) -> dict:
+    """Read the serving gate, upgrading the flat v1 schema if an old file is present."""
+    candidate = Path(path)
+    if not candidate.exists() and candidate == GATE_CONFIG_PATH and LEGACY_OOD_CONFIG_PATH.exists():
+        candidate = LEGACY_OOD_CONFIG_PATH
+    if not candidate.exists():
+        return json.loads(json.dumps(DEFAULT_GATE_CONFIG))
+
+    raw = json.loads(candidate.read_text(encoding="utf-8"))
+    if raw.get("version") == 2:
+        config = json.loads(json.dumps(DEFAULT_GATE_CONFIG))
+        config.update(raw)
+        return config
+
+    # v1 layout: flat thresholds, and quality values that used to reject outright.
+    return {
+        "version": 2,
+        "temperature": float(raw.get("temperature", 1.0)),
+        "fruit": {
+            "min_confidence": float(raw.get("min_top1_probability", 0.0)),
+            "min_margin": float(raw.get("min_fruit_margin", 0.0)),
+        },
+        "condition": {"min_confidence": 0.0},
+        "quality": {
+            "min_blur_variance": float(raw.get("min_blur_variance", 0.0)),
+            "min_brightness": float(raw.get("min_brightness", 0.0)),
+            "max_brightness": float(raw.get("max_brightness", 255.0)),
+        },
+        "calibrated_on": {"split": raw.get("calibrated_on", "legacy v1 configuration")},
+    }
 
 
 class PredictorUnavailable(RuntimeError):
@@ -65,7 +120,7 @@ class FruitPredictor:
         self,
         model_path: Path | str = DEFAULT_MODEL_PATH,
         class_names_path: Path | str = CLASS_NAMES_PATH,
-        ood_config_path: Path | str = OOD_CONFIG_PATH,
+        gate_config_path: Path | str = GATE_CONFIG_PATH,
         temperature: float | None = None,
     ) -> None:
         self.model_path = Path(model_path)
@@ -85,10 +140,7 @@ class FruitPredictor:
         self.fruits: list[str] = meta["fruits"]
         self.input_size: int = int(meta.get("input_size", 224))
 
-        if Path(ood_config_path).exists():
-            self.config = {**DEFAULT_OOD_CONFIG, **json.loads(Path(ood_config_path).read_text(encoding="utf-8"))}
-        else:
-            self.config = dict(DEFAULT_OOD_CONFIG)
+        self.config = load_gate_config(gate_config_path)
         if temperature is not None:
             self.config["temperature"] = float(temperature)
 
@@ -98,6 +150,10 @@ class FruitPredictor:
         self.model = tf.keras.models.load_model(self.model_path)
 
     # ------------------------------------------------------------------ helpers
+    @property
+    def config_path(self) -> Path:
+        return GATE_CONFIG_PATH
+
     def _temperature(self) -> float:
         return max(float(self.config.get("temperature", 1.0)), 1e-3)
 
@@ -159,45 +215,115 @@ class FruitPredictor:
         }
 
     # ------------------------------------------------------------------ analysis
-    def _uncertainty(self, raw: np.ndarray | None, pred: dict, quality: dict, input_kind: str) -> dict:
-        """Apply the calibrated rejection gate and collect human-readable reasons."""
+    def _fruit_assessment(self, pred: dict) -> dict:
+        """Decide whether the fruit can be named, independent of its condition."""
+        cfg = self.config.get("fruit", {})
+        min_confidence = float(cfg.get("min_confidence", 0.0))
+        min_margin = float(cfg.get("min_margin", 0.0))
         reasons: list[str] = []
-        cfg = self.config
-        if pred["top_class_probability"] < cfg["min_top1_probability"]:
+        if pred["fruit_confidence"] < min_confidence:
             reasons.append(
-                f"the top class probability ({pred['top_class_probability']:.0%}) is below the "
-                f"calibrated acceptance level ({cfg['min_top1_probability']:.0%})"
+                f"the model's confidence in any single fruit ({pred['fruit_confidence']:.0%}) is "
+                f"below the calibrated acceptance level ({min_confidence:.0%})"
             )
-        if pred["fruit_margin"] < cfg["min_fruit_margin"]:
+        if pred["fruit_margin"] < min_margin:
             reasons.append(
-                f"the two most likely fruits are too close (margin {pred['fruit_margin']:.0%})"
+                f"the two most likely fruits are too close to separate "
+                f"(margin {pred['fruit_margin']:.0%})"
             )
-        if pred["entropy_ratio"] > cfg["max_entropy_ratio"]:
-            reasons.append("the class distribution is nearly uniform")
-        if quality["blur_variance"] < cfg["min_blur_variance"]:
-            reasons.append("the image looks blurry")
-        if quality["brightness"] < cfg["min_brightness"]:
-            reasons.append("the image is very dark")
-        if quality["brightness"] > cfg["max_brightness"]:
-            reasons.append("the image is over-exposed")
+        status = "uncertain" if reasons else "identified"
         return {
-            "rejected": bool(reasons),
+            "status": status,
+            "fruit": pred["predicted_fruit"],
+            "confidence": pred["fruit_confidence"],
+            "margin": pred["fruit_margin"],
+            "threshold": min_confidence,
             "reasons": reasons,
             "message": UNKNOWN_MESSAGE if reasons else None,
-            "source": input_kind,
+            "retry_hint": RETRY_HINT if reasons else None,
         }
 
-    def _edibility(self, pred: dict) -> dict:
+    def _condition_assessment(self, pred: dict) -> dict:
+        """Decide whether the fresh/rotten split is decisive. Never rejects the image."""
+        cfg = self.config.get("condition", {})
+        min_confidence = float(cfg.get("min_confidence", 0.0))
         fresh, rotten = pred["fresh_probability"], pred["rotten_probability"]
-        if rotten >= 0.80:
+        condition = "fresh" if fresh >= rotten else "rotten"
+        confidence = max(fresh, rotten)
+        reasons: list[str] = []
+        if confidence < min_confidence:
+            reasons.append(
+                f"fresh and rotten are too close ({confidence:.0%} at the calibrated "
+                f"acceptance level of {min_confidence:.0%})"
+            )
+        return {
+            "status": "uncertain" if reasons else "confident",
+            "condition": condition,
+            "confidence": confidence,
+            "margin": abs(fresh - rotten),
+            "threshold": min_confidence,
+            "reasons": reasons,
+        }
+
+    def _quality_warnings(self, quality: dict, pred: dict) -> list[str]:
+        """Blur and exposure become advice, never a reason to discard a prediction."""
+        cfg = self.config.get("quality", {})
+        notes: list[str] = []
+        if quality["blur_variance"] < float(cfg.get("min_blur_variance", 0.0)):
+            notes.append(
+                "This photograph looks soft or out of focus. A sharper image would make the "
+                "condition assessment more reliable."
+            )
+        if quality["brightness"] < float(cfg.get("min_brightness", 0.0)):
+            notes.append("The photograph is unusually dark; brighten it if the result looks wrong.")
+        if quality["brightness"] > float(cfg.get("max_brightness", 255.0)):
+            notes.append("The photograph is over-exposed; some surface detail may be lost.")
+        if min(quality["width"], quality["height"]) < self.input_size:
+            notes.append(
+                f"The uploaded image is smaller than {self.input_size}×{self.input_size} pixels, "
+                "so detail is lost when it is resized for the model."
+            )
+        if not 0.02 < quality["mask_fraction"] < 0.995:
+            notes.append(
+                "The fruit could not be separated from the background, which usually means it "
+                "does not fill enough of the frame."
+            )
+        if pred["class_margin"] < 0.10:
+            notes.append(
+                "The model is not decisively confident about the exact class, though the fruit "
+                "identity above is based on the combined fresh and rotten evidence."
+            )
+        return notes
+
+    def _edibility(self, condition_status: str, fruit_status: str, pred: dict) -> dict:
+        if fruit_status != "identified":
+            return {
+                "status": "not_assessed",
+                "label": "Not assessed",
+                "reason": "The fruit was not identified confidently, so no condition "
+                          "assessment is offered.",
+                "disclaimer": SAFETY_DISCLAIMER,
+                "note": "Visual freshness is not proof of safety: contamination and internal "
+                        "spoilage can be invisible in a photograph.",
+            }
+        if condition_status != "confident":
+            return {
+                "status": "uncertain",
+                "label": "Visual assessment is uncertain",
+                "reason": "Fresh and rotten probabilities are too close to call from this "
+                          "photograph.",
+                "disclaimer": SAFETY_DISCLAIMER,
+                "note": "Visual freshness is not proof of safety: contamination and internal "
+                        "spoilage can be invisible in a photograph.",
+            }
+        if pred["rotten_probability"] >= 0.50:
             status, label = "shows_spoilage", "Shows visible signs of spoilage"
-        elif fresh >= 0.80:
-            status, label = "appears_fresh", "Appears visually fresh"
         else:
-            status, label = "uncertain", "Visual assessment is uncertain"
+            status, label = "appears_fresh", "Appears visually fresh"
         return {
             "status": status,
             "label": label,
+            "reason": None,
             "disclaimer": SAFETY_DISCLAIMER,
             "note": "Visual freshness is not proof of safety: contamination and internal "
                     "spoilage can be invisible in a photograph.",
@@ -221,34 +347,64 @@ class FruitPredictor:
 
         quality = quality_checks(rgb)
         pred = self.predict_array(rgb)
-        uncertainty = self._uncertainty(None, pred, quality, source_name or "upload")
-        edibility = self._edibility(pred)
+        fruit = self._fruit_assessment(pred)
+        condition = self._condition_assessment(pred)
+        edibility = self._edibility(condition["status"], fruit["status"], pred)
 
-        warnings: list[str] = []
-        if uncertainty["rejected"]:
-            warnings.append(
-                "This image falls outside what the model can identify reliably. "
-                "The prediction below is the closest supported fruit but should not be trusted."
+        warnings = self._quality_warnings(quality, pred)
+        if fruit["status"] != "identified":
+            warnings.insert(
+                0,
+                "This photograph does not match any of the eight supported fruits well enough "
+                "to name one. The closest match is shown only for reference.",
             )
-        if quality["width"] < 224 or quality["height"] < 224:
-            warnings.append("The uploaded image is small; details may be lost when resized to 224×224.")
-        if not 0.02 < quality["mask_fraction"] < 0.995:
-            warnings.append(
-                "The fruit is hard to separate from the background; results may be less reliable."
+        elif condition["status"] != "confident":
+            warnings.insert(
+                0,
+                "The fruit is identified, but the fresh/rotten split is too close to call. "
+                "Treat the condition as unknown.",
             )
-        if pred["class_margin"] < 0.10 and not uncertainty["rejected"]:
-            warnings.append("The model is not decisively confident about the exact class.")
+
+        if fruit["status"] != "identified":
+            state = "unidentified"
+            headline = "Fruit not identified"
+        elif condition["status"] != "confident":
+            state = "identified_condition_uncertain"
+            headline = f"{fruit['fruit']} — condition unclear"
+        else:
+            state = "identified"
+            headline = (
+                f"Rotten {fruit['fruit'].lower()}"
+                if condition["condition"] == "rotten"
+                else f"Fresh {fruit['fruit'].lower()}"
+            )
 
         return {
             "ok": True,
+            # Closest model output. Only meaningful together with ``verdict.state``.
             "fruit": pred["predicted_fruit"],
-            "condition": "fresh" if pred["fresh_probability"] >= pred["rotten_probability"] else "rotten",
+            "condition": condition["condition"],
             "fresh_probability": pred["fresh_probability"],
             "rotten_probability": pred["rotten_probability"],
             "identification_confidence": pred["fruit_confidence"],
+            "condition_confidence": condition["confidence"],
             "predicted_class": pred["top_class"],
             "class_probabilities": pred["class_probabilities"],
             "fruit_probabilities": pred["fruit_probabilities"],
+            "verdict": {
+                "state": state,
+                "headline": headline,
+                "fruit": fruit["fruit"] if fruit["status"] == "identified" else None,
+                # A condition is only published when a fruit has been named: a fresh/rotten
+                # split on an unrecognised image says nothing about any particular fruit.
+                "condition": condition["condition"]
+                if (fruit["status"] == "identified" and condition["status"] == "confident")
+                else None,
+                "fruit_confidence": fruit["confidence"],
+                "condition_confidence": condition["confidence"],
+            },
+            "fruit_identification": fruit,
+            "condition_assessment": condition,
             "edibility": edibility,
             "shelf_life": {
                 "available": False,
@@ -257,7 +413,13 @@ class FruitPredictor:
                 "reason": "The training dataset contains only fresh/rotten labels with no storage "
                           "age or capture timeline, so days-until-spoilage cannot be learned.",
             },
-            "uncertainty": uncertainty,
+            # Kept for callers written against v1: this is the fruit-identity gate.
+            "uncertainty": {
+                "rejected": fruit["status"] != "identified",
+                "reasons": fruit["reasons"],
+                "message": fruit["message"],
+                "source": source_name or "upload",
+            },
             "warnings": warnings,
             "image_info": quality,
             "model": {
@@ -265,6 +427,13 @@ class FruitPredictor:
                 "input_size": self.input_size,
                 "temperature": pred["temperature"],
                 "calibrated": pred["temperature"] != 1.0,
+                "gate": {
+                    "fruit_min_confidence": float((self.config.get("fruit") or {}).get("min_confidence", 0.0)),
+                    "condition_min_confidence": float(
+                        (self.config.get("condition") or {}).get("min_confidence", 0.0)
+                    ),
+                    "calibrated_on": self.config.get("calibrated_on"),
+                },
             },
             "inference_ms": round(pred["inference_ms"], 2),
             "notes": {

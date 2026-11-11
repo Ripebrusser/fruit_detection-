@@ -50,12 +50,15 @@ def test_very_dark_image_is_reported(predictor, sample_rgb: np.ndarray) -> None:
 
 
 def test_blurry_image_is_reported(predictor, sample_rgb: np.ndarray) -> None:
+    """Blur is advice about the photograph, not a reason to discard the prediction."""
     import cv2
 
     blurry = cv2.GaussianBlur(sample_rgb, (41, 41), 0)
     result = predictor.analyze(blurry)
+    warnings = " ".join(result["warnings"]).lower()
     reasons = " ".join(result["uncertainty"]["reasons"]).lower()
-    assert "blurry" in reasons or result["warnings"]
+    assert "soft" in warnings or "focus" in warnings
+    assert "blur" not in reasons
 
 
 def test_multi_object_image_still_returns_valid_payload(predictor, sample_rgb: np.ndarray) -> None:

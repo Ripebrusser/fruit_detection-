@@ -1,12 +1,16 @@
-"""Measure the *serving* uncertainty gate (not just the top-1 threshold).
+"""Measure the *serving* gate exactly as a visitor experiences it.
 
-``SRC.models.evaluate`` calibrates the top-1 probability threshold. The website also
-applies the fruit-margin, entropy and image-quality checks, so the rejection rate a
-user actually experiences is different. This script measures the full predictor gate on:
+``SRC.models.calibrate_gate`` fits the thresholds on validation; ``SRC.models.evaluate``
+reports them on the test split. This script exercises the real predictor on four groups so
+the numbers describe the deployed behaviour rather than a proxy:
 
+* untouched test images — the false-rejection rate on genuine fruit photographs,
 * synthetic non-fruit probes (noise, gradients, flat colour, checkerboards, shapes, text),
-* blurred / very dark / down-sampled versions of real test images,
-* a sample of untouched test images (the false-rejection rate).
+* blurred, very dark and down-sampled real photographs,
+* flat colour images that contain no fruit at all.
+
+Identity and condition are counted separately, because they are separate decisions: an
+image can be confidently identified while its fresh/rotten split stays uncertain.
 
 Output: ``Evaluation/test_results/gate_probe.json``
 
@@ -21,48 +25,61 @@ from pathlib import Path
 import numpy as np
 
 from SRC.models.evaluate import degrade, make_ood_probes
-from SRC.models.predictor import FruitPredictor
+from SRC.models.predictor import FruitPredictor, load_gate_config
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 RESULTS_DIR = PROJECT_ROOT / "Evaluation" / "test_results"
 
 
 def measure(predictor: FruitPredictor, images: np.ndarray) -> dict:
-    """Rejection statistics for a batch of images under the full analyser gate."""
-    rejected, confidences, reasons = 0, [], {}
+    """Identity and condition outcomes for a batch of images."""
+    unidentified = 0
+    condition_uncertain = 0
+    confidences, condition_confidences = [], []
+    reasons: dict[str, int] = {}
+
     for image in images:
         result = predictor.analyze(image)
         confidences.append(result["identification_confidence"])
-        if result["uncertainty"]["rejected"]:
-            rejected += 1
+        condition_confidences.append(result["condition_confidence"])
+        if result["verdict"]["state"] == "unidentified":
+            unidentified += 1
             for reason in result["uncertainty"]["reasons"]:
                 key = reason.split("(")[0].strip()[:60]
                 reasons[key] = reasons.get(key, 0) + 1
+        elif result["verdict"]["state"] == "identified_condition_uncertain":
+            condition_uncertain += 1
+
     n = len(images)
     return {
         "n": n,
-        "rejection_rate": rejected / n if n else 0.0,
+        "unidentified_rate": unidentified / n if n else 0.0,
+        "identified_condition_uncertain_rate": condition_uncertain / n if n else 0.0,
         "mean_fruit_confidence": float(np.mean(confidences)) if confidences else 0.0,
-        "rejection_reasons": dict(sorted(reasons.items(), key=lambda kv: -kv[1])),
+        "median_fruit_confidence": float(np.median(confidences)) if confidences else 0.0,
+        "mean_condition_confidence": float(np.mean(condition_confidences)) if condition_confidences else 0.0,
+        "identity_rejection_reasons": dict(sorted(reasons.items(), key=lambda kv: -kv[1])),
     }
 
 
 def main() -> int:
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     predictor = FruitPredictor()
+    config = load_gate_config()
     test_images = np.load(PROJECT_ROOT / "Dataset" / "processed" / "test_images.npy")
 
     probes, labels = make_ood_probes()
     sample = np.asarray(test_images[:120])
 
+    kinds, counts = np.unique(labels, return_counts=True)
     report = {
         "gate": {
-            "min_top1_probability": predictor.config["min_top1_probability"],
-            "min_fruit_margin": predictor.config["min_fruit_margin"],
-            "max_entropy_ratio": predictor.config["max_entropy_ratio"],
-            "min_blur_variance": predictor.config["min_blur_variance"],
-            "min_brightness": predictor.config["min_brightness"],
-            "temperature": predictor.config["temperature"],
+            "version": config.get("version"),
+            "fruit_min_confidence": config["fruit"]["min_confidence"],
+            "fruit_min_margin": config["fruit"]["min_margin"],
+            "condition_min_confidence": config["condition"]["min_confidence"],
+            "temperature": config.get("temperature"),
+            "calibrated_on": config.get("calibrated_on"),
         },
         "in_distribution_test_sample": measure(predictor, sample),
         "synthetic_non_fruit": measure(predictor, probes),
@@ -71,13 +88,18 @@ def main() -> int:
             "dark": measure(predictor, degrade(sample[:50], "dark")),
             "tiny": measure(predictor, degrade(sample[:50], "tiny")),
         },
-        "probe_kinds": labels[:5],
+        "flat_colour": measure(
+            predictor,
+            np.stack([np.full((224, 224, 3), value, dtype=np.uint8) for value in (0, 64, 128, 200, 255)]),
+        ),
+        "probe_kinds": dict(zip(kinds.tolist(), counts.tolist())),
         "summary": (
-            "The full gate combines a calibrated top-1 threshold with fruit-margin, entropy and "
-            "image-quality checks. It reliably flags degraded photographs but only rejects a "
-            "minority of synthetic non-fruit patterns: the model is over-confident on inputs very "
-            "far from the training distribution. That is why every result also carries a warning "
-            "panel and why the UI never presents a confident answer as certain."
+            "Identity and condition are gated separately. Blur, darkness and resolution are "
+            "reported as advice and never discard an image, so a genuine photograph with a soft "
+            "focus keeps its prediction instead of being told the fruit is unrecognisable. "
+            "Synthetic patterns are rejected far more often than by the first release, but unseen "
+            "fruit species remain the hard case: the eight-fruit softmax always has an answer, so "
+            "the site reports the closest fruit together with the gate status and confidence."
         ),
     }
     (RESULTS_DIR / "gate_probe.json").write_text(json.dumps(report, indent=2), encoding="utf-8")

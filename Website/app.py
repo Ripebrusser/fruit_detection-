@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import sys
 import threading
 import time
@@ -104,6 +105,16 @@ def create_app(test_config: dict | None = None) -> Flask:
             }
         ), (200 if predictor is not None else 503)
 
+    @app.get("/healthz")
+    def healthz():
+        """Cheap liveness probe for hosting platforms.
+
+        Answers instantly on a cold start, before the model finishes loading, so a
+        platform health check does not fail while TensorFlow warms up. Use
+        ``/api/health`` when you actually need to know whether the model is ready.
+        """
+        return jsonify({"ok": True}), 200
+
     @app.get("/api/model-info")
     def model_info():
         """Transparent model card numbers, straight from the evaluation run."""
@@ -124,6 +135,8 @@ def create_app(test_config: dict | None = None) -> Flask:
                 "calibration": metrics.get("calibration"),
                 "classes": meta,
                 "supported_fruits": getattr(predictor, "fruits", None),
+                "gate": metrics.get("gate"),
+                "per_fruit": metrics.get("per_fruit"),
                 "shelf_life_supported": False,
                 "cross_section_validated": False,
             }
@@ -242,8 +255,9 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Run the fruit detection website")
-    parser.add_argument("--host", default="127.0.0.1")
-    parser.add_argument("--port", type=int, default=5000)
+    # Defaults stay local-only; hosts such as Render inject PORT (and set HOST).
+    parser.add_argument("--host", default=os.environ.get("HOST", "127.0.0.1"))
+    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "5000")))
     parser.add_argument("--debug", action="store_true")
     args = parser.parse_args()
 

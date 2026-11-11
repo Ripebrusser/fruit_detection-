@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "temperature": 1.076626,
+  "fruit": {
+    "min_confidence": 0.75,
+    "min_margin": 0.3
+  },
+  "condition": {
+    "min_confidence": 0.6726
+  },
+  "quality": {
+    "min_blur_variance": 12.57,
+    "min_brightness": 98.989,
+    "max_brightness": 250.0,
+    "note": "Reference values only: quality measurements produce warnings, never rejections."
+  },
+  "calibrated_on": {
+    "split": "validation",
+    "n": 480,
+    "target_false_rejection": 0.02,
+    "temperature": "minimised NLL on the validation split",
+    "fruit_threshold": "largest synthetic-OOD rejection subject to <=2% validation false rejection",
+    "condition_threshold": "1st percentile of validation condition confidence, clipped to [0.60, 0.95]"
+  },
+  "measured_on_validation": {
+    "false_rejection_rate": 0.01875,
+    "synthetic_non_fruit_rejection_rate": 0.7166666666666667
+  }
+}

@@ -1,33 +1,51 @@
 # Python
 __pycache__/
 *.py[cod]
-*.egg-info/
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
 .venv/
 venv/
+env/
+ENV/
+
+# Agent / editor scratch
+.freebuff/
+.vscode/
+.idea/
+
+# Intermediate training checkpoints (the final model IS committed for deployment)
+Models/checkpoints/
+Models/multitask/multitask_model.keras
+
+# Logs
+*.log
+Website/server.log
+Models/train.log
+Models/*/train.log
+
+# Raw and cached dataset (large, reproducible from the Mendeley download)
+Dataset/Original Image/
+Dataset/Processed Data/
+Dataset/archive (1)/
+Dataset/processed/*.npy
+Dataset/interim/*.npy
+
+# Uploaded user photographs — ephemeral, never part of the repository
+Website/static/uploads/*
+!Website/static/uploads/.gitkeep
 
 # Environment / secrets
 .env
+.env.local
+*.pem
 
-# Large data — keep the raw dataset and derived arrays out of version control
-Dataset/Original Image/
-Dataset/processed/
-Dataset/interim/
-Dataset/downloads/
-Dataset/raw/
-
-# Trained artefacts that can be regenerated
-Models/checkpoints/
-Evaluation/figures/
-Website/static/uploads/
-Website/static/generated/
-
-# Editor / OS
-.vscode/
-.idea/
+# OS
+.DS_Store
 Thumbs.db
-desktop.ini
-DS_Store
 
-# Scratch
-.tmp_preview/
-.pytest_cache/
+# Jupyter
+.ipynb_checkpoints/

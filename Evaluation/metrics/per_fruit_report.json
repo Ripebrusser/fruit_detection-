@@ -1,0 +1,350 @@
+{
+  "source": "Evaluation\\test_results\\predictions.csv",
+  "n_test": 480,
+  "overall_accuracy": 0.96875,
+  "condition_accuracy": 0.9875,
+  "per_fruit": {
+    "Apple": {
+      "n_test": 60,
+      "correct_fruit": 54,
+      "incorrect_fruit": 6,
+      "fruit_identification_rate": 0.9,
+      "condition_accuracy": 1.0,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 1.0,
+      "precision": 0.9818181818181818,
+      "recall": 0.9,
+      "f1": 0.9391304347826087,
+      "main_confusions": {
+        "FreshPomegranate": 4,
+        "RottenGuava": 2
+      }
+    },
+    "Banana": {
+      "n_test": 60,
+      "correct_fruit": 60,
+      "incorrect_fruit": 0,
+      "fruit_identification_rate": 1.0,
+      "condition_accuracy": 1.0,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "main_confusions": {}
+    },
+    "Grape": {
+      "n_test": 60,
+      "correct_fruit": 59,
+      "incorrect_fruit": 1,
+      "fruit_identification_rate": 0.9833333333333333,
+      "condition_accuracy": 0.9666666666666667,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 0.9333333333333333,
+      "precision": 1.0,
+      "recall": 0.9833333333333333,
+      "f1": 0.9915966386554621,
+      "main_confusions": {
+        "RottenJujube": 1
+      }
+    },
+    "Guava": {
+      "n_test": 60,
+      "correct_fruit": 59,
+      "incorrect_fruit": 1,
+      "fruit_identification_rate": 0.9833333333333333,
+      "condition_accuracy": 0.9833333333333333,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 0.9666666666666667,
+      "precision": 0.9672131147540983,
+      "recall": 0.9833333333333333,
+      "f1": 0.9752066115702478,
+      "main_confusions": {
+        "FreshPomegranate": 1
+      }
+    },
+    "Jujube": {
+      "n_test": 60,
+      "correct_fruit": 59,
+      "incorrect_fruit": 1,
+      "fruit_identification_rate": 0.9833333333333333,
+      "condition_accuracy": 1.0,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 1.0,
+      "precision": 0.9516129032258065,
+      "recall": 0.9833333333333333,
+      "f1": 0.9672131147540983,
+      "main_confusions": {
+        "RottenOrange": 1
+      }
+    },
+    "Orange": {
+      "n_test": 60,
+      "correct_fruit": 58,
+      "incorrect_fruit": 2,
+      "fruit_identification_rate": 0.9666666666666667,
+      "condition_accuracy": 0.9666666666666667,
+      "fresh_accuracy": 0.9333333333333333,
+      "rotten_accuracy": 1.0,
+      "precision": 0.9830508474576272,
+      "recall": 0.9666666666666667,
+      "f1": 0.9747899159663865,
+      "main_confusions": {
+        "RottenJujube": 2
+      }
+    },
+    "Pomegranate": {
+      "n_test": 60,
+      "correct_fruit": 59,
+      "incorrect_fruit": 1,
+      "fruit_identification_rate": 0.9833333333333333,
+      "condition_accuracy": 0.9833333333333333,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 0.9666666666666667,
+      "precision": 0.921875,
+      "recall": 0.9833333333333333,
+      "f1": 0.9516129032258064,
+      "main_confusions": {
+        "RottenApple": 1
+      }
+    },
+    "Strawberry": {
+      "n_test": 60,
+      "correct_fruit": 60,
+      "incorrect_fruit": 0,
+      "fruit_identification_rate": 1.0,
+      "condition_accuracy": 1.0,
+      "fresh_accuracy": 1.0,
+      "rotten_accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "main_confusions": {}
+    }
+  },
+  "per_class": {
+    "FreshApple": {
+      "n_test": 30,
+      "correct": 26,
+      "recall": 0.8666666666666667,
+      "precision": 1.0,
+      "f1": 0.9285714285714286,
+      "top_confusions": {
+        "FreshPomegranate": 4
+      }
+    },
+    "FreshBanana": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "top_confusions": {}
+    },
+    "FreshGrape": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 0.9375,
+      "f1": 0.967741935483871,
+      "top_confusions": {}
+    },
+    "FreshGuava": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "top_confusions": {}
+    },
+    "FreshJujube": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "top_confusions": {}
+    },
+    "FreshOrange": {
+      "n_test": 30,
+      "correct": 28,
+      "recall": 0.9333333333333333,
+      "precision": 1.0,
+      "f1": 0.9655172413793104,
+      "top_confusions": {
+        "RottenJujube": 2
+      }
+    },
+    "FreshPomegranate": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "top_confusions": {}
+    },
+    "FreshStrawberry": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "top_confusions": {}
+    },
+    "RottenApple": {
+      "n_test": 30,
+      "correct": 28,
+      "recall": 0.9333333333333333,
+      "precision": 0.9655172413793104,
+      "f1": 0.9491525423728815,
+      "top_confusions": {
+        "RottenGuava": 2
+      }
+    },
+    "RottenBanana": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "top_confusions": {}
+    },
+    "RottenGrape": {
+      "n_test": 30,
+      "correct": 27,
+      "recall": 0.9,
+      "precision": 1.0,
+      "f1": 0.9473684210526316,
+      "top_confusions": {
+        "FreshGrape": 2,
+        "RottenJujube": 1
+      }
+    },
+    "RottenGuava": {
+      "n_test": 30,
+      "correct": 29,
+      "recall": 0.9666666666666667,
+      "precision": 0.9354838709677419,
+      "f1": 0.9508196721311476,
+      "top_confusions": {
+        "FreshPomegranate": 1
+      }
+    },
+    "RottenJujube": {
+      "n_test": 30,
+      "correct": 29,
+      "recall": 0.9666666666666667,
+      "precision": 0.90625,
+      "f1": 0.9354838709677419,
+      "top_confusions": {
+        "RottenOrange": 1
+      }
+    },
+    "RottenOrange": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 0.967741935483871,
+      "f1": 0.9836065573770492,
+      "top_confusions": {}
+    },
+    "RottenPomegranate": {
+      "n_test": 30,
+      "correct": 28,
+      "recall": 0.9333333333333333,
+      "precision": 1.0,
+      "f1": 0.9655172413793104,
+      "top_confusions": {
+        "RottenApple": 1,
+        "FreshPomegranate": 1
+      }
+    },
+    "RottenStrawberry": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 1.0,
+      "f1": 1.0,
+      "top_confusions": {}
+    }
+  },
+  "focus_classes": {
+    "FreshPomegranate": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 0.8333333333333334,
+      "f1": 0.9090909090909091,
+      "top_confusions": {}
+    },
+    "RottenPomegranate": {
+      "n_test": 30,
+      "correct": 28,
+      "recall": 0.9333333333333333,
+      "precision": 1.0,
+      "f1": 0.9655172413793104,
+      "top_confusions": {
+        "RottenApple": 1,
+        "FreshPomegranate": 1
+      }
+    },
+    "FreshApple": {
+      "n_test": 30,
+      "correct": 26,
+      "recall": 0.8666666666666667,
+      "precision": 1.0,
+      "f1": 0.9285714285714286,
+      "top_confusions": {
+        "FreshPomegranate": 4
+      }
+    },
+    "RottenApple": {
+      "n_test": 30,
+      "correct": 28,
+      "recall": 0.9333333333333333,
+      "precision": 0.9655172413793104,
+      "f1": 0.9491525423728815,
+      "top_confusions": {
+        "RottenGuava": 2
+      }
+    },
+    "FreshOrange": {
+      "n_test": 30,
+      "correct": 28,
+      "recall": 0.9333333333333333,
+      "precision": 1.0,
+      "f1": 0.9655172413793104,
+      "top_confusions": {
+        "RottenJujube": 2
+      }
+    },
+    "RottenOrange": {
+      "n_test": 30,
+      "correct": 30,
+      "recall": 1.0,
+      "precision": 0.967741935483871,
+      "f1": 0.9836065573770492,
+      "top_confusions": {}
+    }
+  },
+  "misclassified_count": 15,
+  "image_property_comparison": {
+    "width": {
+      "correct_median": 2475.0,
+      "incorrect_median": 2929.0
+    },
+    "height": {
+      "correct_median": 2266.0,
+      "incorrect_median": 2148.0
+    },
+    "size_bytes": {
+      "correct_median": 717500.0,
+      "incorrect_median": 843328.0
+    }
+  },
+  "notes": [
+    "Per-fruit precision treats the eight fruits as a single-label problem: an image counts as a false positive for fruit X whenever the model names X for a photo of a different fruit.",
+    "Condition accuracy ignores fruit identity and asks only fresh-versus-rotten.",
+    "Cross-section images cannot be separated from whole-fruit images here: the dataset has no cut/whole label, and a visual audit found only a small unlabelled minority."
+  ]
+}

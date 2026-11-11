@@ -43,10 +43,13 @@ stored in `Evaluation/metrics/metrics.json`; the figures below are copied from t
 | Fruit-level accuracy (8-way identify) | **97.50 %** |
 | **Condition accuracy (fresh vs rotten)** | **98.75 %** |
 | Best validation accuracy (checkpoint chosen) | 97.50 % — stage B fine-tuned model |
-| Inference time (CPU, batch 1) | 172 ms per image |
-| Throughput (CPU, batch 32) | 40.5 images/s |
+| Inference time (CPU, batch 1) | 83.5 ms mean / 65.5 ms median per image |
+| Throughput (CPU, batch 32) | 92.1 images/s |
 | Calibration | T = 1.077 fitted on validation; test ECE 1.45 % → 1.65 %, NLL 0.0848 → 0.0851 |
-| Uncertainty gate | rejects 4.2 % of real test images; 40 % of synthetic non-fruit; 100 % of blurred; 100 % of very dark; 86 % of 48-px-upscaled images |
+| Serving gate (identity) | declines to name a fruit for **4.58 %** of test images (validation target ≤ 2 %, achieved 1.87 %) |
+| Serving gate (unknown input) | rejects **71.7 %** of 120 synthetic non-fruit probes, 40 % of flat colour images, 80 % of very dark photographs |
+| Rotten pomegranate | 28/30 correct, precision 1.000, recall 0.933; 2/30 declined by the gate |
+| Architecture check | multi-task 8 + 2 heads measured **worse** overall (96.46 % vs 96.88 %); 16-class head retained |
 
 Detailed artefacts: `Evaluation/metrics/classification_report.txt`,
 `Evaluation/metrics/confusion_matrix.csv`, `Evaluation/confusion_matrices/confusion_matrix.png`,
@@ -93,17 +96,26 @@ Full details, including the cross-section and shelf-life investigations:
 - Training: early stopping on validation accuracy, best-checkpoint restore, ReduceLROnPlateau,
   CSV logs in `Models/checkpoints/`.
 
-### Uncertainty gate
+### Two-part gate
 
-The predictor rejects an image when calibrated top-1 confidence falls below a threshold set at the
-2nd percentile of correct in-distribution confidence, or when the fruit margin is tiny, the
-distribution is near-uniform, or the photo is too dark/blurry. Rejection produces:
+Identity and condition are decided separately, because they can differ in confidence and because
+fusing them produced contradictory pages (see `Admin/FINAL_FIX_REGISTER.md`, F-01).
 
-> Unable to identify this fruit confidently. Please upload a clearer image of one fruit.
+| Decision | Threshold | Fitted on | On a low score |
+| --- | --- | --- | --- |
+| Fruit identity | fruit confidence ≥ 0.75 and fruit margin ≥ 0.30 | validation split | “Unable to identify this fruit confidently…” and no condition is shown |
+| Condition | max(fresh, rotten) ≥ 0.673 | validation split | fruit stays identified, condition is marked **uncertain** |
+| Capture quality | blur / brightness / resolution | validation split | **advice only** — never rejects a prediction |
 
-The measured behaviour on synthetic non-fruit probes, blurred, dark and down-sampled fruit photos is
-in `Evaluation/test_results/ood_probe.json`. **Unseen fruit species are the hardest case** and are not
-reliably rejected — such images are instead reported with low confidence and a warning.
+Thresholds come from `python -m SRC.models.calibrate_gate` (validation only) and are stored in
+`Models/gate_config.json`; the test split is used once, to report. A soft-focus photograph of a
+banana the model recognises at 100 % is therefore *warned about*, not thrown away — the first
+release discarded 47 correct predictions for exactly that reason.
+
+The measured behaviour on synthetic non-fruit probes, blurred, dark and down-sampled photographs is
+in `Evaluation/test_results/{gate_probe,gate_calibration}.json`. **Unseen fruit species remain the
+hardest case** and are not reliably rejected — such images are reported with the closest supported
+fruit, the gate status and an explicit confidence.
 
 ## 5. Project structure
 
@@ -128,7 +140,9 @@ IPCV_Project/
 ├── Evaluation/          metrics/, confusion_matrices/, figures/, test_results/
 ├── Website/             app.py, templates/, static/ (css, js, images, uploads)
 ├── Tests/               pytest suite
-├── requirements.txt, pytest.ini, README.md, LICENSES.md, .gitignore
+├── render.yaml          Render deployment blueprint (free tier, one worker)
+├── requirements.txt, pytest.ini, README.md, LICENSES.md
+├── .gitignore, .gitattributes, .editorconfig, .python-version
 ```
 
 ## 6. Setup
@@ -171,12 +185,22 @@ python -m SRC.data.prepare_dataset --stage cache
 # 3. train (background-safe, logs to Models/train.log)
 python -m SRC.models.train --model mobilenet
 
-# 4. evaluate on the untouched test split (also writes Models/ood_config.json)
+# 4. fit the serving gate on the VALIDATION split only -> Models/gate_config.json
+python -m SRC.models.calibrate_gate
+
+# 5. evaluate on the untouched test split (reports the gate, never tunes it)
 python -m SRC.models.evaluate
 
-# 5. run the website
+# 6. per-fruit error analysis and full serving-gate measurement
+python -m SRC.models.per_fruit_report
+python -m SRC.models.gate_report
+
+# 7. run the website
 python -m Website.app --port 5000     # http://127.0.0.1:5000
 ```
+
+Optional comparison runs: `--model baseline` (from-scratch CNN) and
+`python -m SRC.models.train_multitask` (8 + 2 heads instead of one 16-class head).
 
 Every stage is resumable: `prepare_dataset --stage {manifest,cache,metadata}`.
 
@@ -193,9 +217,53 @@ python -m pytest
 | `Tests/test_model.py` | model artefacts, input/output shapes, softmax normalisation, better-than-chance sanity check |
 | `Tests/test_predictor.py` | probability aggregation, fruit-level confidence, shelf-life never invented, disclaimer text, RGBA/grayscale input |
 | `Tests/test_unknown_images.py` | noise/flat/dark/blurry inputs, confidence gap versus real fruit, contract for unrecognised images |
+| `Tests/test_verdict_consistency.py` | **the rotten-pomegranate regression**, 16-class payload consistency, “unidentified ⇒ no condition claim”, ambiguous condition keeps the fruit, blur never rejects |
 | `Tests/test_website.py` | page render, static assets, all API endpoints, invalid/corrupt/tiny/oversized uploads, path traversal, no server paths leaked |
 
-## 8. Website API
+**Current status: 67 passed in ~68 s on a CPU-only Windows machine** (`Evaluation/test_results/pytest_full.log`).
+
+## 8. Deploying to Render
+
+The repository ships a [Render Blueprint](render.yaml), so deployment is one step: push the code,
+then **Render Dashboard → New → Blueprint → select this repository**. Render reads `render.yaml` and
+creates a single free web service with the right commands, health check and environment variables.
+No secrets or API keys are required — the trained model is committed.
+
+| Setting | Value |
+|---------|-------|
+| Runtime | Python 3.12 (`.python-version`) |
+| Build | `pip install --upgrade pip && pip install -r requirements.txt` |
+| Start | `gunicorn --bind 0.0.0.0:$PORT --worker-class gthread --workers 1 --threads 4 --timeout 180 Website.app:app` |
+| Health check | `/healthz` (instant) · `/api/health` (model warmed) |
+| Model file | `Models/final_model/fruit_model.keras` (27 MB, under GitHub's 100 MB limit) |
+
+**Manual alternative:** create a *Web Service*, connect the repository, and paste the build and start
+commands above. Nothing else needs configuring.
+
+### What the free tier changes — read this before demoing
+
+1. **512 MB RAM, one worker.** TensorFlow plus MobileNetV2 needs roughly 350–450 MB, so the start
+   command deliberately uses **one worker with four threads** instead of two worker processes. Two
+   workers would hold two copies of the model and be killed for exceeding memory.
+2. **Sleeps after ~15 minutes idle.** The first request afterwards takes **30–60 seconds** while the
+   container boots and TensorFlow imports. Open the URL yourself a minute before any demo.
+3. **Ephemeral disk.** Uploaded photographs live in `Website/static/uploads/` and disappear on
+   restart or redeploy. Nothing else is written at runtime; results are computed per request.
+4. **CPU inference only.** Measured 83.5 ms per image locally on CPU; expect a similar order of
+   magnitude on a free instance, plus queueing when several people upload at once.
+
+Environment variables already set by the blueprint (`PYTHON_VERSION`, `TF_CPP_MIN_LOG_LEVEL`,
+`TF_NUM_INTRAOP_THREADS`, `TF_NUM_INTEROP_THREADS`, `OMP_NUM_THREADS`, `MALLOC_ARENA_MAX`) keep
+TensorFlow quiet and stop thread pools from multiplying memory use. `PORT` is injected by Render and
+read by both gunicorn and `python -m Website.app`.
+
+To rehearse the production server locally (Linux/macOS, or WSL):
+
+```bash
+gunicorn --bind 127.0.0.1:8000 --worker-class gthread --workers 1 --threads 4 Website.app:app
+```
+
+## 9. Website API
 
 | Endpoint | Purpose |
 |----------|---------|
@@ -209,7 +277,7 @@ Uploads are limited to 8 MB and 40 MP, checked by extension, Pillow `verify()` a
 stored under `Website/static/uploads/` with sanitised names, and never executed. Stale uploads are
 removed after one hour.
 
-## 9. Honest limitations
+## 10. Honest limitations
 
 1. **No shelf life.** The dataset has only fresh/rotten labels; there is no storage age, temperature
    or spoilage timeline. The API returns `available: false` with the reason rather than guessing.
@@ -224,7 +292,7 @@ removed after one hour.
    lower accuracy on real-world phone photos.
 6. **Visual freshness ≠ food safety.** Always shown with the mandatory disclaimer.
 
-## 10. Documentation
+## 11. Documentation
 
 - [`Admin/PROJECT_REQUIREMENTS.md`](Admin/PROJECT_REQUIREMENTS.md) — requirement → evidence table
 - [`Admin/PROJECT_ROADMAP.md`](Admin/PROJECT_ROADMAP.md) — phases, gates, key decisions
@@ -232,9 +300,18 @@ removed after one hour.
 - [`Admin/DEVELOPMENT_LOG.md`](Admin/DEVELOPMENT_LOG.md) — what was executed, including bugs found and fixed
 - [`Admin/CODE_AUDIT_REPORT.md`](Admin/CODE_AUDIT_REPORT.md) — code-quality and correctness audit
 - [`Admin/RISK_REGISTER.md`](Admin/RISK_REGISTER.md) — risks, mitigations, accepted residual risks
-- [`LICENSES.md`](LICENSES.md) — dataset attribution (CC BY 4.0) and third-party licences
 
-## 11. Citation
+Audit round (9 November 2026):
+
+- [`Admin/FINAL_CODE_AUDIT_REPORT.md`](Admin/FINAL_CODE_AUDIT_REPORT.md) — full audit findings by area
+- [`Admin/FINAL_FIX_REGISTER.md`](Admin/FINAL_FIX_REGISTER.md) — every defect, root cause, fix and verification
+- [`Admin/FINAL_MODEL_EVALUATION_REPORT.md`](Admin/FINAL_MODEL_EVALUATION_REPORT.md) — per-class, per-fruit, gate and architecture comparison
+- [`Admin/FINAL_FEATURE_STATUS.md`](Admin/FINAL_FEATURE_STATUS.md) — what works, what does not, and why
+- [`Admin/FINAL_RISK_REGISTER.md`](Admin/FINAL_RISK_REGISTER.md) — post-fix risk position
+- [`LICENSES.md`](LICENSES.md) — dataset attribution (CC BY 4.0) and third-party licences
+- [`render.yaml`](render.yaml) — Render deployment blueprint (build, start, health check, memory tuning)
+
+## 12. Citation
 
 Sultana, N., Jahan, M., & Uddin, M. S. (2022). *Fresh and Rotten Fruits Dataset for Machine-Based
 Evaluation of Fruit Quality* (Version 1) [Data set]. Mendeley Data.

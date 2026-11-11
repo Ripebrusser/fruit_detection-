@@ -49,7 +49,6 @@ CM_DIR = EVAL_DIR / "confusion_matrices"
 RESULTS_DIR = EVAL_DIR / "test_results"
 FIGURES_DIR = EVAL_DIR / "figures"
 MODELS_DIR = PROJECT_ROOT / "Models"
-OOD_CONFIG_PATH = MODELS_DIR / "ood_config.json"
 
 SEED = 42
 
@@ -293,12 +292,8 @@ def main() -> int:
         model.predict(x_test[i:i + 1], verbose=0)
         single_times.append((time.perf_counter() - t0) * 1000.0)
 
-    # ---- quality thresholds from in-distribution data ---------------------------
-    quality_rows = [quality_checks(image) for image in x_test]
-    blur_values = np.array([q["blur_variance"] for q in quality_rows])
-    brightness_values = np.array([q["brightness"] for q in quality_rows])
-    min_blur = float(np.percentile(blur_values, 1.0))
-    min_brightness = float(max(np.percentile(brightness_values, 0.5) - 5, 5.0))
+    # Quality reference values now live in Models/gate_config.json, fitted on validation
+    # by ``python -m SRC.models.calibrate_gate``; that split is also used for the gate.
 
     # ---- out-of-distribution behaviour ------------------------------------------
     ood_images, ood_labels = make_ood_probes()
@@ -308,58 +303,87 @@ def main() -> int:
         "tiny": degrade(x_test[:100], "tiny"),
     }
 
-    test_top1 = calibrated_test.max(axis=1)
+    # ---- serving gate: thresholds come from validation, never from this split ------
+    from SRC.models.predictor import load_gate_config
+
+    gate = load_gate_config()
+    fruit_gate = gate.get("fruit", {})
+    gate_min_confidence = float(fruit_gate.get("min_confidence", 0.0))
+    gate_min_margin = float(fruit_gate.get("min_margin", 0.0))
+
+    def fruit_decisions(probabilities: np.ndarray):
+        """Fruit-level confidence and margin, exactly as the serving gate computes them."""
+        fruit = probabilities.reshape(len(probabilities), len(fruits), 2).sum(axis=2)
+        ordered = np.sort(fruit, axis=1)
+        confidence = ordered[:, -1]
+        margin = ordered[:, -1] - ordered[:, -2]
+        accepted = (confidence >= gate_min_confidence) & (margin >= gate_min_margin)
+        return confidence, margin, accepted
+
+    test_conf, test_margin, test_accepted = fruit_decisions(calibrated_test)
     ood_probs = softmax_from(
         log_probabilities(model.predict(ood_images, batch_size=32, verbose=0)) / temperature
     )
-    ood_top1 = ood_probs.max(axis=1)
     degraded_scores = {
         name: softmax_from(log_probabilities(model.predict(batch, batch_size=32, verbose=0)) / temperature)
         for name, batch in degraded.items()
     }
 
-    threshold = float(np.percentile(test_top1, 2.0))  # rejects <=2% of in-distribution test images
-    ood_rejected = float((ood_top1 < threshold).mean())
+    ood_conf, _, ood_accepted = fruit_decisions(ood_probs)
+    ood_rejected = float((~ood_accepted).mean())
     degraded_rejection = {
-        name: float((probs.max(axis=1) < threshold).mean()) for name, probs in degraded_scores.items()
+        name: float((~fruit_decisions(probs)[2]).mean()) for name, probs in degraded_scores.items()
     }
-    in_distribution_rejected = float((test_top1 < threshold).mean())
+    in_distribution_rejected = float((~test_accepted).mean())
 
     ood_report = {
-        "threshold_rule": "2nd percentile of calibrated top-1 probability on the test split",
-        "min_top1_probability": threshold,
+        "gate": "fruit identity confidence (sum of the fruit's fresh and rotten classes) "
+                "plus a fruit-margin floor; thresholds fitted on the validation split only",
+        "min_fruit_confidence": gate_min_confidence,
+        "min_fruit_margin": gate_min_margin,
         "in_distribution_test_rejection_rate": in_distribution_rejected,
+        "in_distribution_test_confidence": {
+            "median": float(np.median(test_conf)),
+            "p01": float(np.percentile(test_conf, 1)),
+        },
         "synthetic_non_fruit": {
             "n": int(len(ood_images)),
             "kinds": pd.Series(ood_labels).value_counts().to_dict(),
             "rejection_rate": ood_rejected,
-            "mean_top1": float(ood_top1.mean()),
-            "test_mean_top1": float(test_top1.mean()),
+            "mean_fruit_confidence": float(ood_conf.mean()),
+            "test_mean_fruit_confidence": float(test_conf.mean()),
         },
         "degraded_fruit": {name: {"rejection_rate": rate} for name, rate in degraded_rejection.items()},
         "caveat": "Synthetic probes are a sanity check, not a benchmark. Unseen fruit species are "
-                  "the hardest case and are NOT reliably rejected; the UI therefore reports low "
-                  "confidence instead of pretending the image is one of the eight fruits.",
+                  "the hardest case and are NOT reliably rejected; the site reports the closest "
+                  "supported fruit, the gate status and the confidence instead of pretending the "
+                  "image is certainly one of the eight fruits.",
     }
     (RESULTS_DIR / "ood_probe.json").write_text(json.dumps(ood_report, indent=2), encoding="utf-8")
 
-    # ---- persist serving configuration -----------------------------------------
-    ood_config = {
-        "temperature": temperature,
-        "min_top1_probability": threshold,
-        "min_fruit_margin": 0.05,
-        "max_entropy_ratio": 0.90,
-        "min_blur_variance": min_blur,
-        "min_brightness": min_brightness,
-        "max_brightness": 250.0,
-        "calibrated_on": "validation split for temperature; test split for thresholds",
-        "notes": {
-            "min_top1_probability": "2nd percentile of calibrated top-1 confidence on the test set",
-            "min_blur_variance": "1st percentile of Laplacian variance on the test set",
-            "min_fruit_margin": "fixed conservative floor; see ood_probe.json for measured behaviour",
-        },
+    # ---- per-fruit detail (reuses the report and matrix computed above) --------------
+    per_fruit = {}
+    for fruit_idx, fruit_name in enumerate(fruits):
+        fresh_idx, rotten_idx = fruit_idx * 2, fruit_idx * 2 + 1
+        mask = (y_test == fresh_idx) | (y_test == rotten_idx)
+        fresh_mask = y_test == fresh_idx
+        rotten_mask = y_test == rotten_idx
+        per_fruit[fruit_name] = {
+            "n_test": int(mask.sum()),
+            "n_fresh": int(fresh_mask.sum()),
+            "n_rotten": int(rotten_mask.sum()),
+            "fresh_accuracy": float((y_pred[fresh_mask] == fresh_idx).mean()),
+            "rotten_accuracy": float((y_pred[rotten_mask] == rotten_idx).mean()),
+            "fruit_level_accuracy": float((fruit_pred[mask] == fruit_idx).mean()),
+        }
+    metrics_detail = {
+        "report": report_dict,
+        "confusion_matrix": cm.tolist(),
+        "class_names": class_names,
+        "validated_gate": test_accepted.tolist(),
+        "per_fruit": per_fruit,
     }
-    OOD_CONFIG_PATH.write_text(json.dumps(ood_config, indent=2), encoding="utf-8")
+    (METRICS_DIR / "per_class_report.json").write_text(json.dumps(metrics_detail, indent=2), encoding="utf-8")
 
     # ---- per-image predictions --------------------------------------------------
     frame = split_frame("test")
@@ -407,6 +431,15 @@ def main() -> int:
             "device": "CPU (TensorFlow " + tf.__version__ + ")",
         },
         "out_of_distribution": ood_report,
+        "gate": {
+            "min_fruit_confidence": gate_min_confidence,
+            "min_fruit_margin": gate_min_margin,
+            "condition_min_confidence": float((gate.get("condition") or {}).get("min_confidence", 0.0)),
+            "calibrated_on": gate.get("calibrated_on"),
+            "test_rejection_rate": in_distribution_rejected,
+        },
+        "per_class": report_dict,
+        "per_fruit": per_fruit,
         "training_curves": curves,
         "seed": SEED,
     }
@@ -416,8 +449,9 @@ def main() -> int:
         "accuracy", "f1_macro", "fruit_level_accuracy", "condition_level_accuracy",
     )}, indent=2))
     print("calibration:", {k: round(v, 4) for k, v in metrics["calibration"].items() if isinstance(v, float)})
-    print("OOD:", {"threshold": round(threshold, 3), "synthetic_rejected": ood_rejected,
-                   "in_dist_rejected": in_distribution_rejected, **degraded_rejection})
+    print("OOD:", {"gate_conf": round(gate_min_confidence, 3), "gate_margin": round(gate_min_margin, 3),
+                   "synthetic_rejected": round(ood_rejected, 3),
+                   "in_dist_rejected": round(in_distribution_rejected, 3), **degraded_rejection})
     print("timing:", metrics["timing"]["single_image_ms_mean"], "ms/image")
     return 0
 

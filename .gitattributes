@@ -1,0 +1,28 @@
+# Normalise text files to LF so the repository is identical on Windows, Linux and Render.
+* text=auto eol=lf
+
+# Explicit text types (diff-able, LF)
+*.py     text eol=lf diff=python
+*.md     text eol=lf
+*.txt    text eol=lf
+*.json   text eol=lf
+*.csv    text eol=lf
+*.yml    text eol=lf
+*.yaml   text eol=lf
+*.html   text eol=lf
+*.css    text eol=lf
+*.js     text eol=lf
+*.ini    text eol=lf
+
+# Binary artefacts — never convert, never diff
+*.keras  binary
+*.h5     binary
+*.npy    binary
+*.npz    binary
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.webp   binary
+*.bmp    binary
+*.ico    binary
+*.svg    text eol=lf

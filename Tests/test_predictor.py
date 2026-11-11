@@ -12,8 +12,9 @@ def test_result_contract(predictor, sample_rgb: np.ndarray) -> None:
 
     for key in (
         "ok", "fruit", "condition", "fresh_probability", "rotten_probability",
-        "identification_confidence", "predicted_class", "class_probabilities",
-        "fruit_probabilities", "edibility", "shelf_life", "uncertainty", "warnings",
+        "identification_confidence", "condition_confidence", "predicted_class",
+        "class_probabilities", "fruit_probabilities", "verdict", "fruit_identification",
+        "condition_assessment", "edibility", "shelf_life", "uncertainty", "warnings",
         "image_info", "model", "inference_ms", "notes",
     ):
         assert key in result, key
@@ -55,7 +56,8 @@ def test_shelf_life_is_never_invented(predictor, sample_rgb: np.ndarray) -> None
     assert shelf["available"] is False
     assert shelf["days_estimate"] is None
     assert shelf["message"] == SHELF_LIFE_MESSAGE
-    assert "insufficient" in shelf["message"].lower()
+    assert "cannot currently be estimated" in shelf["message"].lower()
+    assert "day" not in shelf["message"].lower()
 
 
 def test_safety_disclaimer_present(predictor, sample_rgb: np.ndarray) -> None:

@@ -1,70 +1,99 @@
 {
   "gate": {
-    "min_top1_probability": 0.5596552491188049,
-    "min_fruit_margin": 0.05,
-    "max_entropy_ratio": 0.9,
-    "min_blur_variance": 11.995837240219116,
-    "min_brightness": 99.64118907928467,
-    "temperature": 1.0766258346841244
+    "version": 2,
+    "fruit_min_confidence": 0.75,
+    "fruit_min_margin": 0.3,
+    "condition_min_confidence": 0.6726,
+    "temperature": 1.076626,
+    "calibrated_on": {
+      "split": "validation",
+      "n": 480,
+      "target_false_rejection": 0.02,
+      "temperature": "minimised NLL on the validation split",
+      "fruit_threshold": "largest synthetic-OOD rejection subject to <=2% validation false rejection",
+      "condition_threshold": "1st percentile of validation condition confidence, clipped to [0.60, 0.95]"
+    }
   },
   "in_distribution_test_sample": {
     "n": 120,
-    "rejection_rate": 0.041666666666666664,
-    "mean_fruit_confidence": 0.980359406422582,
-    "rejection_reasons": {
-      "the image looks blurry": 3,
-      "the top class probability": 2,
-      "the two most likely fruits are too close": 2
+    "unidentified_rate": 0.041666666666666664,
+    "identified_condition_uncertain_rate": 0.008333333333333333,
+    "mean_fruit_confidence": 0.9803594264353008,
+    "median_fruit_confidence": 0.9999746200625683,
+    "mean_condition_confidence": 0.992132016300177,
+    "identity_rejection_reasons": {
+      "the model's confidence in any single fruit": 5,
+      "the two most likely fruits are too close to separate": 3
     }
   },
   "synthetic_non_fruit": {
     "n": 40,
-    "rejection_rate": 0.4,
-    "mean_fruit_confidence": 0.7228216397211297,
-    "rejection_reasons": {
-      "the top class probability": 9,
-      "the image looks blurry": 8,
-      "the image is very dark": 3
+    "unidentified_rate": 0.625,
+    "identified_condition_uncertain_rate": 0.0,
+    "mean_fruit_confidence": 0.7228215801964866,
+    "median_fruit_confidence": 0.7221858695868661,
+    "mean_condition_confidence": 0.903356496444135,
+    "identity_rejection_reasons": {
+      "the model's confidence in any single fruit": 25,
+      "the two most likely fruits are too close to separate": 5
     }
   },
   "degraded_fruit": {
     "blur": {
       "n": 50,
-      "rejection_rate": 1.0,
-      "mean_fruit_confidence": 0.744642253345463,
-      "rejection_reasons": {
-        "the image looks blurry": 50,
-        "the top class probability": 15,
-        "the two most likely fruits are too close": 2
+      "unidentified_rate": 0.4,
+      "identified_condition_uncertain_rate": 0.0,
+      "mean_fruit_confidence": 0.7446422842187339,
+      "median_fruit_confidence": 0.8129218719837967,
+      "mean_condition_confidence": 0.8761804394588865,
+      "identity_rejection_reasons": {
+        "the model's confidence in any single fruit": 20,
+        "the two most likely fruits are too close to separate": 12
       }
     },
     "dark": {
       "n": 50,
-      "rejection_rate": 1.0,
-      "mean_fruit_confidence": 0.604440673048183,
-      "rejection_reasons": {
-        "the image looks blurry": 50,
-        "the image is very dark": 50,
-        "the top class probability": 35,
-        "the two most likely fruits are too close": 7
+      "unidentified_rate": 0.8,
+      "identified_condition_uncertain_rate": 0.02,
+      "mean_fruit_confidence": 0.6044406185612635,
+      "median_fruit_confidence": 0.5800047870698757,
+      "mean_condition_confidence": 0.717493073476866,
+      "identity_rejection_reasons": {
+        "the model's confidence in any single fruit": 40,
+        "the two most likely fruits are too close to separate": 21
       }
     },
     "tiny": {
       "n": 50,
-      "rejection_rate": 0.86,
-      "mean_fruit_confidence": 0.883773027368964,
-      "rejection_reasons": {
-        "the image looks blurry": 43,
-        "the top class probability": 5
+      "unidentified_rate": 0.18,
+      "identified_condition_uncertain_rate": 0.08,
+      "mean_fruit_confidence": 0.883773000538453,
+      "median_fruit_confidence": 0.9643851283180334,
+      "mean_condition_confidence": 0.8976592446311531,
+      "identity_rejection_reasons": {
+        "the model's confidence in any single fruit": 9,
+        "the two most likely fruits are too close to separate": 4
       }
     }
   },
-  "probe_kinds": [
-    "synthetic_noise",
-    "synthetic_shapes",
-    "synthetic_checker",
-    "synthetic_shapes",
-    "synthetic_text"
-  ],
-  "summary": "The full gate combines a calibrated top-1 threshold with fruit-margin, entropy and image-quality checks. It reliably flags degraded photographs but only rejects a minority of synthetic non-fruit patterns: the model is over-confident on inputs very far from the training distribution. That is why every result also carries a warning panel and why the UI never presents a confident answer as certain."
+  "flat_colour": {
+    "n": 5,
+    "unidentified_rate": 0.4,
+    "identified_condition_uncertain_rate": 0.0,
+    "mean_fruit_confidence": 0.7746501122179921,
+    "median_fruit_confidence": 0.8304580906661931,
+    "mean_condition_confidence": 0.8615393610859303,
+    "identity_rejection_reasons": {
+      "the model's confidence in any single fruit": 2
+    }
+  },
+  "probe_kinds": {
+    "synthetic_checker": 7,
+    "synthetic_flat": 6,
+    "synthetic_gradient": 2,
+    "synthetic_noise": 6,
+    "synthetic_shapes": 9,
+    "synthetic_text": 10
+  },
+  "summary": "Identity and condition are gated separately. Blur, darkness and resolution are reported as advice and never discard an image, so a genuine photograph with a soft focus keeps its prediction instead of being told the fruit is unrecognisable. Synthetic patterns are rejected far more often than by the first release, but unseen fruit species remain the hard case: the eight-fruit softmax always has an answer, so the site reports the closest fruit together with the gate status and confidence."
 }

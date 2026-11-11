@@ -1,0 +1,42 @@
+# Render blueprint — one free web service, no managed database.
+#
+# Deploy: Render Dashboard -> New -> Blueprint -> pick this repository.
+# Everything below is applied automatically; no secrets are required.
+services:
+  - type: web
+    name: fruit-detection
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: |
+      pip install --upgrade pip
+      pip install -r requirements.txt
+    # Single worker on purpose: TensorFlow + MobileNetV2 already need ~350-450 MB,
+    # and the free instance has 512 MB. Threads give concurrency without a second
+    # copy of the model in memory.
+    startCommand: >-
+      gunicorn --bind 0.0.0.0:$PORT
+      --worker-class gthread --workers 1 --threads 4
+      --timeout 180 --graceful-timeout 30
+      --access-logfile - --error-logfile -
+      Website.app:app
+    # /healthz answers immediately; /api/health stays the "model warmed?" probe.
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.6"
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: WEB_CONCURRENCY
+        value: "1"
+      # Keep TensorFlow quiet and single-threaded; small instances thrash otherwise.
+      - key: TF_CPP_MIN_LOG_LEVEL
+        value: "3"
+      - key: TF_NUM_INTRAOP_THREADS
+        value: "2"
+      - key: TF_NUM_INTEROP_THREADS
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MALLOC_ARENA_MAX
+        value: "2"

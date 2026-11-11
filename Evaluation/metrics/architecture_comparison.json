@@ -1,0 +1,46 @@
+{
+  "single_head_16_class": {
+    "accuracy": 0.96875,
+    "condition_level_accuracy": 0.9875,
+    "fruit_level_accuracy": 0.975,
+    "f1_macro": 0.9689293637378925,
+    "parameters_note": "shared trunk, one 16-unit softmax"
+  },
+  "multi_task": {
+    "model": "mobilenet_v2 multi-task (8 fruit + 2 condition heads)",
+    "epochs_run": 16,
+    "train_seconds": 537.3,
+    "test_split_n": 480,
+    "accuracy_16_equivalent": 0.9645833333333333,
+    "fruit_accuracy": 0.9791666666666666,
+    "condition_accuracy": 0.9854166666666667,
+    "best_val_loss": 0.03974716365337372
+  },
+  "comparison": [
+    {
+      "metric": "16-class accuracy",
+      "single_head": 0.96875,
+      "multi_task": 0.9645833333333333,
+      "difference_multi_minus_single": -0.004166666666666652
+    },
+    {
+      "metric": "fresh vs rotten accuracy",
+      "single_head": 0.9875,
+      "multi_task": 0.9854166666666667,
+      "difference_multi_minus_single": -0.002083333333333326
+    },
+    {
+      "metric": "fruit identity accuracy",
+      "single_head": 0.975,
+      "multi_task": 0.9791666666666666,
+      "difference_multi_minus_single": 0.004166666666666652
+    },
+    {
+      "metric": "macro F1 (16-class)",
+      "single_head": 0.9689293637378925,
+      "multi_task": null,
+      "difference_multi_minus_single": null
+    }
+  ],
+  "protocol": "Identical train/validation/test splits, identical backbone, identical augmentation, identical 8 + 8 epoch schedule. The multi-task model was selected by validation loss; the single-head model by validation accuracy. The test split was evaluated once per model."
+}
