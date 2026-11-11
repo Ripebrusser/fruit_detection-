@@ -31,6 +31,7 @@ Usage:
 from __future__ import annotations
 
 import json
+from pathlib import Path
 
 import numpy as np
 
@@ -44,7 +45,7 @@ from SRC.models.evaluate import (
 )
 from SRC.utils.imaging import quality_checks
 
-PROJECT_ROOT = DEFAULT_MODEL_PATH.parents[2]
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODELS_DIR = PROJECT_ROOT / "Models"
 CLASS_NAMES_PATH = MODELS_DIR / "class_names.json"
 GATE_CONFIG_PATH = MODELS_DIR / "gate_config.json"

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import io
 import json
+import logging
 import os
 import sys
 import threading
@@ -28,15 +29,19 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 if str(PROJECT_ROOT) not in sys.path:  # allow `python Website/app.py` as well as -m
     sys.path.insert(0, str(PROJECT_ROOT))
 
-WEBSITE_DIR = Path(__file__).resolve().parent
-UPLOAD_DIR = WEBSITE_DIR / "static" / "uploads"
-METRICS_PATH = PROJECT_ROOT / "Evaluation" / "metrics" / "metrics.json"
+from Website import config  # noqa: E402 - import needs PROJECT_ROOT on sys.path first
+
+WEBSITE_DIR = config.WEBSITE_DIR
+UPLOAD_DIR = config.UPLOAD_DIR
+METRICS_PATH = config.METRICS_PATH
 
 ALLOWED_EXTENSIONS = {".jpg", ".jpeg", ".png", ".webp", ".bmp"}
-MAX_UPLOAD_BYTES = 8 * 1024 * 1024  # 8 MB
-MAX_PIXELS = 40_000_000            # ~40 MP guard against decompression bombs
-MIN_SIDE = 64
-UPLOAD_TTL_SECONDS = 60 * 60
+# Policy values are read from the environment in Website/config.py; the constants below
+# keep the module's public names for tests and for the rest of this file.
+MAX_UPLOAD_BYTES = config.MAX_UPLOAD_BYTES  # default 8 MB, override with MAX_UPLOAD_MB
+MAX_PIXELS = config.MAX_PIXELS              # decompression-bomb guard
+MIN_SIDE = config.MIN_SIDE
+UPLOAD_TTL_SECONDS = config.UPLOAD_TTL_SECONDS
 
 _predictor = None
 _predictor_error: str | None = None
@@ -87,6 +92,9 @@ def create_app(test_config: dict | None = None) -> Flask:
         UPLOAD_DIR=str(UPLOAD_DIR),
         JSON_SORT_KEYS=False,
     )
+    if config.SECRET_KEY:  # only set when a session secret is actually provided
+        app.config["SECRET_KEY"] = config.SECRET_KEY
+    app.logger.setLevel(getattr(logging, config.LOG_LEVEL, logging.INFO))
     if test_config:
         app.config.update(test_config)
     Path(app.config["UPLOAD_DIR"]).mkdir(parents=True, exist_ok=True)
@@ -258,10 +266,11 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Run the fruit detection website")
-    # Defaults stay local-only; hosts such as Render inject PORT (and set HOST).
-    parser.add_argument("--host", default=os.environ.get("HOST", "127.0.0.1"))
-    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "5000")))
-    parser.add_argument("--debug", action="store_true")
+    # Defaults come from the environment (HOST/PORT/FLASK_DEBUG); local runs stay on
+    # 127.0.0.1:5000 whereas hosts such as Render inject their own PORT and HOST.
+    parser.add_argument("--host", default=config.HOST)
+    parser.add_argument("--port", type=int, default=config.PORT)
+    parser.add_argument("--debug", action="store_true", default=config.DEBUG)
     args = parser.parse_args()
 
     app.run(host=args.host, port=args.port, debug=args.debug)

@@ -219,8 +219,9 @@ python -m pytest
 | `Tests/test_unknown_images.py` | noise/flat/dark/blurry inputs, confidence gap versus real fruit, contract for unrecognised images |
 | `Tests/test_verdict_consistency.py` | **the rotten-pomegranate regression**, 16-class payload consistency, “unidentified ⇒ no condition claim”, ambiguous condition keeps the fruit, blur never rejects |
 | `Tests/test_website.py` | page render, static assets, all API endpoints, invalid/corrupt/tiny/oversized uploads, path traversal, no server paths leaked |
+| `Tests/test_config.py` | environment overrides applied, malformed values fall back instead of crashing, relative paths resolve against the project root |
 
-**Current status: 67 passed in ~68 s on a CPU-only Windows machine** (`Evaluation/test_results/pytest_full.log`).
+**Current status: 73 passed in ~71 s on a CPU-only Windows machine** (`Evaluation/test_results/pytest_full.log`).
 
 ## 8. Deploying to Render
 
@@ -252,10 +253,30 @@ commands above. Nothing else needs configuring.
 4. **CPU inference only.** Measured 83.5 ms per image locally on CPU; expect a similar order of
    magnitude on a free instance, plus queueing when several people upload at once.
 
-Environment variables already set by the blueprint (`PYTHON_VERSION`, `TF_CPP_MIN_LOG_LEVEL`,
-`TF_NUM_INTRAOP_THREADS`, `TF_NUM_INTEROP_THREADS`, `OMP_NUM_THREADS`, `MALLOC_ARENA_MAX`) keep
-TensorFlow quiet and stop thread pools from multiplying memory use. `PORT` is injected by Render and
-read by both gunicorn and `python -m Website.app`.
+### Configuration and secrets
+
+**The app needs no API keys and no secrets.** Everything tunable is an environment variable with a
+working default, read in [`Website/config.py`](Website/config.py) — nothing is hardcoded in the
+request path. Set them in the Render dashboard (*Environment*), in Docker, or in a local `.env`
+(copied from [`.env.example`](.env.example), git-ignored; real environment variables always win).
+
+| Variable | Default | Effect |
+|---|---|---|
+| `HOST` / `PORT` | `127.0.0.1` / `5000` | Bind address for `python -m Website.app`; Render injects `PORT`, and gunicorn reads it directly |
+| `LOG_LEVEL` | `INFO` | Flask logger level |
+| `FLASK_DEBUG` | off | Flask debug reloader — never enable in production |
+| `MODELS_DIR` | `Models` | Where the trained artefacts live (volume, release folder, read-only image) |
+| `METRICS_PATH` | `Evaluation/metrics/metrics.json` | Model-card numbers served by `/api/model-info` |
+| `UPLOAD_DIR` | `Website/static/uploads` | Where accepted photographs are written |
+| `MAX_UPLOAD_MB` | `8` | Rejected above this with HTTP 413 |
+| `MAX_IMAGE_PIXELS` | `40000000` | Decompression-bomb guard |
+| `MIN_IMAGE_SIDE` | `64` | Smallest accepted side, in pixels |
+| `UPLOAD_TTL_SECONDS` | `3600` | Age at which stored uploads are pruned |
+| `SECRET_KEY` | unset | Optional Flask session secret; only needed if sessions are added later |
+
+The blueprint also sets `PYTHON_VERSION`, `TF_CPP_MIN_LOG_LEVEL`, `TF_NUM_INTRAOP_THREADS`,
+`TF_NUM_INTEROP_THREADS`, `OMP_NUM_THREADS` and `MALLOC_ARENA_MAX`, which keep TensorFlow quiet and
+stop its thread pools from multiplying memory use.
 
 To rehearse the production server locally (Linux/macOS, or WSL):
 

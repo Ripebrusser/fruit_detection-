@@ -30,6 +30,7 @@ Usage (programmatic):
 from __future__ import annotations
 
 import json
+import os
 import time
 from pathlib import Path
 
@@ -38,7 +39,24 @@ import numpy as np
 from SRC.utils.imaging import preprocess_for_model, quality_checks
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
-MODELS_DIR = PROJECT_ROOT / "Models"
+
+
+def _models_dir() -> Path:
+    """Resolve the model directory, honouring the MODELS_DIR environment variable.
+
+    Deployments can mount the trained artefacts somewhere other than ``<repo>/Models``
+    (a volume, a release folder, a read-only image) without code changes. Relative
+    values are resolved against the project root so behaviour does not depend on the
+    process working directory.
+    """
+    raw = os.environ.get("MODELS_DIR", "").strip()
+    if not raw:
+        return PROJECT_ROOT / "Models"
+    candidate = Path(raw).expanduser()
+    return candidate if candidate.is_absolute() else PROJECT_ROOT / candidate
+
+
+MODELS_DIR = _models_dir()
 DEFAULT_MODEL_PATH = MODELS_DIR / "final_model" / "fruit_model.keras"
 CLASS_NAMES_PATH = MODELS_DIR / "class_names.json"
 GATE_CONFIG_PATH = MODELS_DIR / "gate_config.json"
