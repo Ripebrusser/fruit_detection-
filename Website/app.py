@@ -71,6 +71,9 @@ def cleanup_uploads(max_age_seconds: int = UPLOAD_TTL_SECONDS) -> None:
     cutoff = time.time() - max_age_seconds
     for path in UPLOAD_DIR.iterdir():
         try:
+            # Never remove dotfiles: .gitkeep is what keeps the folder in version control.
+            if path.name.startswith("."):
+                continue
             if path.is_file() and path.stat().st_mtime < cutoff:
                 path.unlink()
         except OSError:
